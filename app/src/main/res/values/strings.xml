@@ -8,4 +8,5 @@
     <string name="multiply">MULTIPLY</string>
     <string name="divide">DIVIDE</string>
     <string name="answer_to_main">back to Main</string>
+    <string name="add_shelf_item">ADD SHELF ITEM</string>
 </resources>

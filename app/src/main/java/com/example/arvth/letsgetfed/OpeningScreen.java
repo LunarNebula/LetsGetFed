@@ -11,6 +11,10 @@ public class OpeningScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening_screen);
 
-        startActivity(new Intent(OpeningScreen.this, TestCalc.class));
+        initiate(); //set text for timing and info
+    }
+
+    public void initiate() {
+        startActivity(new Intent(OpeningScreen.this, Pantry.class));
     }
 }
