@@ -5,8 +5,9 @@ public class Shelf {
     private Food[] food;
     private String label;
     private int type;
-    public static final int DEFAULT = -1, FRIDGE = 0, FREEZER = 1, CUPBOARD = 2, COUNTER = 3;
-    private final String[] labels = {"default", "fridge", "freezer", "cupboard", "counter"};
+    //get file variable
+    public static final int FRIDGE = 0, FREEZER = 1, CUPBOARD = 2;
+    private final String[] labels = {"fridge", "freezer", "cupboard"};
     public Shelf(String label) {
         this.food = new Food[0];
         this.label = label;
@@ -19,6 +20,21 @@ public class Shelf {
     }
     public void setType(String type) {
         this.type = Arrays.asList(this.labels).indexOf(type);
+        /*
+         * Add file getter variable - switch cases will set variable to different files
+         * */
+        switch(this.type) {
+
+            case FRIDGE:
+                break;
+            case FREEZER:
+                break;
+            case CUPBOARD:
+                break;
+        }
+        /*
+        * Pull data from the chosen file
+        * */
     }
     public void addFood(Food food) {
         Food[] proxy_variable = new Food[this.food.length + 1];
