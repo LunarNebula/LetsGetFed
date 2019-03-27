@@ -2,8 +2,8 @@ package com.example.arvth.letsgetfed;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import java.sql.Date;
+import java.util.Arrays;
 
 public class ShelfPreferences {
     //store methods below
@@ -11,11 +11,18 @@ public class ShelfPreferences {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
-
+        editor.putInt("shelf_population", Pantry.shelves.length);
+        for(int i = 0; i < Pantry.shelves.length; i++) {
+            storeShelf(editor, i);
+        }
     }
     public static void storeShelf(SharedPreferences.Editor editor, int ID) {
-
-
+        editor.putString("shelf_" + ID + "_type", Arrays.asList(Shelf.labels).get(Pantry.shelves[ID].getType()));
+        editor.putInt("shelf_" + ID + "_size", Pantry.shelves[ID].getPopulation());
+        editor.putString("shelf_" + ID + "_label", Pantry.shelves[ID].getLabel());
+        for(int i = 0; i < Pantry.shelves[ID].getPopulation(); i++) {
+            storeFood(editor, ID, i);
+        }
     }
     public static void storeFood(SharedPreferences.Editor editor, int shelfID, int foodID) {
         editor.putString("shelf_" + shelfID + "_" + foodID + "_label",

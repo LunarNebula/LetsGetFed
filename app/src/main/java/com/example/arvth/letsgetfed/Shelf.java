@@ -7,7 +7,7 @@ public class Shelf {
     private int type;
     //get file variable
     public static final int FRIDGE = 0, FREEZER = 1, CUPBOARD = 2;
-    private final String[] labels = {"fridge", "freezer", "cupboard"};
+    public static final String[] labels = {"fridge", "freezer", "cupboard"};
     public Shelf(String label) {
         this.food = new Food[0];
         this.label = label;
@@ -35,6 +35,12 @@ public class Shelf {
         /*
         * Pull data from the chosen file
         * */
+    }
+    public int getType() {
+        return this.type;
+    }
+    public int getPopulation() {
+        return this.food.length;
     }
     public void addFood(Food food) {
         Food[] proxy_variable = new Food[this.food.length + 1];

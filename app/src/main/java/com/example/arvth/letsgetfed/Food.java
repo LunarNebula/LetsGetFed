@@ -52,4 +52,7 @@ public class Food
         date.setDate(date.getDate() + this.maxExpirationTime);
         return date;
     }
+    public static void readFood() {
+        //
+    }
 }
