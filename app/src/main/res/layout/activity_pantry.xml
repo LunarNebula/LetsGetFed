@@ -32,14 +32,15 @@
         app:layout_constraintGuide_begin="170dp" />
 
     <Button
-        android:id="@+id/add_shelfitem"
+        android:id="@+id/add_shelf"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="70dp"
         android:layout_marginBottom="5dp"
-        android:text="@string/add_shelf_item"
+        android:onClick="add_shelf"
+        android:text="@string/add_shelf"
         app:layout_constraintBottom_toTopOf="@+id/guide_pantry_toplist"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -71,7 +72,7 @@
 
     <LinearLayout
         android:id="@+id/taskbar"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
