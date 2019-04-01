@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
@@ -14,12 +15,15 @@ public class Pantry extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantry);
     }
-
     public void add_shelf(View view) {
         //insert code for getting another Shelf item info
         Shelf shelf = new Shelf("test_" + shelves.length);
-
-
+        Shelf[] shelves = new Shelf[this.shelves.length + 1];
+        for(int i = 0; i < this.shelves.length; i++) {
+            shelves[i] = this.shelves[i];
+        }
+        shelves[this.shelves.length] = shelf;
+        this.shelves = shelves;
     }
     public void updateVisualList() {
         TableLayout shelf_list = findViewById(R.id.shelf_list);
@@ -44,8 +48,10 @@ public class Pantry extends AppCompatActivity {
         button.setText(shelves[ID].getLabel());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View button) {
+                Intent intent = new Intent(Pantry.this, Shelf.class);
+                intent.putExtra("id_" + button.getId(), button.getId());
+                startActivity(intent);
             }
         });
         return button;

@@ -9,4 +9,6 @@
     <string name="divide">DIVIDE</string>
     <string name="answer_to_main">back to Main</string>
     <string name="add_shelf">ADD SHELF</string>
+    <string name="pantry">Pantry</string>
+    <string name="add_food">Add Food</string>
 </resources>

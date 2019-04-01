@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/pantry"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/pantry"
+        app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/add_food"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"
+        app:layout_constraintLeft_toRightOf="@+id/pantry"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_shelf_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <ScrollView
+        android:id="@+id/shelf_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_shelf_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/guide_shelf_top">
+
+        <TableLayout
+            android:id="@+id/food_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TableLayout>
+    </ScrollView>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_shelf_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="100dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_shelf_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</android.support.constraint.ConstraintLayout>
