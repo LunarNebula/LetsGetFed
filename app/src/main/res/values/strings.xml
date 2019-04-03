@@ -11,4 +11,15 @@
     <string name="add_shelf">ADD SHELF</string>
     <string name="pantry">Pantry</string>
     <string name="add_food">Add Food</string>
+    <string name="select_food">Select Food:</string>
+    <string name="food_name">Food Name:</string>
+    <string name="shelf_name">Shelf Name:</string>
+    <string name="select_shelf_type">Select Shelf Type:</string>
+    <string name="enter_shelf_name">enter shelf name</string>
+    <string name="counter_minimum_expiration">Counter Minimum Expiration:</string>
+    <string name="counter_maximum_expiration">Counter Maximum Expiration:</string>
+    <string name="refrigerator_minimum_expiration">Refrigerator Minimum Expiration:</string>
+    <string name="refrigerator_maximum_expiration">Refrigerator Maximum Expiration:</string>
+    <string name="freezer_minimum_expiration">Freezer Minimum Expiration:</string>
+    <string name="freezer_maximum_expiration">Freezer Maximum Expiration:</string>
 </resources>
