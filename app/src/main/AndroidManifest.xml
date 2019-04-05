@@ -10,22 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".OpeningScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
-        <activity android:name=".Pantry">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Pantry"> </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!--<activity android:name=".Shelf">-->
+        <!--</activity>-->
 
-        <activity android:name=".Shelf">
+        <activity android:name=".FoodManager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

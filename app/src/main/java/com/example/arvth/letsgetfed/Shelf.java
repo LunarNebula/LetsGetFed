@@ -88,9 +88,9 @@ public class Shelf extends AppCompatActivity {
         editor.putString("shelf_" + shelfID + "_" + foodID + "_date",
                 Pantry.shelves[shelfID].getFood(foodID).getPurchaseDate().toString());
         editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExp",
-                Pantry.shelves[shelfID].getFood(foodID).getMinExpirationTime());
+                Pantry.shelves[shelfID].getFood(foodID).getMinExpDate());
         editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExp",
-                Pantry.shelves[shelfID].getFood(foodID).getMaxExpirationTime());
+                Pantry.shelves[shelfID].getFood(foodID).getMaxExpDate());
     }
     //get methods below
     public static void pullDirectory(Context context) {
