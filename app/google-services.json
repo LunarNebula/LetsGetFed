@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "999680025785",
+    "firebase_url": "https://let-s-get-fed.firebaseio.com",
+    "project_id": "let-s-get-fed",
+    "storage_bucket": "let-s-get-fed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999680025785:android:f39e726198951a25",
+        "android_client_info": {
+          "package_name": "com.example.arvth.letsgetfed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999680025785-akuohaurvro9g9shl01tpi9u6gcq647v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.arvth.letsgetfed",
+            "certificate_hash": "c01ffd24841e5ce01e0bfd2e4b961a4054e9e473"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw9UwiDHyMqmKEY-lwyjjYPsRI_PfSOIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999680025785-ftf6crm9nnr7f42vklr27iu85es25d9u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
