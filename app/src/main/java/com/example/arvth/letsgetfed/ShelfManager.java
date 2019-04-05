@@ -1,9 +1,11 @@
 package com.example.arvth.letsgetfed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.sql.Date;
 import java.util.Arrays;
@@ -16,6 +18,9 @@ public class ShelfManager extends AppCompatActivity {
 
     }
 
+    public void pantry(View view) {
+        startActivity(new Intent(ShelfManager.this, Pantry.class));
+    }
     //store methods below
     public static void storeValues(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
