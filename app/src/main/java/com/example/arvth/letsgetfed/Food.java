@@ -39,7 +39,7 @@ public class Food
         type = foodType;
         counterMinExp = counterMin;
         counterMaxExp = counterMax;
-        fridgeMinExp = fridgeMax;
+        fridgeMinExp = fridgeMin;
         fridgeMaxExp = fridgeMax;
         freezerMinExp = freezerMin;
         freezerMaxExp = freezerMax;
