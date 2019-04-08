@@ -1,6 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/pantry"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/pantry"
+        app:layout_constraintBottom_toTopOf="@+id/guide_add_food_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_add_food_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <ScrollView
+        android:id="@+id/add_food_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/guide_add_food_bottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guide_add_food_top">
+
+        <LinearLayout
+            android:id="@+id/food_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/select_food_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_food" />
+
+            <Spinner
+                android:id="@+id/food_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="100dp" />
+
+            <TextView
+                android:id="@+id/food_name_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/food_name" />
+
+            <EditText
+                android:id="@+id/food_name_user_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint='e.g. "orange"'
+                android:inputType="textShortMessage|text" />
+
+            <TextView
+                android:id="@+id/counter_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/counter_minimum_expiration" />
+
+            <EditText
+                android:id="@+id/counter_min_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/counter_max"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/counter_maximum_expiration" />
+
+            <EditText
+                android:id="@+id/counter_max_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/fridge_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/refrigerator_minimum_expiration" />
+
+            <EditText
+                android:id="@+id/fridge_min_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/fridge_max"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/refrigerator_maximum_expiration" />
+
+            <EditText
+                android:id="@+id/fridge_max_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/freezer_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/freezer_minimum_expiration" />
+
+            <EditText
+                android:id="@+id/freezer_min_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/freezer_max"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/freezer_maximum_expiration" />
+
+            <EditText
+                android:id="@+id/freezer_max_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="__ days"
+                android:inputType="number" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_add_food_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="100dp" />
 
 </android.support.constraint.ConstraintLayout>
