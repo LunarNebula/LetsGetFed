@@ -11,7 +11,7 @@ public class OpeningScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening_screen);
-
+        // random comment - remove later
         initiate(); //set text for timing and info
     }
 
