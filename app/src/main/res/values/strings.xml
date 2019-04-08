@@ -22,4 +22,5 @@
     <string name="refrigerator_maximum_expiration">Refrigerator Maximum Expiration:</string>
     <string name="freezer_minimum_expiration">Freezer Minimum Expiration:</string>
     <string name="freezer_maximum_expiration">Freezer Maximum Expiration:</string>
+    <string name="select_food_type">Select Food Type:</string>
 </resources>
