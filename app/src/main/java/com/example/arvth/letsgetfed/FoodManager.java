@@ -18,7 +18,7 @@ public class FoodManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_temp);
 
-        //readFoodData();
+        readFoodData();
 
     }
         //DATA

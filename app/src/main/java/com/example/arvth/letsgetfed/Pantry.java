@@ -1,6 +1,7 @@
 package com.example.arvth.letsgetfed;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
@@ -20,12 +21,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Pantry extends AppCompatActivity {
     public static Shelf[] shelves;
+    public static ArrayList<Food> expiring = new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantry);
+        expiring = new ArrayList<>();
+        Drawable[] expirationList = new Drawable[3];
 
         // Write a message to the database
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
