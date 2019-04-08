@@ -1,0 +1,65 @@
+banana,fruit,2,7,2,9,60,90
+apple,fruit,14,28,30,60,0,0
+grape,fruit,3,5,5,10,90,150
+strawberry,fruit,1,2,5,7,180,240
+orange,fruit,14,21,30,60,0,0
+watermelon,fruit,7,10,14,21,0,0
+lemon,fruit,14,28,30,60,0,0
+blueberry,fruit,2,3,5,10,180,240
+peach,fruit,3,4,4,5,180,270
+pineapple,fruit,2,3,4,5,0,0
+avocado,fruit,3,4,7,10,0,0
+cantaloupe,fruit,5,7,10,12,300,365
+cherry,fruit,2,3,5,10,180,240
+lime,fruit,14,28,30,60,0,0
+pear,fruit,3,4,5,12,0,0
+honeydew,fruit,5,7,10,15,300,365
+potato,vegetable,14,21,60,90,0,0
+onion,vegetable,28,42,30,60,180,240
+tomato,vegetable,7,7,14,14,0,0
+carrot,vegetable,0,0,28,35,0,0
+bell pepper,vegetable,0,0,14,21,0,0
+lettuce,vegetable,0,0,7,10,0,0
+broccoli,vegetable,0,0,7,14,0,0
+cucumber,vegetable,0,0,7,7,0,0
+celery,vegetable,0,0,21,28,0,0
+mushroom,vegetable,0,0,7,10,0,0
+garlic,vegetable,90,180,0,0,0,0
+spinach,vegetable,0,0,5,7,0,0
+green bean,vegetable,0,0,5,7,0,0
+sweet potato,vegetable,21,35,90,120,0,0
+cauliflower,vegetable,0,0,7,21,0,0
+asparagus,vegetable,0,0,5,7,0,0
+bacon,protein,0,0,7,14,168,224
+beef,protein,0,0,1,2,180,240
+chicken,protein,0,0,1,2,365,365
+deli meat,protein,0,0,5,6,180,240
+egg,protein,0,0,21,28,0,0
+fish,protein,0,0,1,2,180,240
+ham,protein,0,0,7,14,180,240
+hot dogs,protein,0,0,7,14,120,180
+pork,protein,0,0,1,2,180,240
+shrimp,protein,0,0,2,3,270,360
+tofu,protein,0,0,3,5,90,150
+turkey,protein,0,0,1,2,180,240
+butter,dairy,0,0,30,30,180,270
+soft cheese,dairy,0,0,7,14,180,180
+hard cheese,dairy,0,0,7,14,180,240
+yogurt,dairy,0,0,7,14,30,60
+milk,dairy,0,0,5,7,0,0
+margarine,dairy,0,0,120,150,180,240
+sour cream,dairy,0,0,7,14,0,0
+whipped cream,dairy,0,0,7,14,90,120
+ice cream,dairy,0,0,0,0,60,90
+cream cheese,dairy,0,0,21,28,60,60
+cottage cheese,dairy,0,0,7,10,90,90
+bread,grain,3,7,0,0,180,180
+cereal,grain,180,240,0,0,0,0
+oatmeal,grain,365,730,0,0,0,0
+pasta (fresh),grain,0,0,4,5,180,240
+rice,grain,180,240,0,0,0,0
+tortillas,grain,7,7,21,28,180,240
+packaged tea,drink,180,360,0,0,365,730
+fruit juice,drink,60,90,60,90,0,0
+soft drink,drink,180,270,180,270,0,0
+sports drink,drink,270,270,0,0,0,0

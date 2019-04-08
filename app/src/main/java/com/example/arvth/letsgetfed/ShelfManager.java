@@ -1,9 +1,11 @@
 package com.example.arvth.letsgetfed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.sql.Date;
 import java.util.Arrays;
@@ -16,6 +18,9 @@ public class ShelfManager extends AppCompatActivity {
 
     }
 
+    public void pantry(View view) {
+        startActivity(new Intent(ShelfManager.this, Pantry.class));
+    }
     //store methods below
     public static void storeValues(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
@@ -39,10 +44,10 @@ public class ShelfManager extends AppCompatActivity {
                 Pantry.shelves[shelfID].getFood(foodID).getName());
         editor.putString("shelf_" + shelfID + "_" + foodID + "_date",
                 Pantry.shelves[shelfID].getFood(foodID).getPurchaseDate().toString());
-        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExp",
-                Pantry.shelves[shelfID].getFood(foodID).getMinExpirationTime());
-        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExp",
-                Pantry.shelves[shelfID].getFood(foodID).getMaxExpirationTime());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExp", 0);
+                //Pantry.shelves[shelfID].getFood(foodID).getMinExpirationTime());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExp", 0);
+                //Pantry.shelves[shelfID].getFood(foodID).getMaxExpirationTime());
     }
     //get methods below
     public static void pullDirectory(Context context) {
@@ -63,11 +68,16 @@ public class ShelfManager extends AppCompatActivity {
         return shelf;
     }
     public static Food pullFood(SharedPreferences preferences, int shelfID, int foodID) {
-        return new Food(
-                preferences.getString("shelf_" + shelfID + "_" + foodID + "_label", ""),
-                Date.valueOf(preferences.getString("shelf_" + shelfID + "_" + foodID + "_date", "")),
-                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExp", 0),
-                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExp", 0)
-        );
-    }
+//        return new Food(
+//                preferences.getString("shelf_" + shelfID + "_" + foodID + "_label", ""),
+//                Date.valueOf(preferences.getString("shelf_" + shelfID + "_" + foodID + "_date", "")),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExp", 0),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExp", 0),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFridge", 0),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFridge", 0),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFreezer", 0),
+//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFreezer", 0)
+//        );
+        return new Food("", "", 0,0,0,0,0,0);
+    } //this method was return errors - will consult with team for Food() constructor
 }
