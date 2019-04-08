@@ -60,10 +60,10 @@
                 android:id="@+id/food_name_user_fill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:ems="10"
-                android:hint='e.g. "orange"'
-                android:inputType="textShortMessage|text"
-                android:autofillHints="" />
+                android:hint='e.g. "apple"'
+                android:inputType="textShortMessage|text" />
 
             <TextView
                 android:id="@+id/counter_min"
