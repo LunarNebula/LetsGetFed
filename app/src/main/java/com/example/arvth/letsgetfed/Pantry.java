@@ -74,4 +74,19 @@ public class Pantry extends AppCompatActivity {
         });
         return button;
     }
+    public static void deleteShelf(int ID) {
+        Shelf[] shelves = new Shelf[Pantry.shelves.length - 1];
+        int count = 0;
+        for(int i = 0; i < Pantry.shelves.length; i++) {
+            if(i == ID) {
+                count++;
+            } else {
+                shelves[i - count] = Pantry.shelves[i];
+            }
+        }
+        Pantry.shelves = shelves;
+    }
+    public static void deleteAllShelves() {
+        Pantry.shelves = new Shelf[0];
+    }
 }
