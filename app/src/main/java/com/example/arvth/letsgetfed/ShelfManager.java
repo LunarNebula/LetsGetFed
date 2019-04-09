@@ -6,6 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -25,6 +28,14 @@ public class ShelfManager extends AppCompatActivity {
     }
 
     public void load() {
+        TableLayout layout = findViewById(R.id.food_list);
+        int count = layout.getChildCount();
+        for(int i = 0; i < count; i++) {
+            if(layout.getChildAt(i) instanceof TableRow) {
+                ((ViewGroup) layout.getChildAt(i)).removeAllViews();
+            }
+        }
+
 
     }
     //store methods below
