@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Pantry extends AppCompatActivity {
-    public static Shelf[] shelves;
+    public static ArrayList<Shelf> shelves = new ArrayList<>();
     public static ArrayList<Food> expiring = new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +39,10 @@ public class Pantry extends AppCompatActivity {
         //myRef.setValue("hi test!");
     }
     public void add_shelf(View view) {
+        startActivity(new Intent(Pantry.this, ShelfManager.class));
         //insert code for getting another Shelf item info
-        Shelf shelf = new Shelf("test_" + shelves.length);
-        Shelf[] shelves = new Shelf[this.shelves.length + 1];
-        for(int i = 0; i < this.shelves.length; i++) {
-            shelves[i] = this.shelves[i];
-        }
-        shelves[this.shelves.length] = shelf;
-        this.shelves = shelves;
+        Shelf shelf = new Shelf("test_" + shelves.size()); //remove later
+        Pantry.shelves.add(shelf);
     }
     public void updateVisualList() {
         TableLayout shelf_list = findViewById(R.id.shelf_list);
@@ -56,7 +52,7 @@ public class Pantry extends AppCompatActivity {
             if(testRow instanceof TableRow) ((TableRow) testRow).removeAllViews();
         }
 
-        for(int i = 0; i < shelves.length; i++) {
+        for(int i = 0; i < shelves.size(); i++) {
             TableRow shelf_row = new TableRow(this);
             shelf_row.addView(getButton(i));
             shelf_list.addView(shelf_row);
@@ -68,7 +64,7 @@ public class Pantry extends AppCompatActivity {
                 TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT);
         button.setLayoutParams(parameters);
         button.setId(ID);
-        button.setText(shelves[ID].getLabel());
+        button.setText(shelves.get(ID).getLabel());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View button) {
@@ -80,18 +76,9 @@ public class Pantry extends AppCompatActivity {
         return button;
     }
     public static void deleteShelf(int ID) {
-        Shelf[] shelves = new Shelf[Pantry.shelves.length - 1];
-        int count = 0;
-        for(int i = 0; i < Pantry.shelves.length; i++) {
-            if(i == ID) {
-                count++;
-            } else {
-                shelves[i - count] = Pantry.shelves[i];
-            }
-        }
-        Pantry.shelves = shelves;
+        Pantry.shelves.remove(ID);
     }
     public static void deleteAllShelves() {
-        Pantry.shelves = new Shelf[0];
+        Pantry.shelves = new ArrayList<>();
     }
 }
