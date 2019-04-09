@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -35,8 +36,15 @@ public class ShelfManager extends AppCompatActivity {
                 ((ViewGroup) layout.getChildAt(i)).removeAllViews();
             }
         }
-
-
+        Shelf shelf = Pantry.shelves.get(ID);
+        for(int i = 0; i < shelf.getPopulation(); i++) {
+            TableRow row = new TableRow(this);
+        }
+    }
+    public TextView getView(Shelf shelf, int ID) {
+        TextView view = new TextView(this);
+        //view.setLayoutParams();
+        return view;
     }
     //store methods below
     public static void storeValues(Context context) {
@@ -49,7 +57,7 @@ public class ShelfManager extends AppCompatActivity {
         }
     }
     public static void storeShelf(SharedPreferences.Editor editor, int ID) {
-        editor.putString("shelf_" + ID + "_type", Arrays.asList(Shelf.labels).get(Pantry.shelves.get(ID).getType()));
+        editor.putInt("shelf_" + ID + "_type", Pantry.shelves.get(ID).getType());
         editor.putInt("shelf_" + ID + "_size", Pantry.shelves.get(ID).getPopulation());
         editor.putString("shelf_" + ID + "_label", Pantry.shelves.get(ID).getLabel());
         for(int i = 0; i < Pantry.shelves.get(ID).getPopulation(); i++) {
@@ -76,9 +84,10 @@ public class ShelfManager extends AppCompatActivity {
         }
     }
     public static Shelf pullShelf(SharedPreferences preferences, int ID) {
-        Shelf shelf = new Shelf(preferences.getString("shelf_" + ID + "_label", ""));
+        Shelf shelf = new Shelf(preferences.getString("shelf_" + ID + "_label", ""),
+                preferences.getInt("shelf_" + ID + "_type", 0));
         int size = preferences.getInt("shelf_" + ID + "_size", 0);
-        shelf.setType(preferences.getString("shelf_" + ID + "_type", ""));
+
         for(int i = 0; i < size; i++) {
             shelf.addFood(pullFood(preferences, ID, i));
         }
