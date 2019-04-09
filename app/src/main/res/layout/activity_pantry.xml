@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
-            app:srcCompat="@raw/pantry_icon" />
+            app:srcCompat="@drawable/pantry_icon" />
 
         <ImageButton
             android:id="@+id/toAlerts"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
-            app:srcCompat="@raw/alert_icon" />
+            app:srcCompat="@drawable/alert_icon" />
 
         <ImageButton
             android:id="@+id/toSettings"
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
-            app:srcCompat="@raw/settings_gear" />
+            app:srcCompat="@drawable/settings_gear" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
