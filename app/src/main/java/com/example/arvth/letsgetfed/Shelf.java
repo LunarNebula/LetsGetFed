@@ -8,9 +8,10 @@ public class Shelf {
     //get file variable
     public static final int FRIDGE = 0, FREEZER = 1, CUPBOARD = 2;
     public static final String[] labels = {"fridge", "freezer", "cupboard"};
-    public Shelf(String label) {
+    public Shelf(String label, int type) {
         this.food = new Food[0];
         this.label = label;
+        this.type = type;
     }
     public Food getFood(int index) {
         return this.food[index];

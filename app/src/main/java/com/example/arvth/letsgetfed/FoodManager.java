@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,17 +19,15 @@ import java.util.ArrayList;
 public class FoodManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_temp);
+        setContentView(R.layout.activity_temp);
 
         readFoodData();
-
     }
         //DATA
-        ArrayList<Food> foodDatabaseList;
+        ArrayList<Food> foodDatabaseList = new ArrayList<Food>();
 
         //METHODS
         private void readFoodData() {
-            foodDatabaseList = new ArrayList<Food>();
             InputStream is = getResources().openRawResource(R.raw.food_database);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -48,11 +49,32 @@ public class FoodManager extends AppCompatActivity {
 
             }
 
-//            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-//
-//            for(Food oneFood : foodDatabaseList) {
-//                rootRef.push().setValue(oneFood);
-//            }
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+
+            for(Food oneFood : foodDatabaseList) {
+                rootRef.push().setValue(oneFood);
+            }
         }
+
+    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+
+//    DatabaseReference foodRef = rootRef.child("foodDatabaseList");
+//    ValueEventListener eventListener = new ValueEventListener() {
+////        @Override
+////        public void onDataChange(DataSnapshot dataSnapshot) {
+////            ArrayList<Food> foodDatabaseReturn = new ArrayList<>();
+////            for(DataSnapshot ds : dataSnapshot.getChildren()) {
+////                Food oneFood = new Food (ds.getKey());
+////                foodDatabaseReturn.add(oneFood);
+////            }
+////            Log.d("TAG", foodDatabaseReturn);
+////        }
+//
+//        @Override
+//        public void onCancelled(DatabaseError databaseError) {}
+//    };
+//foodRef.addListenerForSingleValueEvent(eventListener);
+
+
 
 }
