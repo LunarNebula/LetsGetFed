@@ -1,13 +1,5 @@
 <resources>
     <string name="app_name">Let\'s Get Fed</string>
-    <string name="first_num_label">Enter first (real) number:</string>
-    <string name="second_num_label">Enter second (real) number:</string>
-    <string name="answer_label">Answer:</string>
-    <string name="add">ADD</string>
-    <string name="subtract">SUBTRACT</string>
-    <string name="multiply">MULTIPLY</string>
-    <string name="divide">DIVIDE</string>
-    <string name="answer_to_main">back to Main</string>
     <string name="add_shelf">ADD SHELF</string>
     <string name="pantry">Pantry</string>
     <string name="add_food">Add Food</string>
