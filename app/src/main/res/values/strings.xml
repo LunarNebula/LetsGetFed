@@ -24,5 +24,4 @@
     <string name="freezer_maximum_expiration">Freezer Maximum Expiration:</string>
     <string name="select_food_type">Select Food Type:</string>
     <string name="date_purchased">Date Purchased:</string>
-    <string name="add_food">Add Food</string>
 </resources>
