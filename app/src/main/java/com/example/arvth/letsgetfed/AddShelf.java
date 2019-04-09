@@ -19,7 +19,7 @@ public class AddShelf extends AppCompatActivity {
 
         String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
 
-        int shelfNumForObject = -1;
+        int shelfNumForObject = -2;
 
         if (shelfType.equals("Fridge"))
             shelfNumForObject = 0;
