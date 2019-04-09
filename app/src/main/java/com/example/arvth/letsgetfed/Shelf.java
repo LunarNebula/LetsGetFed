@@ -1,19 +1,20 @@
 package com.example.arvth.letsgetfed;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Shelf {
-    private Food[] food;
+    private ArrayList<Food> food;
     private String label;
     private int type;
     //get file variable
     public static final int FRIDGE = 0, FREEZER = 1, CUPBOARD = 2;
     public static final String[] labels = {"fridge", "freezer", "cupboard"};
     public Shelf(String label) {
-        this.food = new Food[0];
+        this.food = new ArrayList<>();
         this.label = label;
     }
     public Food getFood(int index) {
-        return this.food[index];
+        return this.food.get(index);
     }
     public String getLabel() {
         return this.label;
@@ -40,15 +41,10 @@ public class Shelf {
         return this.type;
     }
     public int getPopulation() {
-        return this.food.length;
+        return this.food.size();
     }
     public void addFood(Food food) {
-        Food[] proxy_variable = new Food[this.food.length + 1];
-        for(int i = 0; i < this.food.length; i++) {
-            proxy_variable[i] = this.getFood(i);
-        }
-        proxy_variable[this.food.length] = food;
-        this.food = proxy_variable;
+        this.food.add(food);
     }
 
 }

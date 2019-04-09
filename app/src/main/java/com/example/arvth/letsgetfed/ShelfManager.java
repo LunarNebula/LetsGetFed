@@ -19,15 +19,15 @@ public class ShelfManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
-
-        load();
+        int ID = savedInstanceState.getInt("id");
+        load(ID);
     }
 
     public void pantry(View view) {
         startActivity(new Intent(ShelfManager.this, Pantry.class));
     }
 
-    public void load() {
+    public void load(int ID) {
         TableLayout layout = findViewById(R.id.food_list);
         int count = layout.getChildCount();
         for(int i = 0; i < count; i++) {
