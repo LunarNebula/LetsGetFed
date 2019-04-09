@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,11 +40,17 @@ public class ShelfManager extends AppCompatActivity {
         Shelf shelf = Pantry.shelves.get(ID);
         for(int i = 0; i < shelf.getPopulation(); i++) {
             TableRow row = new TableRow(this);
+            row.addView(getView(shelf, i));
+            layout.addView(row);
         }
     }
     public TextView getView(Shelf shelf, int ID) {
         TextView view = new TextView(this);
-        //view.setLayoutParams();
+        TableRow.LayoutParams params = new TableRow.LayoutParams(
+                TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT);
+        view.setLayoutParams(params);
+        view.setText(shelf.getLabel());
+        view.setId(ID);
         return view;
     }
     //store methods below
