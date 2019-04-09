@@ -65,6 +65,12 @@
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteY="100dp" />
 
+            <Button
+                android:id="@+id/add_shelf_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Shelf" />
+
         </LinearLayout>
     </ScrollView>
 

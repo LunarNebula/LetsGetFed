@@ -77,6 +77,19 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/date_purchase_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_purchased" />
+
+            <EditText
+                android:id="@+id/date_purchase_fill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date" />
+
+            <TextView
                 android:id="@+id/counter_min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,6 +172,12 @@
                 android:ems="10"
                 android:hint="__ days"
                 android:inputType="number" />
+
+            <Button
+                android:id="@+id/add_food_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_food" />
 
         </LinearLayout>
     </ScrollView>
