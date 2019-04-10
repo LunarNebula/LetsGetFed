@@ -2,28 +2,20 @@ package com.example.arvth.letsgetfed;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.util.Arrays;
+import android.widget.Toast;
 
 import static com.example.arvth.letsgetfed.Pantry.shelves;
 
-public class AddShelf extends AppCompatActivity {
+public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addshelf);
-        Button button = (Button) findViewById(R.id.add_shelf_button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                addShelfToList();
-            }
-        });
     }
 
     public void addShelfToList() {
@@ -31,7 +23,7 @@ public class AddShelf extends AppCompatActivity {
 
         String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
 
-        int shelfNumForObject = -1;
+        int shelfNumForObject = -2;
 
         if (shelfType.equals("Fridge"))
             shelfNumForObject = 0;
@@ -40,15 +32,25 @@ public class AddShelf extends AppCompatActivity {
         if (shelfType.equals("Cupboard"))
             shelfNumForObject = 2;
 
-        Shelf addThisShelf = new Shelf(shelfName, shelfNumForObject);
+        Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 
         shelves.add(addThisShelf);
 
-        for (int i = 0; i < shelves.size(); i++) {
-            Log.d("Shelf Name: ", shelves.get(i).getLabel());
-            Log.d("Shelf Type: ", shelves.get(i).getType() + "");
-        }
-
+        Spinner shelfDropdown = findViewById(R.id.food_type_dropdown);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        shelfDropdown.setAdapter(adapter3);
+        shelfDropdown.setOnItemSelectedListener(this);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
