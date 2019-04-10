@@ -13,6 +13,13 @@ public class Shelf {
         this.label = label;
         this.type = type;
     }
+
+    public Shelf(String string) {
+        this.food = new Food[0];
+        this.label = "";
+        this.type = -1;
+    }
+
     public Food getFood(int index) {
         return this.food[index];
     }

@@ -86,24 +86,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/pantry_icon" />
+            android:background="#FFFFFF"/>
+            <!--app:srcCompat="@drawable/pantry_icon" />-->
 
         <ImageButton
             android:id="@+id/toAlerts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/alert_icon" />
+            android:background="#FFFFFF"/>
+            <!--app:srcCompat="@drawable/alert_icon" />-->
 
         <ImageButton
             android:id="@+id/toSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/settings_gear" />
+            android:background="#FFFFFF"/>
+            <!--app:srcCompat="@drawable/settings_gear" />settings_gear-->
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

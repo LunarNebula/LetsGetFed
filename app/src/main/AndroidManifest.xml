@@ -19,15 +19,15 @@
         <activity android:name=".OpeningScreen">
         </activity>
 
-        <activity android:name=".AddFood">
+        <activity android:name=".AddFood"> </activity>
+
+        <activity android:name=".AddShelf">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".AddShelf"> </activity>
 
         <activity android:name=".ShelfManager"> </activity>
 
