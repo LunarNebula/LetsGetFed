@@ -39,7 +39,7 @@ public class Pantry extends AppCompatActivity {
         //myRef.setValue("hi test!");
     }
     public void add_shelf(View view) {
-        startActivity(new Intent(Pantry.this, ShelfManager.class));
+        startActivity(new Intent(Pantry.this, AddShelf.class));
         //insert code for getting another Shelf item info
         Shelf shelf = new Shelf("test_" + shelves.size(), 0); //remove later
         Pantry.shelves.add(shelf);
@@ -80,5 +80,9 @@ public class Pantry extends AppCompatActivity {
     }
     public static void deleteAllShelves() {
         Pantry.shelves = new ArrayList<>();
+    }
+
+    public void addfood(View view) {
+        startActivity(new Intent(Pantry.this, AddFood.class));
     }
 }
