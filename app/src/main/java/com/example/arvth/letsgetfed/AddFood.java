@@ -2,8 +2,6 @@ package com.example.arvth.letsgetfed;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -14,19 +12,12 @@ public class AddFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
-        Button button = (Button) findViewById(R.id.add_food_button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                addFoodToDatabase();
-            }
-        });
     }
 
     private void addFoodToDatabase() {
         String foodName = ((EditText) findViewById(R.id.food_name_user_fill)).getText().toString();
 
-        String foodType = ((Spinner) findViewById(R.id.food_type_dropdown)).getSelectedItem().toString();
+        String foodType = ((Spinner) findViewById(R.id.food_type_dropdown)).getSelectedItem().toString() ;
 
         Integer counterMin = Integer.parseInt(((EditText) findViewById(R.id.counter_min_fill)).getText().toString());
 
@@ -46,5 +37,4 @@ public class AddFood extends AppCompatActivity {
         rootRef.push().setValue(addThisFood);
 
     }
-
 }
