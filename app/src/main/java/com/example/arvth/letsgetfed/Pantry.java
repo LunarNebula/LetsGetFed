@@ -81,4 +81,8 @@ public class Pantry extends AppCompatActivity {
     public static void deleteAllShelves() {
         Pantry.shelves = new ArrayList<>();
     }
+
+    public void addfood(View view) {
+        startActivity(new Intent(Pantry.this, AddFood.class));
+    }
 }
