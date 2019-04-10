@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -47,6 +48,9 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
+    }
+    public void pantry(View view) {
+        startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
     @Override
