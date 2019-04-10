@@ -1,7 +1,9 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -37,4 +39,8 @@ public class AddFood extends AppCompatActivity {
         rootRef.push().setValue(addThisFood);
 
     }
+    public void pantry(View view) {
+        startActivity(new Intent(AddFood.this, Pantry.class));
+    }
+
 }

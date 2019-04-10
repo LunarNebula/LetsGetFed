@@ -1,7 +1,9 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -33,6 +35,9 @@ public class AddShelf extends AppCompatActivity {
         shelves.add(addThisShelf);
 
 
+    }
+    public void pantry(View view) {
+        startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
 }
