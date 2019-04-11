@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -51,13 +52,16 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
-
+        startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
+    }
+    public void pantry(View view) {
+        startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
     @Override

@@ -19,10 +19,10 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
         setContentView(R.layout.activity_addshelf);
     }
 
-    public void addShelfToList() {
+    public void addShelfToList(View view) {
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
-        String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
+        String shelfType = "Fridge";//((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
 
         int shelfNumForObject = -2;
 
@@ -35,13 +35,14 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
 
         Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 
-        shelves.add(addThisShelf);
-
+        Pantry.shelves.add(addThisShelf);
         Spinner shelfDropdown = findViewById(R.id.food_type_dropdown);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        shelfDropdown.setAdapter(adapter3);
-        shelfDropdown.setOnItemSelectedListener(this);
+        //shelfDropdown.setAdapter(adapter3);
+        //shelfDropdown.setOnItemSelectedListener(this);
+
+        startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
     @Override

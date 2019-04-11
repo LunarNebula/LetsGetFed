@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 //import com.google.firebase.database.DataSnapshot;
 //import com.google.firebase.database.DatabaseError;
@@ -37,12 +38,10 @@ public class Pantry extends AppCompatActivity {
         //DatabaseReference myRef = database.getReference("message");
 
         //myRef.setValue("hi test!");
+        updateVisualList();
     }
     public void add_shelf(View view) {
         startActivity(new Intent(Pantry.this, AddShelf.class));
-        //insert code for getting another Shelf item info
-        Shelf shelf = new Shelf("test_" + shelves.size(), 0); //remove later
-        Pantry.shelves.add(shelf);
     }
     public void updateVisualList() {
         TableLayout shelf_list = findViewById(R.id.shelf_list);
@@ -68,8 +67,8 @@ public class Pantry extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View button) {
-                Intent intent = new Intent(Pantry.this, Shelf.class);
-                intent.putExtra("id_" + button.getId(), button.getId());
+                Intent intent = new Intent(Pantry.this, ShelfManager.class);
+                intent.putExtra("id", button.getId() + "");
                 startActivity(intent);
             }
         });
