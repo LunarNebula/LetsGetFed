@@ -16,8 +16,8 @@ public class AddFood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
 
-        Button addFoodBut = findViewById(R.id.add_food_button);
-        addFoodBut.setOnClickListener(new View.OnClickListener() {
+        Button addFoodButton = findViewById(R.id.add_food_button);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addFoodToDatabase();
             }

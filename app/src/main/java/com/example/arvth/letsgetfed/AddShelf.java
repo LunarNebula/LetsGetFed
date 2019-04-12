@@ -16,8 +16,8 @@ public class AddShelf extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addshelf);
 
-        Button addShelfBut = findViewById(R.id.add_shelf_button);
-        addShelfBut.setOnClickListener(new View.OnClickListener() {
+        Button addShelfButton = findViewById(R.id.add_shelf_button);
+        addShelfButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
             }
