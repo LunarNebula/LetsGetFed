@@ -52,8 +52,12 @@ public class FoodManager extends AppCompatActivity {
             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
             for(Food oneFood : foodDatabaseList) {
-                rootRef.push().setValue(oneFood);
+                rootRef.child(oneFood.getName()).push().setValue(oneFood);
             }
+        }
+
+        public Food getFood() {
+            return getFood();
         }
 
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
