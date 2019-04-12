@@ -1,8 +1,10 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,7 +80,9 @@ public class FoodManager extends AppCompatActivity {
 //        public void onCancelled(DatabaseError databaseError) {}
 //    };
 //foodRef.addListenerForSingleValueEvent(eventListener);
-
+    public void pantry(View view) {
+        startActivity(new Intent(FoodManager.this, Pantry.class));
+    }
 
 
 }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ShelfManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
-        int ID = savedInstanceState.getInt("id");
+        int ID = Integer.valueOf(getIntent().getStringExtra("id"));
         load(ID);
     }
 

@@ -16,4 +16,25 @@
     <string name="freezer_maximum_expiration">Freezer Maximum Expiration:</string>
     <string name="select_food_type">Select Food Type:</string>
     <string name="date_purchased">Date Purchased:</string>
+    <string name="settings">Settings</string>
+    <string name="alerts">Alerts</string>
+
+    <string-array name="foodtypes">
+        <item>Fruit</item>
+        <item>Vegetable</item>
+        <item>Protein</item>
+        <item>Grain</item>
+        <item>Dairy</item>
+        <item>Beverage</item>
+    </string-array>
+
+    <string-array name="foodsList">
+        <item>Rice Pilaf</item>
+    </string-array>
+
+    <string-array name="shelfTypes">
+        <item>Counter</item>
+        <item>Refrigerator</item>
+        <item>Freezer</item>
+    </string-array>
 </resources>
