@@ -3,6 +3,7 @@ package com.example.arvth.letsgetfed;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,10 +18,24 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addshelf);
+        addShelfToList();
+    }
+
+    public void shelfSpinner(View view)
+    {
+        Spinner shelfDropdown = findViewById(R.id.shelf_dropdown);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        shelfDropdown.setAdapter(adapter3);
+        shelfDropdown.setOnItemSelectedListener(this);
     }
 
     public void addShelfToList(View view) {
+        Log.d("Mai", "addShelfDropdown");
+
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
+
+        shelfSpinner(view);
 
         String shelfType = "Fridge";//((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
 
@@ -36,11 +51,6 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
         Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 
         Pantry.shelves.add(addThisShelf);
-        Spinner shelfDropdown = findViewById(R.id.food_type_dropdown);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //shelfDropdown.setAdapter(adapter3);
-        //shelfDropdown.setOnItemSelectedListener(this);
 
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
