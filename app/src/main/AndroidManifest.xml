@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodManager">
+        <activity android:name=".OpeningScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
         <!--<activity android:name=".Shelf">-->
         <!--</activity>-->
 
-        <activity android:name=".OpeningScreen">
+        <activity android:name=".FoodManager">
         </activity>
 
         <activity android:name=".AddFood">

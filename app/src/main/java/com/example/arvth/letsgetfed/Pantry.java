@@ -22,6 +22,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Pantry extends AppCompatActivity {
@@ -32,6 +33,8 @@ public class Pantry extends AppCompatActivity {
         setContentView(R.layout.activity_pantry);
         expiring = new ArrayList<>();
         Drawable[] expirationList = new Drawable[3];
+        Toast.makeText(this, (new Date(118, 12, 16)).toString(), Toast.LENGTH_SHORT).show();
+
 
         // Write a message to the database
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -82,6 +85,8 @@ public class Pantry extends AppCompatActivity {
     }
 
     public void addfood(View view) {
-        startActivity(new Intent(Pantry.this, AddFood.class));
+        Intent intent = new Intent(Pantry.this, AddFood.class);
+        intent.putExtra("id", 0 + "");
+        startActivity(intent);
     }
 }
