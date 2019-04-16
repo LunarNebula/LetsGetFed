@@ -18,12 +18,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShelfManager extends AppCompatActivity {
+    int shelfID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
-        int ID = Integer.valueOf(getIntent().getStringExtra("id"));
-        load(ID);
+        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        load(shelfID);
     }
 
     public void pantry(View view) {
@@ -53,6 +54,11 @@ public class ShelfManager extends AppCompatActivity {
         view.setText(shelf.getLabel());
         view.setId(ID);
         return view;
+    }
+    public void addfood(View view) {
+        Intent intent = new Intent(ShelfManager.this, AddFood.class);
+        intent.putExtra("id", shelfID + "");
+        startActivity(intent);
     }
     //store methods below
     public static void storeValues(Context context) {
