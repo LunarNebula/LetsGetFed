@@ -38,7 +38,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/guide_alerts_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guide_alerts_top"/>
+        app:layout_constraintTop_toTopOf="@+id/guide_alerts_top">
+
+        <TableLayout
+            android:id="@+id/alert_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        </TableLayout>
+    </ScrollView>
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_alerts_bottom"
