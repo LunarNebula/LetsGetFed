@@ -18,6 +18,19 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
+
+        Spinner foodDropdown = findViewById(R.id.food_dropdown);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.foodsList, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        foodDropdown.setAdapter(adapter2);
+        foodDropdown.setOnItemSelectedListener(this);
+
+        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        foodTypeDropdown.setAdapter(adapter3);
+        foodTypeDropdown.setOnItemSelectedListener(this);
+
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
     }
 
@@ -43,19 +56,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.push().setValue(addThisFood);
 
-        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        foodTypeDropdown.setAdapter(adapter);
-        foodTypeDropdown.setOnItemSelectedListener(this);
-
         Pantry.shelves.get(shelfID).addFood(addThisFood);
 
-//        Spinner foodDropdown = findViewById(R.id. //blank );
-//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.foodsList, android.R.layout.simple_spinner_item);
-//        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        foodDropdown.setAdapter(adapter2);
-//        foodDropdown.setOnItemSelectedListener(this);
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
