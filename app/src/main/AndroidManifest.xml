@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FoodManager">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".Pantry"> </activity>
@@ -26,12 +22,20 @@
         </activity>
 
         <activity android:name=".AddFood">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".AddShelf">
         </activity>
 
         <activity android:name=".ShelfManager"> </activity>
+
+        <activity android:name=".Alert">
+        </activity>
 
     </application>
 

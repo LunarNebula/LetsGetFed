@@ -18,7 +18,16 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
-        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+
+        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.foodtypes, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
     }
 
     public void addFoodToDatabase(View view) {
