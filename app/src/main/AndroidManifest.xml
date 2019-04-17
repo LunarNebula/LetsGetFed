@@ -18,10 +18,10 @@
         <!--<activity android:name=".Shelf">-->
         <!--</activity>-->
 
-        <activity android:name=".OpeningScreen">
+        <activity android:name=".AddFood">
         </activity>
 
-        <activity android:name=".AddFood">
+        <activity android:name=".OpeningScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

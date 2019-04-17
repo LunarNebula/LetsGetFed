@@ -24,10 +24,10 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shelfDropdown.setAdapter(adapter);
         shelfDropdown.setOnItemSelectedListener(this);
-        addShelfToList();
+        //addShelfToList();
     }
 
-    public void addShelfToList() {
+    public void shelf_dropdown(View view) {
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
         String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
