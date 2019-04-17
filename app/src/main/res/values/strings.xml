@@ -18,6 +18,8 @@
     <string name="date_purchased">Date Purchased:</string>
     <string name="settings">Settings</string>
     <string name="alerts">Alerts</string>
+    <string name="do_you_want_notifications_in_the_app_outside_the_app_or_both">Do you want notifications in the app, outside the app, or both?</string>
+    <string name="how_many_days_in_advance_would_you_like_to_know_about_food_expiring_the_default_is_3_days">How many days in advance would you like to know about food expiring? The default is 3 days.</string>
 
     <string-array name="foodtypes">
         <item>Fruit</item>
