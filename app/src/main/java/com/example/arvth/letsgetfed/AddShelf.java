@@ -4,24 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import static com.example.arvth.letsgetfed.Pantry.shelves;
 
-public class AddShelf extends AppCompatActivity {
+public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addshelf);
 
-        Button addShelfButton = findViewById(R.id.add_shelf_button);
-        addShelfButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-            }
-        });
+        Spinner shelfDropdown = findViewById(R.id.shelf_dropdown);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        shelfDropdown.setAdapter(adapter);
+        shelfDropdown.setOnItemSelectedListener(this);
+        addShelfToList();
     }
 
     public void addShelfToList() {
@@ -42,10 +45,21 @@ public class AddShelf extends AppCompatActivity {
 
         shelves.add(addThisShelf);
 
-
+        startActivity(new Intent(AddShelf.this, Pantry.class));
     }
+
     public void pantry(View view) {
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

@@ -16,8 +16,6 @@ public class OpeningScreen extends AppCompatActivity {
     }
 
     public void initiate() {
-        Toast.makeText(this, "Initiation reached.", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(OpeningScreen.this, Pantry.class));
-        Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
     }
 }

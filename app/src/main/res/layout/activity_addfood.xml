@@ -49,6 +49,7 @@
                 android:id="@+id/food_dropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="addfood"
                 tools:layout_editor_absoluteY="100dp" />
 
             <TextView
@@ -75,7 +76,8 @@
             <Spinner
                 android:id="@+id/food_type_dropdown"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:onClick="addfood" />
 
             <TextView
                 android:id="@+id/date_purchase_textview"
