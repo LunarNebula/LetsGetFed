@@ -67,6 +67,39 @@
                 android:onClick="add_shelf"
                 tools:layout_editor_absoluteY="100dp" />
 
+            <RadioGroup
+                android:id="@+id/shelf_type_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/counter_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="checkButton"
+                    android:text="@string/counter" />
+
+                <RadioButton
+                    android:id="@+id/fridge_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="checkButton"
+                    android:text="@string/refrigerator" />
+
+                <RadioButton
+                    android:id="@+id/freezer_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="checkButton"
+                    android:text="@string/freezer" />
+            </RadioGroup>
+
             <Button
                 android:id="@+id/add_shelf_button"
                 android:layout_width="match_parent"

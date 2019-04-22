@@ -65,10 +65,33 @@
                 android:layout_height="wrap_content"
                 android:text="@string/do_you_want_notifications_in_the_app_outside_the_app_or_both" />
 
-            <Spinner
-                android:id="@+id/alert_settings_dropdown"
+            <RadioGroup
+                android:id="@+id/alert_radiogroup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/inside_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="inside the app" />
+
+                <RadioButton
+                    android:id="@+id/outside_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="outside the app" />
+
+                <RadioButton
+                    android:id="@+id/both_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="both" />
+            </RadioGroup>
+
         </LinearLayout>
     </ScrollView>
 

@@ -20,35 +20,34 @@
     <string name="alerts">Alerts</string>
     <string name="do_you_want_notifications_in_the_app_outside_the_app_or_both">Do you want notifications in the app, outside the app, or both?</string>
     <string name="how_many_days_in_advance_would_you_like_to_know_about_food_expiring_the_default_is_3_days">How many days in advance would you like to know about food expiring? The default is 3 days.</string>
+    <string name="counter">counter</string>
+    <string name="refrigerator">refrigerator</string>
+    <string name="freezer">freezer</string>
+    <string name="fruit">fruit</string>
+    <string name="vegetable">vegetable</string>
+    <string name="protein">protein</string>
+    <string name="dairy">dairy</string>
+    <string name="grain">grain</string>
+    <string name="beverage">beverage</string>
 
-    <string-array name="foodtypes">
-        <item>Fruit</item>
-        <item>Vegetable</item>
-        <item>Protein</item>
-        <item>Grain</item>
-        <item>Dairy</item>
-        <item>Beverage</item>
-    </string-array>
+    <!--<string-array name="foodtypes">-->
+        <!--<item>Fruit</item>-->
+        <!--<item>Vegetable</item>-->
+        <!--<item>Protein</item>-->
+        <!--<item>Grain</item>-->
+        <!--<item>Dairy</item>-->
+        <!--<item>Beverage</item>-->
+    <!--</string-array>-->
 
-    <string-array name="foodsList">
-        <item>Rice Pilaf</item>
-    </string-array>
+    <!--<string-array name="foodsList">-->
+        <!--<item>Rice Pilaf</item>-->
+    <!--</string-array>-->
 
-    <string-array name="shelfTypes">
-        <item>Counter</item>
-        <item>Refrigerator</item>
-        <item>Freezer</item>
-    </string-array>
+    <!--<string-array name="shelfTypes">-->
+        <!--<item>Counter</item>-->
+        <!--<item>Refrigerator</item>-->
+        <!--<item>Freezer</item>-->
+    <!--</string-array>-->
 
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
 
 </resources>

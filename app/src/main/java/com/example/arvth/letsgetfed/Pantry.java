@@ -43,6 +43,7 @@ public class Pantry extends AppCompatActivity {
         //myRef.setValue("hi test!");
         updateVisualList();
     }
+
     public void add_shelf(View view) {
         startActivity(new Intent(Pantry.this, AddShelf.class));
     }

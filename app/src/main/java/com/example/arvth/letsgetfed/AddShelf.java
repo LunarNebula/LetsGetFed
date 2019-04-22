@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -14,19 +17,32 @@ import static com.example.arvth.letsgetfed.Pantry.shelves;
 
 public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    RadioGroup shelfRadio;
+    RadioButton radioButton;
+    int radioID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addshelf);
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.shelf_dropdown);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.shelfTypes, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner2.setAdapter(adapter2);
+        shelfRadio = findViewById(R.id.shelf_type_radiogroup);
+        Button addShelfButton = findViewById(R.id.add_shelf_button);
+        addShelfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+//        Spinner spinner2 = (Spinner) findViewById(R.id.shelf_dropdown);
+////// Create an ArrayAdapter using the string array and a default spinner layout
+//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+//                R.array.shelfTypes, android.R.layout.simple_spinner_item);
+////// Specify the layout to use when the list of choices appears
+//        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+////// Apply the adapter to the spinner
+//        spinner2.setAdapter(adapter2);
 
 //        Spinner shelfDropdown = findViewById(R.id.shelf_dropdown);
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.shelfTypes, android.R.layout.simple_spinner_item);
@@ -36,19 +52,25 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
         //addShelfToList();
     }
 
+    public void checkButton(View view)
+    {
+        radioID = shelfRadio.getCheckedRadioButtonId();
+        radioButton = findViewById(radioID);
+    }
+
     public void shelf_dropdown(View view) {
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
-        String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
+      //  String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
 
-        int shelfNumForObject = -2;
-
-        if (shelfType.equals("Fridge"))
-            shelfNumForObject = 0;
-        if (shelfType.equals("Freezer"))
-            shelfNumForObject = 1;
-        if (shelfType.equals("Cupboard"))
-            shelfNumForObject = 2;
+       int shelfNumForObject = radioID;
+//
+//        if (shelfType.equals("Fridge"))
+//            shelfNumForObject = 0;
+//        if (shelfType.equals("Freezer"))
+//            shelfNumForObject = 1;
+//        if (shelfType.equals("Cupboard"))
+//            shelfNumForObject = 2;
 
         Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 

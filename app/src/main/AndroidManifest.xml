@@ -13,12 +13,15 @@
 
         </activity>
 
-        <activity android:name=".Pantry"> </activity>
+        <activity android:name=".Pantry">
+
+        </activity>
 
         <!--<activity android:name=".Shelf">-->
         <!--</activity>-->
 
         <activity android:name=".AddFood">
+
         </activity>
 
         <activity android:name=".OpeningScreen">
