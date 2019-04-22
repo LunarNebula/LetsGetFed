@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+//import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+//import android.widget.Spinner;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -15,9 +18,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     int shelfID;
+    RadioGroup foodTypeRadio;
+    RadioButton typeRadioButton;
+    int typeRadioID;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
+
+        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
+        Button addFoodButton = findViewById(R.id.add_food_button);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
 
 //        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
@@ -30,12 +47,18 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        spinner.setAdapter(adapter);
     }
 
+    public void checkButton(View view)
+    {
+        typeRadioID = foodTypeRadio.getCheckedRadioButtonId();
+        typeRadioButton = findViewById(typeRadioID);
+    }
+
     public void addFoodToDatabase(View view) {
         String foodName = ((EditText) findViewById(R.id.food_name_user_fill)).getText().toString();
 
        // String foodType = ((Spinner) findViewById(R.id.food_type_dropdown)).getSelectedItem().toString() ;
 
-        String foodType = "";
+        String foodType = typeRadioButton.getText().toString();
 
         Integer counterMin = Integer.parseInt(((EditText) findViewById(R.id.counter_min_fill)).getText().toString());
 

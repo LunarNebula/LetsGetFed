@@ -68,29 +68,36 @@
             <RadioGroup
                 android:id="@+id/alert_radiogroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/inside_radio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="inside the app" />
+                    android:text="@string/inside_the_app" />
 
                 <RadioButton
                     android:id="@+id/outside_radio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="outside the app" />
+                    android:text="@string/outside_the_app" />
 
                 <RadioButton
                     android:id="@+id/both_radio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="both" />
+                    android:text="@string/both" />
+
             </RadioGroup>
+
+            <Button
+                android:id="@+id/set_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apply" />
 
         </LinearLayout>
     </ScrollView>

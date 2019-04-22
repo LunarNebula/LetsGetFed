@@ -29,6 +29,10 @@
     <string name="dairy">dairy</string>
     <string name="grain">grain</string>
     <string name="beverage">beverage</string>
+    <string name="outside_the_app">outside the app</string>
+    <string name="inside_the_app">inside the app</string>
+    <string name="both">both</string>
+    <string name="apply">apply</string>
 
     <!--<string-array name="foodtypes">-->
         <!--<item>Fruit</item>-->
