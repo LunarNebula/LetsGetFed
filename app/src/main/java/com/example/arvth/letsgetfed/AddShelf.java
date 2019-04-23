@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import static com.example.arvth.letsgetfed.Pantry.shelves;
 
-public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class AddShelf extends AppCompatActivity {
 
     RadioGroup shelfRadio;
     RadioButton radioButton;
@@ -83,14 +83,14 @@ public class AddShelf extends AppCompatActivity implements AdapterView.OnItemSel
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        String text = parent.getItemAtPosition(position).toString();
+//        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
 }

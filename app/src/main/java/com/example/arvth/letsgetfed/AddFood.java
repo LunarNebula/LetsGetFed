@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddFood extends AppCompatActivity {
     int shelfID;
     RadioGroup foodTypeRadio;
     RadioButton typeRadioButton;
@@ -93,19 +93,19 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        String text = parent.getItemAtPosition(position).toString();
+//        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
+//    }
     public void pantry(View view) {
         Intent intent = new Intent(AddFood.this, Pantry.class);
         intent.putExtra("id", shelfID);
         startActivity(intent);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
 }
