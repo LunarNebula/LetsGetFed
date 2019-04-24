@@ -32,21 +32,22 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="100dp" />
 
-    <ScrollView
-        android:id="@+id/shelf_scrollView"
+    // thanks to CodingWithMitch for the RecyclerView tutorial on YouTube
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shelf_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guide_shelf_bottom"
         app:layout_constraintTop_toBottomOf="@+id/guide_shelf_top">
 
-        <TableLayout
-            android:id="@+id/food_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<TableLayout-->
+            <!--android:id="@+id/food_list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-        </TableLayout>
-    </ScrollView>
+        <!--</TableLayout>-->
+    </android.support.v7.widget.RecyclerView>
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_shelf_bottom"

@@ -24,6 +24,7 @@ public class ShelfManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        //load(shelfID);
         load(shelfID);
 //        ShelfManager.storeValues(this);
 //        ShelfManager.pullDirectory(this);
@@ -34,19 +35,19 @@ public class ShelfManager extends AppCompatActivity {
     }
 
     public void load(int ID) {
-        TableLayout layout = findViewById(R.id.food_list);
-        int count = layout.getChildCount();
-        for(int i = 0; i < count; i++) {
-            if(layout.getChildAt(i) instanceof TableRow) {
-                ((ViewGroup) layout.getChildAt(i)).removeAllViews();
-            }
-        }
-        Shelf shelf = Pantry.shelves.get(ID);
-        for(int i = 0; i < shelf.getPopulation(); i++) {
-            TableRow row = new TableRow(this);
-            row.addView(getView(shelf, i));
-            layout.addView(row);
-        }
+//        TableLayout layout = findViewById(R.id.food_list);
+//        int count = layout.getChildCount();
+//        for(int i = 0; i < count; i++) {
+//            if(layout.getChildAt(i) instanceof TableRow) {
+//                ((ViewGroup) layout.getChildAt(i)).removeAllViews();
+//            }
+//        }
+//        Shelf shelf = Pantry.shelves.get(ID);
+//        for(int i = 0; i < shelf.getPopulation(); i++) {
+//            TableRow row = new TableRow(this);
+//            row.addView(getView(shelf, i));
+//            layout.addView(row);
+//        }
     }
     public TextView getView(Shelf shelf, int ID) {
         TextView view = new TextView(this);
@@ -68,7 +69,6 @@ public class ShelfManager extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.putInt("shelf_population", Pantry.shelves.size());
-        Toast.makeText(context, "loading yah numbas beep beep boop " + Pantry.shelves.size(), Toast.LENGTH_SHORT).show();
         for(int i = 0; i < Pantry.shelves.size(); i++) {
             storeShelf(editor, i);
         }
@@ -107,10 +107,8 @@ public class ShelfManager extends AppCompatActivity {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
         int size = preferences.getInt("shelf_population", 0);
         Pantry.shelves = new ArrayList<>();
-        Toast.makeText(context, "getting data beep beep boop " + size, Toast.LENGTH_SHORT).show();
         for(int i = 0; i < size; i++) {
             Pantry.shelves.add(pullShelf(preferences, i));
-            Toast.makeText(context, "pull " + i, Toast.LENGTH_SHORT).show();
         }
     }
     public static Shelf pullShelf(SharedPreferences preferences, int ID) {

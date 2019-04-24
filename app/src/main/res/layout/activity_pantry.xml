@@ -53,8 +53,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_pantry_expiration" />
 
-    <ScrollView
-        android:id="@+id/pantry_scrollview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pantry_recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/guide_pantry_bottom"
@@ -62,13 +62,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guide_pantry_toplist">
 
-        <TableLayout
-            android:id="@+id/shelf_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<TableLayout-->
+            <!--android:id="@+id/shelf_list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-        </TableLayout>
-    </ScrollView>
+        <!--</TableLayout>-->
+    </android.support.v7.widget.RecyclerView>
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_pantry_bottom"

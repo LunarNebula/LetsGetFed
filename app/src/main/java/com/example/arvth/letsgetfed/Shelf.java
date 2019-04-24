@@ -6,8 +6,8 @@ public class Shelf {
     private String label;
     private int type;
     //get file variable
-    public static final int FRIDGE = 0, FREEZER = 1, CUPBOARD = 2;
-    public static final String[] labels = {"fridge", "freezer", "cupboard"};
+    public static final int COUNTER = 0, FRIDGE = 1, FREEZER = 2;
+    public static final String[] labels = {"counter", "fridge", "freezer"};
     public Shelf(String label, int type) {
         this.food = new Food[0];
         this.label = label;
@@ -33,11 +33,11 @@ public class Shelf {
          * */
         switch(this.type) {
 
+            case COUNTER:
+                break;
             case FRIDGE:
                 break;
             case FREEZER:
-                break;
-            case CUPBOARD:
                 break;
         }
         /*
