@@ -53,6 +53,61 @@ public class Food
 
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setPurchased(Date purchased) {
+        this.purchased = purchased;
+    }
+
+    public void setCounterMinExp(int counterMinExp) {
+        this.counterMinExp = counterMinExp;
+    }
+
+    public void setCounterMaxExp(int counterMaxExp) {
+        this.counterMaxExp = counterMaxExp;
+    }
+
+    public void setFridgeMinExp(int fridgeMinExp) {
+        this.fridgeMinExp = fridgeMinExp;
+    }
+
+    public void setFridgeMaxExp(int fridgeMaxExp) {
+        this.fridgeMaxExp = fridgeMaxExp;
+    }
+
+    public void setFreezerMinExp(int freezerMinExp) {
+        this.freezerMinExp = freezerMinExp;
+    }
+
+    public void setFreezerMaxExp(int freezerMaxExp) {
+        this.freezerMaxExp = freezerMaxExp;
+    }
+
+    public void setMinExpDate(int minExpDate) {
+        this.minExpDate = minExpDate;
+    }
+
+    public void setMaxExpDate(int maxExpDate) {
+        this.maxExpDate = maxExpDate;
+    }
+
+    public Food() {
+        name = "";
+        type = "";
+        counterMinExp = 0;
+        counterMaxExp = 0;
+        fridgeMinExp = 0;
+        fridgeMaxExp = 0;
+        freezerMinExp = 0;
+        freezerMaxExp = 0;
+    }
+
     // Methods
     // parse text to find food (match the name)
     // we will do this after we decide what's going on with the database of foods
@@ -120,4 +175,9 @@ public class Food
 //    public static void readFood() {
 //        //
 //    }
+
+    @Override
+    public String toString()  {
+        return getName() + getType() + getCounterMaxExp() + getFreezerMaxExp() + getFridgeMaxExp();
+    }
 }
