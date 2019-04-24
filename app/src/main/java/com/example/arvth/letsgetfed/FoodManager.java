@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class FoodManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,5 +85,7 @@ public class FoodManager extends AppCompatActivity {
         startActivity(new Intent(FoodManager.this, Pantry.class));
     }
 
-
+    public static ArrayList<Food> getAlertList(int length) {
+        return null;//fix later
+    }
 }

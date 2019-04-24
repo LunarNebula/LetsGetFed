@@ -26,6 +26,7 @@ public class Food
     private int freezerMaxExp;
     private int minExpDate;
     private int maxExpDate;
+    private int location;
 
     // Constructor
 
@@ -35,16 +36,16 @@ public class Food
     public Food(String foodName, String foodType, int counterMin, int counterMax, int fridgeMin,
                 int fridgeMax, int freezerMin, int freezerMax)
     {
-        name = foodName;
-        type = foodType;
-        counterMinExp = counterMin;
-        counterMaxExp = counterMax;
-        fridgeMinExp = fridgeMin;
-        fridgeMaxExp = fridgeMax;
-        freezerMinExp = freezerMin;
-        freezerMaxExp = freezerMax;
+        this.name = foodName;
+        this.type = foodType;
+        this.counterMinExp = counterMin;
+        this.counterMaxExp = counterMax;
+        this.fridgeMinExp = fridgeMin;
+        this.fridgeMaxExp = fridgeMax;
+        this.freezerMinExp = freezerMin;
+        this.freezerMaxExp = freezerMax;
     }
-
+//
     public Food(String foodName, Date datePurchased, int minExp, int maxExp) {
         name = foodName;
         purchased = datePurchased;
@@ -158,6 +159,10 @@ public class Food
         return maxExpDate;
     }
 
+    public int getLocation() {
+        return this.location;
+    }
+
     // The following code needs to be fixed based on user input. Essentially, we want to get the information
     // about where they store the information, then get the specific expiration # and add that to the current
     // date.
@@ -175,7 +180,26 @@ public class Food
 //    public static void readFood() {
 //        //
 //    }
-
+    public void setPurchaseDate(Date date) {
+        this.purchased = date;
+    }
+    public boolean isExpiring() {
+        return expirationTime() < Alert.ALERT_TIME_BUFFER;
+    }
+    public long expirationTime() {
+        switch(location) {
+            case 0:
+                return purchased.getTime() + counterMinExp - (new Date()).getTime();
+            case 1:
+                return purchased.getTime() + fridgeMinExp - (new Date()).getTime();
+            case 2:
+                return purchased.getTime() + freezerMinExp - (new Date()).getTime();
+        }
+        return 0;
+    }
+    public void setLocation(int location) {
+        this.location = location;
+    }
     @Override
     public String toString()  {
         return getName() + getType() + getCounterMaxExp() + getFreezerMaxExp() + getFridgeMaxExp();

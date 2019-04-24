@@ -99,6 +99,9 @@ public class AddFood extends AppCompatActivity {
 //        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
+
+        ShelfManager.storeValues(this);
+        ShelfManager.pullDirectory(this);
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 

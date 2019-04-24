@@ -25,6 +25,8 @@ public class ShelfManager extends AppCompatActivity {
         setContentView(R.layout.activity_shelf);
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
         load(shelfID);
+        ShelfManager.storeValues(this);
+        ShelfManager.pullDirectory(this);
     }
 
     public void pantry(View view) {
@@ -81,12 +83,23 @@ public class ShelfManager extends AppCompatActivity {
     public static void storeFood(SharedPreferences.Editor editor, int shelfID, int foodID) {
         editor.putString("shelf_" + shelfID + "_" + foodID + "_label",
                 Pantry.shelves.get(shelfID).getFood(foodID).getName());
-        editor.putString("shelf_" + shelfID + "_" + foodID + "_date",
-                Pantry.shelves.get(shelfID).getFood(foodID).getPurchaseDate().toString());
-        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExp", 0);
-                //Pantry.shelves[shelfID].getFood(foodID).getMinExpirationTime());
-        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExp", 0);
-                //Pantry.shelves[shelfID].getFood(foodID).getMaxExpirationTime());
+        editor.putString("shelf_" + shelfID + "_" + foodID + "_type",
+                Pantry.shelves.get(shelfID).getFood(foodID).getType());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExpCounter",
+                Pantry.shelves.get(shelfID).getFood(foodID).getCounterMinExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExpCounter",
+                Pantry.shelves.get(shelfID).getFood(foodID).getCounterMaxExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExpFridge",
+                Pantry.shelves.get(shelfID).getFood(foodID).getFridgeMinExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExpFridge",
+                Pantry.shelves.get(shelfID).getFood(foodID).getFridgeMaxExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_minExpFreezer",
+                Pantry.shelves.get(shelfID).getFood(foodID).getFreezerMinExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_maxExpFreezer",
+                Pantry.shelves.get(shelfID).getFood(foodID).getFreezerMaxExp());
+        editor.putInt("shelf_" + shelfID + "_" + foodID + "_location",
+                Pantry.shelves.get(shelfID).getFood(foodID).getLocation());
+
     }
     //get methods below
     public static void pullDirectory(Context context) {
@@ -108,16 +121,17 @@ public class ShelfManager extends AppCompatActivity {
         return shelf;
     }
     public static Food pullFood(SharedPreferences preferences, int shelfID, int foodID) {
-//        return new Food(
-//                preferences.getString("shelf_" + shelfID + "_" + foodID + "_label", ""),
-//                Date.valueOf(preferences.getString("shelf_" + shelfID + "_" + foodID + "_date", "")),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExp", 0),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExp", 0),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFridge", 0),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFridge", 0),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFreezer", 0),
-//                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFreezer", 0)
-//        );
-        return new Food("", "", 0,0,0,0,0,0);
-    } //this method was return errors - will consult with team for Food() constructor
+        Food food = new Food(
+                preferences.getString("shelf_" + shelfID + "_" + foodID + "_label", ""),
+                preferences.getString("shelf_" + shelfID + "_" + foodID + "_type", ""),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpCounter", 0),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpCounter", 0),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFridge", 0),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFridge", 0),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_minExpFreezer", 0),
+                preferences.getInt("shelf_" + shelfID + "_" + foodID + "_maxExpFreezer", 0)
+        );
+        food.setLocation( preferences.getInt("shelf_" + shelfID + "_" + foodID + "_location", 0));
+        return food;
+    }
 }

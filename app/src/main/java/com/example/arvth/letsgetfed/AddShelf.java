@@ -76,10 +76,13 @@ public class AddShelf extends AppCompatActivity {
 
         shelves.add(addThisShelf);
 
+        ShelfManager.storeValues(this);
+        ShelfManager.pullDirectory(this);
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
     public void pantry(View view) {
+
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 

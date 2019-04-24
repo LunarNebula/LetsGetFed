@@ -63,7 +63,8 @@
             <RadioGroup
                 android:id="@+id/shelf_type_radiogroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:onClick="shelf_type_radiogroup">
 
                 <RadioButton
                     android:id="@+id/counter_radio"
