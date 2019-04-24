@@ -15,13 +15,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/remove_this_after_testing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="addfood"
-            android:text="@string/add_food" />
+        <!--<Button-->
+            <!--android:id="@+id/remove_this_after_testing"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:onClick="addfood"-->
+            <!--android:text="@string/add_food" />-->
     </LinearLayout>
 
     <android.support.constraint.Guideline

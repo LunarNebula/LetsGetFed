@@ -27,13 +27,6 @@ public class AddShelf extends AppCompatActivity {
         setContentView(R.layout.activity_addshelf);
 
         shelfRadio = findViewById(R.id.shelf_type_radiogroup);
-        Button addShelfButton = findViewById(R.id.add_shelf_button);
-        addShelfButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 //        Spinner spinner2 = (Spinner) findViewById(R.id.shelf_dropdown);
 ////// Create an ArrayAdapter using the string array and a default spinner layout
@@ -56,9 +49,11 @@ public class AddShelf extends AppCompatActivity {
     {
         radioID = shelfRadio.getCheckedRadioButtonId();
         radioButton = findViewById(radioID);
+        Toast.makeText(this, "Choice updated", Toast.LENGTH_SHORT).show();
     }
 
-    public void shelf_dropdown(View view) {
+    public void addShelfToList(View view) {
+        Toast.makeText(this, "addShelfToList", Toast.LENGTH_SHORT).show();
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
       //  String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
@@ -74,10 +69,11 @@ public class AddShelf extends AppCompatActivity {
 
         Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 
-        shelves.add(addThisShelf);
+        Pantry.shelves.add(addThisShelf);
 
-        ShelfManager.storeValues(this);
-        ShelfManager.pullDirectory(this);
+//        ShelfManager.storeValues(this);
+//        ShelfManager.pullDirectory(this);
+        Toast.makeText(this, "Shelf load ending YAAAAAAAAY", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
@@ -96,4 +92,5 @@ public class AddShelf extends AppCompatActivity {
 //    public void onNothingSelected(AdapterView<?> parent) {
 //
 //    }
+
 }

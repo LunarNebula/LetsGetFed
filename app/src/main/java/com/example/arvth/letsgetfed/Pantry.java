@@ -33,7 +33,7 @@ public class Pantry extends AppCompatActivity {
         setContentView(R.layout.activity_pantry);
         expiring = new ArrayList<>();
         Drawable[] expirationList = new Drawable[3];
-        Toast.makeText(this, (new Date(118, 12, 16)).toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, Pantry.shelves.size() + "", Toast.LENGTH_SHORT).show();
 
 
         // Write a message to the database
@@ -85,9 +85,9 @@ public class Pantry extends AppCompatActivity {
         Pantry.shelves = new ArrayList<>();
     }
 
-    public void addfood(View view) {
-        Intent intent = new Intent(Pantry.this, AddFood.class);
-        intent.putExtra("id", 0 + "");
-        startActivity(intent);
-    }
+//    public void addfood(View view) {
+//        Intent intent = new Intent(Pantry.this, AddFood.class);
+//        intent.putExtra("id", 0 + "");
+//        startActivity(intent);
+//    }
 }

@@ -100,8 +100,8 @@ public class AddFood extends AppCompatActivity {
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
 
-        ShelfManager.storeValues(this);
-        ShelfManager.pullDirectory(this);
+//        ShelfManager.storeValues(this);
+//        ShelfManager.pullDirectory(this);
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
