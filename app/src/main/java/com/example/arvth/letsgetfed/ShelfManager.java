@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
@@ -19,15 +22,25 @@ import java.util.Arrays;
 
 public class ShelfManager extends AppCompatActivity {
     int shelfID;
+    public static ArrayList<Food> listOfFoods = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
+        RecyclerViewShelf();
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
         //load(shelfID);
         load(shelfID);
 //        ShelfManager.storeValues(this);
 //        ShelfManager.pullDirectory(this);
+    }
+
+    public void RecyclerViewShelf() {
+        RecyclerView recyclerView2 = findViewById(R.id.shelf_recyclerView);
+        RecyclerShelfAdapter adapter2 = new RecyclerShelfAdapter(listOfFoods, this);
+        recyclerView2.setAdapter(adapter2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void pantry(View view) {

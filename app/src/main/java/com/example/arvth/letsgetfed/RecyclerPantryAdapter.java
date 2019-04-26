@@ -1,5 +1,4 @@
 package com.example.arvth.letsgetfed;
-
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class RecyclerPantryAdapter extends RecyclerView.Adapter<RecyclerPantryAdapter.ViewHolder>{
+public class RecyclerPantryAdapter extends RecyclerView.Adapter<RecyclerPantryAdapter.ViewHolder> {
     // Data
     private static final String TAG = "RecyclerPantryAdapter";
 
@@ -21,8 +20,7 @@ public class RecyclerPantryAdapter extends RecyclerView.Adapter<RecyclerPantryAd
     private Context recyclePantryContext;
 
     // Constructors
-    public RecyclerPantryAdapter (ArrayList<Shelf> mShelfNames, Context mRecyclePantryContext)
-    {
+    public RecyclerPantryAdapter(ArrayList<Shelf> mShelfNames, Context mRecyclePantryContext) {
         shelfNames = mShelfNames;
         recyclePantryContext = mRecyclePantryContext;
     }
@@ -40,7 +38,7 @@ public class RecyclerPantryAdapter extends RecyclerView.Adapter<RecyclerPantryAd
         Log.d(TAG, "onBindViewHolder: called.");
 
         viewHolder.shelfName.setText(shelfNames.get(position).getLabel());
-        viewHolder.mainConstraintLayout.setOnClickListener(new View.OnClickListener(){
+        viewHolder.mainConstraintLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -55,7 +53,7 @@ public class RecyclerPantryAdapter extends RecyclerView.Adapter<RecyclerPantryAd
         return shelfNames.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView shelfName;
         ConstraintLayout mainConstraintLayout;
