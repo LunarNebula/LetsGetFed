@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,18 +13,13 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 //import com.google.firebase.database.DataSnapshot;
 //import com.google.firebase.database.DatabaseError;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.ValueEventListener;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.Date;
-import java.util.ArrayList;
 
 public class Pantry extends AppCompatActivity {
     private static final String TAG = "Pantry";
@@ -39,7 +33,7 @@ public class Pantry extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantry);
         Log.d(TAG, "onCreate: started");
-        RecyclerViewPantry();
+        //RecyclerViewPantry();
         expiring = new ArrayList<>();
         Drawable[] expirationList = new Drawable[3];
         Toast.makeText(this, Pantry.shelves.size() + "", Toast.LENGTH_SHORT).show();
@@ -50,21 +44,38 @@ public class Pantry extends AppCompatActivity {
         //DatabaseReference myRef = database.getReference("message");
 
         //myRef.setValue("hi test!");
-        //updateVisualList();
+        updateVisualList();
     }
 
     // thanks to CodingWithMitch for the Recycler View tutorial on YouTube
-    public void RecyclerViewPantry() {
-        Log.d(TAG, "RecyclerViewPantry: got here");
-
-        RecyclerView recyclerView1 = findViewById(R.id.pantry_recyclerview);
-        RecyclerPantryAdapter adapter1 = new RecyclerPantryAdapter(shelves, this);
-        recyclerView1.setAdapter(adapter1);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-    }
+//    public void RecyclerViewPantry() {
+//        Log.d(TAG, "RecyclerViewPantry: got here");
+//
+//        RecyclerView recyclerView1 = findViewById(R.id.pantry_recyclerview);
+//        RecyclerPantryAdapter adapter1 = new RecyclerPantryAdapter(shelves, this);
+//        recyclerView1.setAdapter(adapter1);
+//        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+//    }
     public void add_shelf(View view) {
         startActivity(new Intent(Pantry.this, AddShelf.class));
     }
+    public void updateVisualList() {
+        TableLayout shelf_list = findViewById(R.id.shelf_list);
+        int shelfQuantity = shelf_list.getChildCount();
+        for(int i = 0; i < shelfQuantity; i++) {
+            View testRow = shelf_list.getChildAt(i);
+            if(testRow instanceof TableRow) ((TableRow) testRow).removeAllViews();
+        }
+
+        for(int i = 0; i < shelves.size(); i++) {
+            TableRow shelf_row = new TableRow(this);
+            shelf_row.addView(getButton(i));
+            shelf_list.addView(shelf_row);
+        }
+    }
+//    public void add_shelf(View view) {
+//        startActivity(new Intent(Pantry.this, AddShelf.class));
+//    }
 //    public void updateVisualList() {
 //        TableLayout shelf_list = findViewById(R.id.shelf_list);
 //        int shelfQuantity = shelf_list.getChildCount();

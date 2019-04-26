@@ -63,6 +63,18 @@ public class AddFood extends AppCompatActivity {
 //    }
 
     public void addFoodToDatabase(View view) {
+        try {
+            Pantry.shelves.get(shelfID).addFood(getNewFood());
+        } catch(Exception e) {
+            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
+        } catch(Error e) {
+            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
+        }
+
+        startActivity(new Intent(AddFood.this, Pantry.class));
+    }
+    public Food getNewFood() {
+
         String foodName = ((EditText) findViewById(R.id.food_name_user_fill)).getText().toString();
 
        // String foodType = ((Spinner) findViewById(R.id.food_type_dropdown)).getSelectedItem().toString() ;
@@ -91,8 +103,9 @@ public class AddFood extends AppCompatActivity {
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        foodTypeDropdown.setAdapter(adapter);
 //        foodTypeDropdown.setOnItemSelectedListener(this);
-
-        Pantry.shelves.get(shelfID).addFood(addThisFood);
+        Preferences.storeValues(this);
+        Preferences.pullDirectory(this);
+        return addThisFood;
 
 //        Spinner foodDropdown = findViewById(R.id. //blank );
 //        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.foodsList, android.R.layout.simple_spinner_item);
@@ -100,9 +113,8 @@ public class AddFood extends AppCompatActivity {
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
 
-//        ShelfManager.storeValues(this);
-//        ShelfManager.pullDirectory(this);
-        startActivity(new Intent(AddFood.this, Pantry.class));
+
+
     }
 
 //    @Override

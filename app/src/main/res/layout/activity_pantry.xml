@@ -53,22 +53,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide_pantry_expiration" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/pantry_recyclerview"
+    <ScrollView
+        android:id="@+id/pantry_scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guide_pantry_bottom"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_pantry_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guide_pantry_toplist">
+        app:layout_constraintTop_toBottomOf="@+id/add_shelf">
 
-        <!--<TableLayout-->
-            <!--android:id="@+id/shelf_list"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
+        <TableLayout
+            android:id="@+id/shelf_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="shelf_list">
 
-        <!--</TableLayout>-->
-    </android.support.v7.widget.RecyclerView>
+        </TableLayout>
+    </ScrollView>
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_pantry_bottom"
@@ -93,7 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF"
+            android:src="@drawable/pantry_icon" />
             <!--app:srcCompat="@drawable/pantry_icon" />-->
 
         <ImageButton
@@ -101,7 +104,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF"
+            android:src="@drawable/alert_icon" />
             <!--app:srcCompat="@drawable/alert_icon" />-->
 
         <ImageButton
@@ -109,7 +113,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF"
+            android:src="@drawable/settings_gear" />
             <!--app:srcCompat="@drawable/settings_gear" />-->
     </LinearLayout>
 

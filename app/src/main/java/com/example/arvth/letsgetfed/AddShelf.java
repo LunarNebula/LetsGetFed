@@ -71,8 +71,8 @@ public class AddShelf extends AppCompatActivity {
 
         Pantry.shelves.add(addThisShelf);
 
-//        ShelfManager.storeValues(this);
-//        ShelfManager.pullDirectory(this);
+        Preferences.storeValues(this);
+        Preferences.pullDirectory(this);
         Toast.makeText(this, "Shelf load ending YAAAAAAAAY", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
