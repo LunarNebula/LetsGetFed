@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-//import android.widget.ArrayAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 //import android.widget.Spinner;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,8 +21,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddFood extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     int shelfID;
+//    Spinner foodDropDown = (Spinner) findViewById(R.id.food_dropdown_spinner);
+//    ArrayList<String> spinnerArray = new ArrayList<String>();
+//    spinnerArray.add("rice pilaf");
+//    ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
+//    adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//    foodDropDown.setAdapter(adapterSpinner);
+//    foodDropDown.setOnItemSelectedListener(this);
     RadioGroup foodTypeRadio;
     RadioButton typeRadioButton;
     int typeRadioID;
@@ -32,14 +42,14 @@ public class AddFood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
 
-//        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
-//        Button addFoodButton = findViewById(R.id.add_food_button);
-//        addFoodButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
+        Button addFoodButton = findViewById(R.id.add_food_button);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
 
 //        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
@@ -56,12 +66,16 @@ public class AddFood extends AppCompatActivity {
 //        rootRef.push().setValue(test);
     }
 
-//    public void checkButton(View view)
-//    {
-//        typeRadioID = foodTypeRadio.getCheckedRadioButtonId();
-//        typeRadioButton = findViewById(typeRadioID);
-//    }
+    public void checkButton(View view)
+    {
+        typeRadioID = foodTypeRadio.getCheckedRadioButtonId();
+        typeRadioButton = findViewById(typeRadioID);
+    }
 
+    public void selectFood()
+    {
+
+    }
     public void addFoodToDatabase(View view) {
         try {
             Pantry.shelves.get(shelfID).addFood(getNewFood());
@@ -117,19 +131,19 @@ public class AddFood extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //        String text = parent.getItemAtPosition(position).toString();
 //        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
-//    }
+    }
     public void pantry(View view) {
         Intent intent = new Intent(AddFood.this, Pantry.class);
         intent.putExtra("id", shelfID);
         startActivity(intent);
     }
 
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//
-//    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
