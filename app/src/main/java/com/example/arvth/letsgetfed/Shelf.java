@@ -1,4 +1,5 @@
 package com.example.arvth.letsgetfed;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Shelf {
@@ -58,7 +59,9 @@ public class Shelf {
         proxy_variable[this.food.length] = food;
         this.food = proxy_variable;
     }
-
+    public ArrayList<Food> getFoodPopulation() {
+        return new ArrayList(Arrays.asList(this.food));
+    }
 
 
 }

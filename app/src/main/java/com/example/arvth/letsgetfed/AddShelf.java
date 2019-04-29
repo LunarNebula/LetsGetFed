@@ -49,11 +49,9 @@ public class AddShelf extends AppCompatActivity {
     {
         radioID = shelfRadio.getCheckedRadioButtonId();
         radioButton = findViewById(radioID);
-        Toast.makeText(this, "Choice updated", Toast.LENGTH_SHORT).show();
     }
 
     public void addShelfToList(View view) {
-        Toast.makeText(this, "addShelfToList", Toast.LENGTH_SHORT).show();
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
       //  String shelfType = ((Spinner) findViewById(R.id.shelf_dropdown)).getSelectedItem().toString();
@@ -73,7 +71,6 @@ public class AddShelf extends AppCompatActivity {
 
         Preferences.storeValues(this);
         Preferences.pullDirectory(this);
-        Toast.makeText(this, "Shelf load ending YAAAAAAAAY", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 

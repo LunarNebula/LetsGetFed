@@ -28,8 +28,8 @@ public class ShelfManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
-        RecyclerViewShelf();
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        RecyclerViewShelf();
         //load(shelfID);
         load(shelfID);
         Preferences.storeValues(this);
@@ -38,7 +38,8 @@ public class ShelfManager extends AppCompatActivity {
 
     public void RecyclerViewShelf() {
         RecyclerView recyclerView2 = findViewById(R.id.shelf_recyclerView);
-        RecyclerShelfAdapter adapter2 = new RecyclerShelfAdapter(listOfFoods, this);
+        RecyclerShelfAdapter adapter2 = new RecyclerShelfAdapter(
+                Pantry.shelves.get(shelfID).getFoodPopulation(), this);
         recyclerView2.setAdapter(adapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
     }

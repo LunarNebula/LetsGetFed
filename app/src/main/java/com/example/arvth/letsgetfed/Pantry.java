@@ -36,7 +36,6 @@ public class Pantry extends AppCompatActivity {
         //RecyclerViewPantry();
         expiring = new ArrayList<>();
         Drawable[] expirationList = new Drawable[3];
-        Toast.makeText(this, Pantry.shelves.size() + "", Toast.LENGTH_SHORT).show();
 
 
         // Write a message to the database
