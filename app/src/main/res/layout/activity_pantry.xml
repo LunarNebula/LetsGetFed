@@ -96,8 +96,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
+            android:contentDescription="TODO"
+            android:onClick="toPantryClick"
             android:src="@drawable/pantry_icon" />
             <!--app:srcCompat="@drawable/pantry_icon" />-->
+
+        <!--app:srcCompat="@drawable/alert_icon" />-->
 
         <ImageButton
             android:id="@+id/toAlerts"
@@ -105,8 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
+            android:onClick="toAlertsClick"
             android:src="@drawable/alert_icon" />
-            <!--app:srcCompat="@drawable/alert_icon" />-->
 
         <ImageButton
             android:id="@+id/toSettings"
@@ -114,6 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#FFFFFF"
+            android:onClick="toSettingsClick"
             android:src="@drawable/settings_gear" />
             <!--app:srcCompat="@drawable/settings_gear" />-->
     </LinearLayout>

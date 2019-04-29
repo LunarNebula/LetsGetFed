@@ -146,4 +146,16 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void toPantryClickAF(View view){
+        startActivity(new Intent(AddFood.this, Pantry.class));
+    }
+
+    public void toAlertsClickAF(View view){
+        startActivity(new Intent(AddFood.this, Alert.class));
+    }
+
+    public void toSettingsClickAF(View view){
+        startActivity(new Intent(AddFood.this, Settings.class));
+    }
 }

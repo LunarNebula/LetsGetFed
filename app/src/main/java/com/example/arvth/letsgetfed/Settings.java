@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -39,5 +40,17 @@ public class Settings extends AppCompatActivity {
     public void setSettings(View view)
     {
 
+    }
+
+    public void toPantryClickS(View view){
+        startActivity(new Intent(Settings.this, Pantry.class));
+    }
+
+    public void toAlertsClickS(View view){
+        startActivity(new Intent(Settings.this, Alert.class));
+    }
+
+    public void toSettingsClickS(View view){
+        startActivity(new Intent(Settings.this, Settings.class));
     }
 }

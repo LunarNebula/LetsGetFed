@@ -79,6 +79,18 @@ public class AddShelf extends AppCompatActivity {
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
+    public void toPantryClickAS(View view){
+        startActivity(new Intent(AddShelf.this, Pantry.class));
+    }
+
+    public void toAlertsClickAS(View view){
+        startActivity(new Intent(AddShelf.this, Alert.class));
+    }
+
+    public void toSettingsClickAS(View view){
+        startActivity(new Intent(AddShelf.this, Settings.class));
+    }
+
 //    @Override
 //    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //        String text = parent.getItemAtPosition(position).toString();

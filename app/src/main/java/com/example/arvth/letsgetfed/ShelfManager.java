@@ -31,7 +31,6 @@ public class ShelfManager extends AppCompatActivity {
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
         RecyclerViewShelf();
         //load(shelfID);
-        load(shelfID);
         Preferences.storeValues(this);
         Preferences.pullDirectory(this);
     }
@@ -72,11 +71,25 @@ public class ShelfManager extends AppCompatActivity {
 //        view.setId(ID);
 //        return view;
 //    }
+
     public void addfood(View view) {
         Intent intent = new Intent(ShelfManager.this, AddFood.class);
         intent.putExtra("id", shelfID + "");
         startActivity(intent);
     }
+
+    public void toPantryClickSM(View view){
+        startActivity(new Intent(ShelfManager.this, Pantry.class));
+    }
+
+    public void toAlertsClickSM(View view){
+        startActivity(new Intent(ShelfManager.this, Alert.class));
+    }
+
+    public void toSettingsClickSM(View view){
+        startActivity(new Intent(ShelfManager.this, Settings.class));
+    }
+
     //store methods below
 
 }

@@ -113,6 +113,17 @@ public class Pantry extends AppCompatActivity {
         Pantry.shelves = new ArrayList<>();
     }
 
+    public void toPantryClick(View view){
+        startActivity(new Intent(Pantry.this, Pantry.class));
+    }
+
+    public void toAlertsClick(View view){
+        startActivity(new Intent(Pantry.this, Alert.class));
+    }
+
+    public void toSettingsClick(View view){
+        startActivity(new Intent(Pantry.this, Settings.class));
+    }
 //    public void addfood(View view) {
 //        Intent intent = new Intent(Pantry.this, AddFood.class);
 //        intent.putExtra("id", 0 + "");

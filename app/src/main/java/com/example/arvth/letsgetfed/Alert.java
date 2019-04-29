@@ -1,5 +1,6 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -52,5 +53,17 @@ public class Alert extends AppCompatActivity {
         title.setText(Pantry.shelves.get(shelfID).getFood(foodID).expirationTime() + " days left!");
         row.addView(title);
         return row;
+    }
+
+    public void toPantryClickA(View view){
+        startActivity(new Intent(Alert.this, Pantry.class));
+    }
+
+    public void toAlertsClickA(View view){
+        startActivity(new Intent(Alert.this, Alert.class));
+    }
+
+    public void toSettingsClickA(View view){
+        startActivity(new Intent(Alert.this, Settings.class));
     }
 }

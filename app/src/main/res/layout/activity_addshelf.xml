@@ -111,4 +111,48 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="100dp" />
 
+    <LinearLayout
+        android:id="@+id/bottom_listview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guide_add_shelf_bottom">
+
+        <ImageButton
+            android:id="@+id/toPantry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#FFFFFF"
+            android:contentDescription="TODO"
+            android:onClick="toPantryClickAS"
+            android:src="@drawable/pantry_icon" />
+        <!--app:srcCompat="@drawable/pantry_icon" />-->
+
+        <!--app:srcCompat="@drawable/alert_icon" />-->
+
+        <ImageButton
+            android:id="@+id/toAlerts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#FFFFFF"
+            android:onClick="toAlertsClickAS"
+            android:src="@drawable/alert_icon" />
+
+        <ImageButton
+            android:id="@+id/toSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#FFFFFF"
+            android:onClick="toSettingsClickAS"
+            android:src="@drawable/settings_gear" />
+        <!--app:srcCompat="@drawable/settings_gear" />-->
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
