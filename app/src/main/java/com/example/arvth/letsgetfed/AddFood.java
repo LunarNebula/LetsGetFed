@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-//import android.widget.Spinner;
+import android.widget.Spinner;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -25,13 +25,6 @@ import java.util.ArrayList;
 
 public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     int shelfID;
-//    Spinner foodDropDown = (Spinner) findViewById(R.id.food_dropdown_spinner);
-//    ArrayList<String> spinnerArray = new ArrayList<String>();
-//    spinnerArray.add("rice pilaf");
-//    ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
-//    adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//    foodDropDown.setAdapter(adapterSpinner);
-//    foodDropDown.setOnItemSelectedListener(this);
     RadioGroup foodTypeRadio;
     RadioButton typeRadioButton;
     int typeRadioID;
@@ -41,6 +34,14 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
+
+        Spinner foodDropDown = (Spinner) findViewById(R.id.food_dropdown_spinner);
+        ArrayList<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.add("rice pilaf");
+        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
+        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        foodDropDown.setAdapter(adapterSpinner);
+        foodDropDown.setOnItemSelectedListener(this);
 
         foodTypeRadio = findViewById(R.id.food_types_radiogroup);
         Button addFoodButton = findViewById(R.id.add_food_button);
