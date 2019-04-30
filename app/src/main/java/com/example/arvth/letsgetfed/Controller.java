@@ -12,18 +12,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Controller extends Application {
 
     private String TAG = "Controller Class";
     private ArrayList<Food> FirebaseFoodList  = new ArrayList<Food>();
     private ArrayList<Food> UserFoodList = new ArrayList<>();
-
-    public ArrayList<Food> getFood() {
-        return FirebaseFoodList;
-    }
-
 
     public void onCreate() {
         super.onCreate();
@@ -45,7 +42,7 @@ public class Controller extends Application {
                     FirebaseFoodList.add(food);
                 }
 
-                Log.d(TAG, "Count = "+ (dataSnapshot.getChildrenCount()));
+                Log.d(TAG, "Count = " + (dataSnapshot.getChildrenCount()));
 
                 printList();
             }
@@ -58,25 +55,50 @@ public class Controller extends Application {
         });
 
         //Add the .txt parser in here to populate the UserFoodList later
-//        Food temp1 = new Food()
-//        UserFoodList.add()
-
+        Date date1 = new Date(2019, 8, 12);
+        Food temp1 = new Food("banana", date1, 0);
+        Food temp2 = new Food("apple", date1, 1);
+        Food temp3 = new Food("grape", date1, 2);
+        UserFoodList.add(temp1);
+        UserFoodList.add(temp2);
+        UserFoodList.add(temp3);
     }
 
-    private void printList() {
+    public void onClose () {
+        //Use Ms. Taricco's code on how to write to the local device
+        for (Food eachFood : UserFoodList) {
+            Log.d(TAG, eachFood.getName());
+            Log.d(TAG, eachFood.getPurchaseDate().toString());
+            Log.d(TAG, Integer.toString(eachFood.getLocation()));
+        }
+    }
+
+    private void printList () {
         for (int i = 0; i < FirebaseFoodList.size(); i++) {
             Log.d(TAG, FirebaseFoodList.get(i).toString());
         }
     }
 
-    public ArrayList<Food> getFoodList() {
+    public ArrayList<Food> getFirebaseFoodList() {
         return FirebaseFoodList;
     }
 
+    public ArrayList<Food> getUserFoodList() {
+        return UserFoodList;
+    }
 
+    public void addToUserList(Food food){
+        UserFoodList.add(food);
+    }
 
+    public void deleteFromUserList (Food food) {
+        UserFoodList.remove(food);
+    }
 
-
-
+    //We won't implement this in the MVP
+//    public void addToFirebaseList(Food food) {
+//        FirebaseFoodList.add(food);
+//    }
 
 }
+

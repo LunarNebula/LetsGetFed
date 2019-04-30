@@ -43,14 +43,14 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         foodDropDown.setAdapter(adapterSpinner);
         foodDropDown.setOnItemSelectedListener(this);
 
-        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
-        Button addFoodButton = findViewById(R.id.add_food_button);
-        addFoodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
+//        Button addFoodButton = findViewById(R.id.add_food_button);
+//        addFoodButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
         //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
 
 //        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
@@ -77,50 +77,26 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     {
 
     }
-    public void addFoodToDatabase(View view) {
-        try {
-            Pantry.shelves.get(shelfID).addFood(getNewFood());
-        } catch(Exception e) {
-            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
-        } catch(Error e) {
-            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
-        }
-
-        startActivity(new Intent(AddFood.this, Pantry.class));
-    }
-    public Food getNewFood() {
-
-        String foodName = ((EditText) findViewById(R.id.food_name_user_fill)).getText().toString();
-
-       // String foodType = ((Spinner) findViewById(R.id.food_type_dropdown)).getSelectedItem().toString() ;
-
-        String foodType = typeRadioButton.getText().toString();
-
-        Integer counterMin = Integer.parseInt(((EditText) findViewById(R.id.counter_min_fill)).getText().toString());
-
-        Integer counterMax = Integer.parseInt(((EditText) findViewById(R.id.counter_max_fill)).getText().toString());
-
-        Integer fridgeMin = (Integer.parseInt(((EditText) findViewById(R.id.fridge_min_fill)).getText().toString()));
-
-        Integer fridgeMax = Integer.parseInt(((EditText) findViewById(R.id.fridge_max_fill)).getText().toString());
-
-        Integer freezerMin = Integer.parseInt(((EditText) findViewById(R.id.freezer_min_fill)).getText().toString());
-
-        Integer freezerMax = Integer.parseInt(((EditText) findViewById(R.id.freezer_max_fill)).getText().toString());
-
-        Food addThisFood = new Food(foodName, foodType, counterMin, counterMax, fridgeMin, fridgeMax, freezerMin, freezerMax);
-
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        rootRef.push().setValue(addThisFood);
+//    public void addFoodToDatabase(View view) {
+//        try {
+//            Pantry.shelves.get(shelfID).addFood(getNewFood());
+//        } catch(Exception e) {
+//            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
+//        } catch(Error e) {
+//            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
+//        }
+//
+//        startActivity(new Intent(AddFood.this, Pantry.class));
+//    }
 
 //        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        foodTypeDropdown.setAdapter(adapter);
 //        foodTypeDropdown.setOnItemSelectedListener(this);
-        Preferences.storeValues(this);
-        Preferences.pullDirectory(this);
-        return addThisFood;
+//        Preferences.storeValues(this);
+//        Preferences.pullDirectory(this);
+//        return addThisFood;
 
 //        Spinner foodDropdown = findViewById(R.id. //blank );
 //        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.foodsList, android.R.layout.simple_spinner_item);
@@ -128,9 +104,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
 
-
-
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
