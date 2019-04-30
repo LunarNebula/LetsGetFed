@@ -50,74 +50,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/food_name_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/food_name" />
+            <!--<TextView-->
+                <!--android:id="@+id/food_name_textview"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/food_name" />-->
 
-            <EditText
-                android:id="@+id/food_name_user_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint='e.g. "orange"'
-                android:inputType="textShortMessage|text" />
+            <!--<EditText-->
+                <!--android:id="@+id/food_name_user_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:autofillHints=""-->
+                <!--android:ems="10"-->
+                <!--android:hint='e.g. "orange"'-->
+                <!--android:inputType="textShortMessage|text" />-->
 
-            <TextView
-                android:id="@+id/select_food_type_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/select_food_type" />
+            <!--<TextView-->
+                <!--android:id="@+id/select_food_type_textview"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/select_food_type" />-->
 
-            <RadioGroup
-                android:id="@+id/food_types_radiogroup"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+            <!--<RadioGroup-->
+                <!--android:id="@+id/food_types_radiogroup"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" >-->
 
-                <RadioButton
-                    android:id="@+id/fruit_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/fruit" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/fruit_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/fruit" />-->
 
-                <RadioButton
-                    android:id="@+id/vegetable_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/vegetable" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/vegetable_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/vegetable" />-->
 
-                <RadioButton
-                    android:id="@+id/protein_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/protein" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/protein_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/protein" />-->
 
-                <RadioButton
-                    android:id="@+id/dairy_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/dairy" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/dairy_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/dairy" />-->
 
-                <RadioButton
-                    android:id="@+id/grain_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/grain" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/grain_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/grain" />-->
 
-                <RadioButton
-                    android:id="@+id/beverage_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/beverage" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/beverage_radio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="@string/beverage" />-->
+            <!--</RadioGroup>-->
 
             <TextView
                 android:id="@+id/date_purchase_textview"
@@ -125,96 +125,96 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date_purchased" />
 
-            <EditText
-                android:id="@+id/date_purchase_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+            <!--<EditText-->
+                <!--android:id="@+id/date_purchase_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:inputType="date" />-->
 
-            <TextView
-                android:id="@+id/counter_min"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/counter_minimum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/counter_min"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/counter_minimum_expiration" />-->
 
-            <EditText
-                android:id="@+id/counter_min_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/counter_min_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
-            <TextView
-                android:id="@+id/counter_max"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/counter_maximum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/counter_max"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/counter_maximum_expiration" />-->
 
-            <EditText
-                android:id="@+id/counter_max_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/counter_max_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
-            <TextView
-                android:id="@+id/fridge_min"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/refrigerator_minimum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/fridge_min"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/refrigerator_minimum_expiration" />-->
 
-            <EditText
-                android:id="@+id/fridge_min_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/fridge_min_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
-            <TextView
-                android:id="@+id/fridge_max"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/refrigerator_maximum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/fridge_max"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/refrigerator_maximum_expiration" />-->
 
-            <EditText
-                android:id="@+id/fridge_max_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/fridge_max_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
-            <TextView
-                android:id="@+id/freezer_min"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/freezer_minimum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/freezer_min"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/freezer_minimum_expiration" />-->
 
-            <EditText
-                android:id="@+id/freezer_min_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/freezer_min_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
-            <TextView
-                android:id="@+id/freezer_max"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/freezer_maximum_expiration" />
+            <!--<TextView-->
+                <!--android:id="@+id/freezer_max"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/freezer_maximum_expiration" />-->
 
-            <EditText
-                android:id="@+id/freezer_max_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="__ days"
-                android:inputType="number" />
+            <!--<EditText-->
+                <!--android:id="@+id/freezer_max_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="10"-->
+                <!--android:hint="__ days"-->
+                <!--android:inputType="number" />-->
 
             <Button
                 android:id="@+id/add_food_button"
