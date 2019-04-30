@@ -46,11 +46,10 @@ public class Food
         this.freezerMaxExp = freezerMax;
     }
 //
-    public Food(String foodName, Date datePurchased, int minExp, int maxExp) {
+    public Food(String foodName, Date datePurchased, int shelfID){
         name = foodName;
         purchased = datePurchased;
-        minExpDate = minExp;
-        maxExpDate= maxExp;
+        location = shelfID;
 
     }
 
