@@ -21,9 +21,14 @@ import java.util.Date;
 
 public class Controller extends Application {
 
-    private String TAG = "Controller Class";
-    private ArrayList<Food> FirebaseFoodList  = new ArrayList<Food>();
-    private ArrayList<Food> UserFoodList = new ArrayList<>();
+    private static String TAG = "Controller Class";
+    private static ArrayList<Food> FirebaseFoodList  = new ArrayList<Food>();
+    private static ArrayList<Food> UserFoodList = new ArrayList<>();
+
+    public static ArrayList<Food> getFoodList() {
+        return FirebaseFoodList;
+    }
+
 
     public void onCreate() {
         super.onCreate();
@@ -96,7 +101,7 @@ public class Controller extends Application {
 
     }
 
-    private void printList () {
+    private void printList() {
         for (int i = 0; i < FirebaseFoodList.size(); i++) {
             Log.d(TAG, FirebaseFoodList.get(i).toString());
         }

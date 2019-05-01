@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     int shelfID;
@@ -35,22 +37,46 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
 
-        Spinner foodDropDown = (Spinner) findViewById(R.id.food_dropdown_spinner);
-        ArrayList<String> spinnerArray = new ArrayList<String>();
-        spinnerArray.add("rice pilaf");
-        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
-        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        foodDropDown.setAdapter(adapterSpinner);
+        Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
+        ArrayList<String> foodArray = new ArrayList<>();
+        for(int i = 0; i < Controller.getFoodList().size(); i++) {
+            foodArray.add(Controller.getFoodList().get(i).getType());
+        }
+        ArrayAdapter<String> foodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, foodArray);
+        foodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        foodDropDown.setAdapter(foodAdapter);
         foodDropDown.setOnItemSelectedListener(this);
 
-//        foodTypeRadio = findViewById(R.id.food_types_radiogroup);
-//        Button addFoodButton = findViewById(R.id.add_food_button);
-//        addFoodButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
+        Spinner monthDropDown = findViewById(R.id.date_month_spinner);
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        ArrayList<String> monthArray = new ArrayList(Arrays.asList(months));
+        ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, monthArray);
+        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        monthDropDown.setAdapter(monthAdapter);
+        monthDropDown.setOnItemSelectedListener(this);
+
+        Spinner dayDropDown = findViewById(R.id.date_day_spinner);
+        ArrayList<String> dayArray = new ArrayList<>();
+        for(int i = 1; i <= 31; i++) {
+            dayArray.add(i + "");
+        }
+        ArrayAdapter<String> dayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dayArray);
+        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dayDropDown.setAdapter(dayAdapter);
+        dayDropDown.setOnItemSelectedListener(this);
+
+        Spinner yearDropDown = findViewById(R.id.date_year_spinner);
+        ArrayList<String> yearArray = new ArrayList<>();
+        for(int i = 0; i <= 10; i++) {
+            yearArray.add(((new Date()).getYear() - i + 1970) + "");
+        }
+        ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, yearArray);
+        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        yearDropDown.setAdapter(yearAdapter);
+        yearDropDown.setOnItemSelectedListener(this);
+
+
         //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
 
 //        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
@@ -77,7 +103,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     {
 
     }
-//    public void addFoodToDatabase(View view) {
+    public void addFoodToDatabase(View view) {
+        //String text = ((Spinner)view).getItemAtPosition().toString();
 //        try {
 //            Pantry.shelves.get(shelfID).addFood(getNewFood());
 //        } catch(Exception e) {
@@ -87,7 +114,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        }
 //
 //        startActivity(new Intent(AddFood.this, Pantry.class));
-//    }
+    }
 
 //        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);
@@ -103,6 +130,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
+
+
 
 
     @Override

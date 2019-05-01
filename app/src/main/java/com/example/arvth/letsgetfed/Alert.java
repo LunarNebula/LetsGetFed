@@ -50,7 +50,7 @@ public class Alert extends AppCompatActivity {
         params.setMargins(0, 0, 0, 10);
         row.setLayoutParams(params);
         TextView title = new TextView(this);
-        title.setText(Pantry.shelves.get(shelfID).getFood(foodID).expirationTime() + " days left!");
+        title.setText(Pantry.shelves.get(shelfID).getFood(foodID).minExpirationTime() + " days left!");
         row.addView(title);
         return row;
     }

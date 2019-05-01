@@ -1,24 +1,13 @@
 package com.example.arvth.letsgetfed;
 
-import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ShelfManager extends AppCompatActivity {
     int shelfID;
@@ -74,7 +63,7 @@ public class ShelfManager extends AppCompatActivity {
 
     public void addfood(View view) {
         Intent intent = new Intent(ShelfManager.this, AddFood.class);
-        intent.putExtra("id", shelfID + "");
+        //intent.putExtra("id", shelfID + "");
         startActivity(intent);
     }
 

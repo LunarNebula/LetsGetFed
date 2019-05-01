@@ -1,11 +1,5 @@
 package com.example.arvth.letsgetfed;
 
-import android.util.Log;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Date;
 
 /**
@@ -183,9 +177,9 @@ public class Food
         this.purchased = date;
     }
     public boolean isExpiring() {
-        return expirationTime() < Alert.ALERT_TIME_BUFFER;
+        return minExpirationTime() < Alert.ALERT_TIME_BUFFER;
     }
-    public long expirationTime() {
+    public long minExpirationTime() {
         switch(location) {
             case 0:
                 return purchased.getTime() + counterMinExp - (new Date()).getTime();
@@ -193,6 +187,17 @@ public class Food
                 return purchased.getTime() + fridgeMinExp - (new Date()).getTime();
             case 2:
                 return purchased.getTime() + freezerMinExp - (new Date()).getTime();
+        }
+        return 0;
+    }
+    public long maxExpirationTime() {
+        switch(location) {
+            case 0:
+                return purchased.getTime() + counterMaxExp - (new Date()).getTime();
+            case 1:
+                return purchased.getTime() + fridgeMaxExp - (new Date()).getTime();
+            case 2:
+                return purchased.getTime() + freezerMaxExp - (new Date()).getTime();
         }
         return 0;
     }
