@@ -12,6 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -71,6 +74,26 @@ public class Controller extends Application {
             Log.d(TAG, eachFood.getPurchaseDate().toString());
             Log.d(TAG, Integer.toString(eachFood.getLocation()));
         }
+
+        FileOutputStream fileOutput = null;
+        String outputFilename = "test.txt";
+        try {
+            fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
+            fileOutput.write("TEST STRING".getBytes());
+        }
+
+        catch (FileNotFoundException e) { e.printStackTrace(); }
+        catch (IOException e) { e.printStackTrace(); };
+
+//        finally {
+//            if (fileOutput != null) {
+//                try {
+//                    fileOutput.close();
+//                }
+//                catch (IOException e) { e.printStackTrace(); }
+//            }
+//        }
+
     }
 
     private void printList () {

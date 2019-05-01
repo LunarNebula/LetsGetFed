@@ -39,6 +39,8 @@
         <activity android:name=".Alert">
         </activity>
 
+        <class android:name=".Controller"> </class>
+
     </application>
 
 </manifest>
