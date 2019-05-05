@@ -16,14 +16,21 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     // Data
     private static final String TAG = "FridgeAdapter";
 
-    private ArrayList<Food> foodNames;
+    Controller controller2 = new Controller();
+    private ArrayList<Food> foodNames = controller2.getUserFoodList();
     private Context recycleShelfContext;
 
     // Constructors
     public FridgeAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
-        foodNames = mFoodNames;
         recycleShelfContext = mRecycleShelfContext;
+        foodNames = mFoodNames;
+        for (int j = 0; j < foodNames.size(); j++) {
+            if (foodNames.get(j).getLocation() != 1) {
+                foodNames.remove(j);
+                j--;
+            }
+        }
     }
 
     @NonNull

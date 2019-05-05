@@ -17,7 +17,7 @@ public class Fridge extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fridge_shelf);
-        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        shelfID = 1;
         RecyclerViewShelf();
         //load(shelfID);
         Preferences.storeValues(this);

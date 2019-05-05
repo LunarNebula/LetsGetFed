@@ -43,7 +43,7 @@ public class Pantry extends AppCompatActivity {
         //DatabaseReference myRef = database.getReference("message");
 
         //myRef.setValue("hi test!");
-        updateVisualList();
+        //updateVisualList();
     }
 
     // thanks to CodingWithMitch for the Recycler View tutorial on YouTube
@@ -54,23 +54,23 @@ public class Pantry extends AppCompatActivity {
 //        recyclerView1.setAdapter(adapter1);
 //        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
 //    }
-    public void add_shelf(View view) {
-        startActivity(new Intent(Pantry.this, AddShelf.class));
-    }
-    public void updateVisualList() {
-        TableLayout shelf_list = findViewById(R.id.shelf_list);
-        int shelfQuantity = shelf_list.getChildCount();
-        for(int i = 0; i < shelfQuantity; i++) {
-            View testRow = shelf_list.getChildAt(i);
-            if(testRow instanceof TableRow) ((TableRow) testRow).removeAllViews();
-        }
-
-        for(int i = 0; i < shelves.size(); i++) {
-            TableRow shelf_row = new TableRow(this);
-            shelf_row.addView(getButton(i));
-            shelf_list.addView(shelf_row);
-        }
-    }
+//    public void add_shelf(View view) {
+//        startActivity(new Intent(Pantry.this, AddShelf.class));
+//    }
+//    public void updateVisualList() {
+//        TableLayout shelf_list = findViewById(R.id.shelf_list);
+//        int shelfQuantity = shelf_list.getChildCount();
+//        for(int i = 0; i < shelfQuantity; i++) {
+//            View testRow = shelf_list.getChildAt(i);
+//            if(testRow instanceof TableRow) ((TableRow) testRow).removeAllViews();
+//        }
+//
+//        for(int i = 0; i < shelves.size(); i++) {
+//            TableRow shelf_row = new TableRow(this);
+//            shelf_row.addView(getButton(i));
+//            shelf_list.addView(shelf_row);
+//        }
+//    }
 //    public void add_shelf(View view) {
 //        startActivity(new Intent(Pantry.this, AddShelf.class));
 //    }

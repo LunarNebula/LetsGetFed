@@ -19,7 +19,7 @@ public class Counter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.counter_shelf);
-        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        shelfID = 0;
         //itemName = (TextView) findViewById(R.id.foodText);
         RecyclerViewShelf();
 

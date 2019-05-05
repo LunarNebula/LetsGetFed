@@ -17,7 +17,7 @@ public class Freezer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.freezer_shelf);
-        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+        shelfID = 2;
         RecyclerViewShelf();
         //load(shelfID);
         Preferences.storeValues(this);
