@@ -40,8 +40,6 @@
         <activity android:name=".AddFood">
         </activity>
 
-        <!--<class android:name=".Controller"> </class>-->
-
     </application>
 
 </manifest>

@@ -38,20 +38,20 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="170dp" />
 
-    <Button
-        android:id="@+id/add_shelf"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginBottom="5dp"
-        android:onClick="add_shelf"
-        android:text="@string/add_shelf"
-        app:layout_constraintBottom_toTopOf="@+id/guide_pantry_toplist"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guide_pantry_expiration" />
+    <!--<Button-->
+        <!--android:id="@+id/add_shelf"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_marginLeft="70dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_marginRight="70dp"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:onClick="add_shelf"-->
+        <!--android:text="@string/add_shelf"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guide_pantry_toplist"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/guide_pantry_expiration" />-->
 
     <ScrollView
         android:id="@+id/pantry_scrollView"
@@ -61,7 +61,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guide_pantry_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_shelf">
+        app:layout_constraintTop_toBottomOf="@+id/guide_pantry_toplist">
+
 
         <TableLayout
             android:id="@+id/shelf_list"
@@ -69,6 +70,32 @@
             android:layout_height="wrap_content"
             android:onClick="shelf_list">
 
+            <TextView
+                android:id="@+id/ShelfTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shelves:" />
+
+            <Button
+            android:id="@+id/CounterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toCounterClick"
+            android:text="Counter" />
+
+            <Button
+                android:id="@+id/FridgeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="toFridgeClick"
+                android:text="Fridge" />
+
+            <Button
+                android:id="@+id/FreezerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="toFreezerClick"
+                android:text="Freezer" />
         </TableLayout>
     </ScrollView>
 

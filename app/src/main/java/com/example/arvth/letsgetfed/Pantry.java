@@ -112,6 +112,12 @@ public class Pantry extends AppCompatActivity {
         Pantry.shelves = new ArrayList<>();
     }
 
+    public void toCounterClick (View view) {startActivity(new Intent(Pantry.this, Counter.class));}
+
+    public void toFridgeClick (View view) {startActivity(new Intent(Pantry.this, Fridge.class));}
+
+    public void toFreezerClick (View view) {startActivity(new Intent(Pantry.this, Freezer.class));}
+
     public void toPantryClick(View view){
         startActivity(new Intent(Pantry.this, Pantry.class));
     }
