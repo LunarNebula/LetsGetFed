@@ -51,7 +51,6 @@ public class Pantry extends AppCompatActivity {
 //        Log.d(TAG, "RecyclerViewPantry: got here");
 //
 //        RecyclerView recyclerView1 = findViewById(R.id.pantry_recyclerview);
-//        RecyclerPantryAdapter adapter1 = new RecyclerPantryAdapter(shelves, this);
 //        recyclerView1.setAdapter(adapter1);
 //        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
 //    }

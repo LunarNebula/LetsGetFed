@@ -1,4 +1,5 @@
 package com.example.arvth.letsgetfed;
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -12,15 +13,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdapter.ViewHolder>{
+public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHolder>{
     // Data
-    private static final String TAG = "RecyclerShelfAdapter";
+    private static final String TAG = "CounterAdapter";
 
     private ArrayList<Food> foodNames;
     private Context recycleShelfContext;
 
     // Constructors
-    public RecyclerShelfAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
+    public CounterAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
         foodNames = mFoodNames;
         recycleShelfContext = mRecycleShelfContext;
@@ -28,14 +29,14 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public CounterAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_shelf, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        CounterAdapter.ViewHolder viewHolder = new CounterAdapter.ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull CounterAdapter.ViewHolder viewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called.");
 
         viewHolder.foodName.setText(foodNames.get(i).getName());

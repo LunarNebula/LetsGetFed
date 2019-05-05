@@ -12,15 +12,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdapter.ViewHolder>{
+public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder>{
     // Data
-    private static final String TAG = "RecyclerShelfAdapter";
+    private static final String TAG = "FridgeAdapter";
 
     private ArrayList<Food> foodNames;
     private Context recycleShelfContext;
 
     // Constructors
-    public RecyclerShelfAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
+    public FridgeAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
         foodNames = mFoodNames;
         recycleShelfContext = mRecycleShelfContext;
