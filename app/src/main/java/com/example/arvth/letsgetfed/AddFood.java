@@ -69,7 +69,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Spinner yearDropDown = findViewById(R.id.date_year_spinner);
         ArrayList<String> yearArray = new ArrayList<>();
         for(int i = 0; i <= 10; i++) {
-            yearArray.add(((new Date()).getYear() - i + 1970) + "");
+            yearArray.add(((new Date()).getYear() - i + 1900) + "");
         }
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, yearArray);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

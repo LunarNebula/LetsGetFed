@@ -1,7 +1,11 @@
 package com.example.arvth.letsgetfed;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TableLayout;
@@ -31,6 +35,7 @@ public class Alert extends AppCompatActivity {
                 }
             }
         }
+        //notification();
     }
     public TableRow getAlertTitle(int shelfID, int foodID) {
         TableRow row = new TableRow(this);
@@ -53,6 +58,18 @@ public class Alert extends AppCompatActivity {
         title.setText(Pantry.shelves.get(shelfID).getFood(foodID).minExpirationTime() + " days left!");
         row.addView(title);
         return row;
+    }
+    public void notification() {
+        Intent intent = new Intent();
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        NotificationCompat.Builder build = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.alert_icon)
+                .setContentTitle("One or more food items is expiring soon!")
+                .setContentText("")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(0, build.build());
     }
 
     public void toPantryClickA(View view){
