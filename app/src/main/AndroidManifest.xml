@@ -39,6 +39,13 @@
 
         <activity android:name=".AddFood">
         </activity>
+        <activity android:name=".Counter">
+        </activity>
+        <activity android:name=".Fridge">
+        </activity>
+        <activity android:name=".Freezer">
+        </activity>
+
 
     </application>
 

@@ -34,14 +34,73 @@
     <string name="both">both</string>
     <string name="apply">apply</string>
 
-    <!--<string-array name="foodtypes">-->
-        <!--<item>Fruit</item>-->
-        <!--<item>Vegetable</item>-->
-        <!--<item>Protein</item>-->
-        <!--<item>Grain</item>-->
-        <!--<item>Dairy</item>-->
-        <!--<item>Beverage</item>-->
-    <!--</string-array>-->
+    <string name="foods">
+        banana
+apple
+grape
+strawberry
+orange
+watermelon
+lemon
+blueberry
+peach
+pineapple
+avocado
+cantaloupe
+cherry
+lime
+pear
+honeydew
+potato
+onion
+tomato
+carrot
+bell pepper
+lettuce
+broccoli
+cucumber
+celery
+mushroom
+garlic
+spinach
+green bean
+sweet potato
+cauliflower
+asparagus
+bacon
+beef
+chicken
+deli meat
+egg
+fish
+ham
+hot dogs
+pork
+shrimp
+tofu
+turkey
+butter
+soft cheese
+hard cheese
+yogurt
+milk
+margarine
+sour cream
+whipped cream
+ice cream
+cream cheese
+cottage cheese
+bread
+cereal
+oatmeal
+pasta (fresh)
+rice
+tortillas
+packaged tea
+fruit juice
+soft drink
+sports drink
+    </string>
 
     <!--<string-array name="foodsList">-->
         <!--<item>Rice Pilaf</item>-->

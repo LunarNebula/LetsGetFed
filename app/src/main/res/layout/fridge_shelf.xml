@@ -6,6 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/addFood"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="addFood"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_fridge_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <android.support.constraint.Guideline
         android:id="@+id/guide_fridge_top"
         android:layout_width="wrap_content"
@@ -21,8 +31,8 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guide_fridge_bottom"
-        app:layout_constraintTop_toBottomOf="@+id/guide_fridge_top"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide_fridge_top" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_fridge_bottom"

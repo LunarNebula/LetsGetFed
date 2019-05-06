@@ -1,6 +1,7 @@
 package com.example.arvth.letsgetfed;
 
 import android.app.Application;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 public class Controller extends Application {
 
@@ -127,6 +129,18 @@ public class Controller extends Application {
 //    public void addToFirebaseList(Food food) {
 //        FirebaseFoodList.add(food);
 //    }
-
+    public ArrayList<String> getHardCodedValues() {
+        String foodsList = getResources().getString(R.string.foods);
+        ArrayList<String> out = new ArrayList<>();
+        for(int i = 0; i < foodsList.length(); i++) {
+            if(Character.isWhitespace(foodsList.charAt(i))) {
+                out.add(foodsList.substring(0, i));
+                foodsList = foodsList.substring(i + 1);
+                i = 0;
+            }
+        }
+        if(foodsList.length() != 0) out.add(foodsList);
+        return out;
+    }
 }
 

@@ -77,21 +77,21 @@
                 android:text="Shelves:" />
 
             <Button
-                android:id="@+id/CounterButton"
+                android:id="@+id/toCounterClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="toCounterClick"
                 android:text="Counter" />
 
             <Button
-                android:id="@+id/FridgeButton"
+                android:id="@+id/toFridgeClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="toFridgeClick"
                 android:text="Fridge" />
 
             <Button
-                android:id="@+id/FreezerButton"
+                android:id="@+id/toFreezerClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="toFreezerClick"

@@ -37,12 +37,15 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
 
+        Controller controller = new Controller();
         Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
-        ArrayList<String> foodArray = new ArrayList<>();
-        for(int i = 0; i < Controller.getFoodList().size(); i++) {
-            foodArray.add(Controller.getFoodList().get(i).getType());
+        ArrayList<String> foodNameArray = new ArrayList<>();
+        ArrayList<Food> foodArray = controller.getFirebaseFoodList();
+        for(int i = 0; i < foodArray.size(); i++) {
+            foodNameArray.add(foodArray.get(i).getType());
         }
-        ArrayAdapter<String> foodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, foodArray);
+        foodNameArray.add("bingus");
+        ArrayAdapter<String> foodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, foodNameArray);
         foodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         foodDropDown.setAdapter(foodAdapter);
         foodDropDown.setOnItemSelectedListener(this);
