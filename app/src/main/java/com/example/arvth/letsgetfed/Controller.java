@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
 public class Controller extends Application {
 
     private String TAG = "Controller Class";
-    private ArrayList<Food> firebaseFoodList  = new ArrayList<Food>();
+    private ArrayList<Food> firebaseFoodList  = new ArrayList<>();
     private ArrayList<Food> userFoodList = new ArrayList<>();
 
     public void onCreate() {
@@ -115,7 +115,7 @@ public class Controller extends Application {
 
     }
 
-    public void onStop () {
+    public void onStop() {
 
         Log.d(TAG, "Here!");
         //Use Ms. Taricco's code on how to write to the local device
@@ -217,17 +217,22 @@ public class Controller extends Application {
         return date;
     }
 
-    public ArrayList<String> getHardCodedValues() {
-        String foodsList = getResources().getString(R.string.foods);
-        ArrayList<String> out = new ArrayList<>();
-        for(int i = 0; i < foodsList.length(); i++) {
-            if(Character.isWhitespace(foodsList.charAt(i))) {
-                out.add(foodsList.substring(0, i));
-                foodsList = foodsList.substring(i + 1);
-                i = 0;
+    public ArrayList<Food> getShelfPopulation(int shelfID) {
+        ArrayList<Food> out = new ArrayList<>();
+        for(int i = 0; i < userFoodList.size(); i++) {
+            if(userFoodList.get(i).getLocation() == shelfID) {
+                out.add(userFoodList.get(i));
             }
         }
-        if(foodsList.length() != 0) out.add(foodsList);
+        return out;
+    }
+    public ArrayList<String> getShelfFoodNames(int shelfID) {
+        ArrayList<String> out = new ArrayList<>();
+        for(int i = 0; i < userFoodList.size(); i++) {
+            if(userFoodList.get(i).getLocation() == shelfID) {
+                out.add(userFoodList.get(i).getName());
+            }
+        }
         return out;
     }
 }

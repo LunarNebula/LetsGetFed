@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,8 +32,10 @@ public class Counter extends AppCompatActivity {
 
     public void RecyclerViewShelf() {
         RecyclerView recyclerView1 = findViewById(R.id.counter_recyclerview);
-        CounterAdapter adapter1 = new CounterAdapter(
-                Pantry.shelves.get(shelfID).getFoodPopulation(), this);
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<Food> shelfFood = aController.getShelfPopulation(0);
+        CounterAdapter adapter1 = new CounterAdapter(shelfFood, this);
+        Log.d("length_", shelfFood.size() + " is leng");
         recyclerView1.setAdapter(adapter1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }

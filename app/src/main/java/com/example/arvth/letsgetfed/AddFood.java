@@ -168,10 +168,11 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Spinner yearSpinner = findViewById(R.id.date_year_spinner);
         int year = Integer.valueOf(yearSpinner.getSelectedItem().toString()) - 1900;
         Spinner monthSpinner = findViewById(R.id.date_month_spinner);
-        int month = Integer.valueOf(monthSpinner.getSelectedItem().toString());
+        int month = monthSpinner.getSelectedItemPosition() + 1;
         Spinner daySpinner = findViewById(R.id.date_day_spinner);
-        int day = Integer.valueOf(daySpinner.getSelectedItem().toString());
+        int day = daySpinner.getSelectedItemPosition() + 1;
         Date purchaseDate = new Date(year, month, day);
+        Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
         startActivity(new Intent(AddFood.this, Pantry.class));
