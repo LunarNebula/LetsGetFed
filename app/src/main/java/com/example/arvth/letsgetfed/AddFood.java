@@ -39,11 +39,11 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 
         Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
         ArrayList<String> foodArray = new ArrayList<>();
+        shelfID = 0;
 
-        Controller controller = new Controller();
-
-        for(int i = 0; i < controller.getFirebaseFoodList().size(); i++) {
-            foodArray.add(controller.getFirebaseFoodList().get(i).getType());
+        final Controller aController = (Controller) getApplicationContext();
+        for(int i = 0; i < aController.getFirebaseFoodList().size(); i++) {
+            foodArray.add(aController.getFirebaseFoodList().get(i).getName());
         }
 
         ArrayAdapter<String> foodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, foodArray);
@@ -161,5 +161,24 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 
     public void toSettingsClickAF(View view){
         startActivity(new Intent(AddFood.this, Settings.class));
+    }
+    public void addFoodToDatabase(View view) {
+        Spinner spinner = findViewById(R.id.food_dropdown_spinner);
+        String type = "";
+        try{
+            type = spinner.getSelectedItem().toString();
+        } catch(Exception e) {
+            type = "ligma";
+        }
+        spinner = findViewById(R.id.date_year_spinner);
+        int year = Integer.valueOf(spinner.getSelectedItem().toString()) - 1900;
+        spinner = findViewById(R.id.date_month_spinner);
+        int month = Integer.valueOf(spinner.getSelectedItem().toString());
+        spinner = findViewById(R.id.date_day_spinner);
+        int day = Integer.valueOf(spinner.getSelectedItem().toString());
+        Date purchaseDate = new Date(year, month, day);
+        final Controller aController = (Controller) getApplicationContext();
+        aController.addToUserList(new Food(type, purchaseDate, shelfID));
+        startActivity(new Intent(AddFood.this, Pantry.class));
     }
 }
