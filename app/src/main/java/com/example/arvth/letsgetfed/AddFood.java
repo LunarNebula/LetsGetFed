@@ -164,18 +164,13 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     }
     public void addFoodToDatabase(View view) {
         Spinner spinner = findViewById(R.id.food_dropdown_spinner);
-        String type = "";
-        try{
-            type = spinner.getSelectedItem().toString();
-        } catch(Exception e) {
-            type = "ligma";
-        }
-        spinner = findViewById(R.id.date_year_spinner);
-        int year = Integer.valueOf(spinner.getSelectedItem().toString()) - 1900;
-        spinner = findViewById(R.id.date_month_spinner);
-        int month = Integer.valueOf(spinner.getSelectedItem().toString());
-        spinner = findViewById(R.id.date_day_spinner);
-        int day = Integer.valueOf(spinner.getSelectedItem().toString());
+        String type = spinner.getSelectedItem().toString();
+        Spinner yearSpinner = findViewById(R.id.date_year_spinner);
+        int year = Integer.valueOf(yearSpinner.getSelectedItem().toString()) - 1900;
+        Spinner monthSpinner = findViewById(R.id.date_month_spinner);
+        int month = Integer.valueOf(monthSpinner.getSelectedItem().toString());
+        Spinner daySpinner = findViewById(R.id.date_day_spinner);
+        int day = Integer.valueOf(daySpinner.getSelectedItem().toString());
         Date purchaseDate = new Date(year, month, day);
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
