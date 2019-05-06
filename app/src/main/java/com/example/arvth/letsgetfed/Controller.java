@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,23 +13,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Controller extends Application {
 
-    private static String TAG = "Controller Class";
-    private static ArrayList<Food> FirebaseFoodList  = new ArrayList<Food>();
-    private static ArrayList<Food> UserFoodList = new ArrayList<>();
-
-    public static ArrayList<Food> getFoodList() {
-        return FirebaseFoodList;
-    }
-
+    private String TAG = "Controller Class";
+    private ArrayList<Food> firebaseFoodList  = new ArrayList<Food>();
+    private ArrayList<Food> userFoodList = new ArrayList<>();
 
     public void onCreate() {
         super.onCreate();
@@ -47,12 +49,10 @@ public class Controller extends Application {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Food food = ds.getValue(Food.class);
                     Log.d(TAG, "Value is: " + food);
-                    FirebaseFoodList.add(food);
+                    firebaseFoodList.add(food);
                 }
 
                 Log.d(TAG, "Count = " + (dataSnapshot.getChildrenCount()));
-
-                printList();
             }
 
             @Override
@@ -63,70 +63,157 @@ public class Controller extends Application {
         });
 
         //Add the .txt parser in here to populate the UserFoodList later
-        Date date1 = new Date(2019, 8, 12);
+        Date date1 = new Date(2019, 2, 3);
         Food temp1 = new Food("banana", date1, 0);
         Food temp2 = new Food("apple", date1, 1);
         Food temp3 = new Food("grape", date1, 2);
-        UserFoodList.add(temp1);
-        UserFoodList.add(temp2);
-        UserFoodList.add(temp3);
+        userFoodList.add(temp1);
+        userFoodList.add(temp2);
+        userFoodList.add(temp3);
+
+//        Log.d(TAG, "Right After Population");
+//        printList(userFoodList);
+
+        // onStop();
+
+        FileInputStream inputStream = null;
+        String input = "";
+        try {
+            inputStream = openFileInput("test.txt");
+            InputStreamReader streamReader = new InputStreamReader(inputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(streamReader);
+            String line = "";
+
+            while ((line = bufferedReader.readLine()) != null){
+                String[] fields = line.split(",");
+
+//                userFoodList.add(new Food(fields[0], parseDate.(fields[1]), Integer.parseInt(fields[2])));
+                userFoodList.add(new Food(fields[0],
+                        parseDate(fields[1]),
+                        Integer.parseInt(fields[2])));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "File not found",
+                    Toast.LENGTH_LONG);
+            toast.show();
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        printList(userFoodList);
+
     }
 
-    public void onClose () {
+    public void onStop () {
+
+        Log.d(TAG, "Here!");
         //Use Ms. Taricco's code on how to write to the local device
-        for (Food eachFood : UserFoodList) {
+        for (Food eachFood : userFoodList) {
             Log.d(TAG, eachFood.getName());
             Log.d(TAG, eachFood.getPurchaseDate().toString());
             Log.d(TAG, Integer.toString(eachFood.getLocation()));
         }
 
+        //Print out the text file when the app closes
         FileOutputStream fileOutput = null;
         String outputFilename = "test.txt";
         try {
             fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
-            fileOutput.write("TEST STRING".getBytes());
+            for (Food eachFood : userFoodList) {
+                fileOutput.write((eachFood.getName() + "," +
+                       toString(eachFood.getPurchaseDate()) + "," +
+                        Integer.toString(eachFood.getLocation()) + "\n").getBytes());
+            }
         }
-
         catch (FileNotFoundException e) { e.printStackTrace(); }
-        catch (IOException e) { e.printStackTrace(); };
+        catch (IOException e) { e.printStackTrace(); }
 
-//        finally {
-//            if (fileOutput != null) {
-//                try {
-//                    fileOutput.close();
-//                }
-//                catch (IOException e) { e.printStackTrace(); }
-//            }
-//        }
+        finally {
+            if (fileOutput != null) {
+                try {
+                    fileOutput.close();
+                }
+                catch (IOException e) { e.printStackTrace(); }
+            }
+        }
 
     }
 
-    private void printList() {
-        for (int i = 0; i < FirebaseFoodList.size(); i++) {
-            Log.d(TAG, FirebaseFoodList.get(i).toString());
+    private void printList (ArrayList<Food> arr) {
+        for (int i = 0; i < arr.size(); i++) {
+            Log.d(TAG, "userList PRINTLIST: " + arr.get(i).toString2());
         }
     }
 
     public ArrayList<Food> getFirebaseFoodList() {
-        return FirebaseFoodList;
+        return firebaseFoodList;
     }
 
     public ArrayList<Food> getUserFoodList() {
-        return UserFoodList;
+        return userFoodList;
     }
 
     public void addToUserList(Food food){
-        UserFoodList.add(food);
+        userFoodList.add(food);
     }
 
     public void deleteFromUserList (Food food) {
-        UserFoodList.remove(food);
+        userFoodList.remove(food);
     }
 
     //We won't implement this in the MVP
 //    public void addToFirebaseList(Food food) {
 //        FirebaseFoodList.add(food);
 //    }
+
+    public static String toString(Date date) {
+        String yyyy = Integer.toString(date.getYear());
+
+        String mm = Integer.toString(date.getMonth());
+        if (mm.length() < 2)
+            mm = "0" + mm;
+
+        String dd = Integer.toString(date.getDate());
+        if (dd.length() < 2)
+            dd = "0" + dd;
+
+        return yyyy + mm + dd;
+    }
+
+    public static Date parseDate(String s) {
+        int yyyy = Integer.parseInt(Character.toString(s.charAt(0)).concat(Character.toString(s.charAt(1)))
+                .concat(Character.toString(s.charAt(2))).concat(Character.toString(s.charAt(3))));
+
+        int mm = 0;
+        int dd = 0;
+        if (s.charAt(4) == '0') {
+            mm = Integer.parseInt(Character.toString(s.charAt(5)));
+        }
+
+        else {
+            mm = Integer.parseInt(Character.toString(s.charAt(4)).concat(Character.toString(s.charAt(5))));
+        }
+
+        if (s.charAt(6) == '0') {
+            dd = Integer.parseInt(Character.toString(s.charAt(7)));
+        }
+
+        else {
+            dd = Integer.parseInt(Character.toString(s.charAt(6)).concat(Character.toString(s.charAt(7))));
+        }
+
+        Date date = new Date (yyyy, mm, dd);
+        return date;
+    }
 
 }
 

@@ -39,8 +39,11 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 
         Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
         ArrayList<String> foodArray = new ArrayList<>();
-        for(int i = 0; i < Controller.getFoodList().size(); i++) {
-            foodArray.add(Controller.getFoodList().get(i).getType());
+
+        Controller controller = new Controller();
+
+        for(int i = 0; i < controller.getFirebaseFoodList().size(); i++) {
+            foodArray.add(controller.getFirebaseFoodList().get(i).getType());
         }
         ArrayAdapter<String> foodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, foodArray);
         foodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -77,7 +80,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         yearDropDown.setOnItemSelectedListener(this);
 
 
-        //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
+//        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
 
 //        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
 //// Create an ArrayAdapter using the string array and a default spinner layout
@@ -87,10 +90,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //// Apply the adapter to the spinner
 //        spinner.setAdapter(adapter);
-
-//        Food test = new Food("pencil", "writing", 1,1,1,1,1,1);
-//        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-//        rootRef.push().setValue(test);
     }
 
     public void checkButton(View view)
@@ -103,7 +102,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     {
 
     }
-    public void addFoodToDatabase(View view) {
+
+    //public void addFoodToDatabase(View view) {
         //String text = ((Spinner)view).getItemAtPosition().toString();
 //        try {
 //            Pantry.shelves.get(shelfID).addFood(getNewFood());
@@ -114,7 +114,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        }
 //
 //        startActivity(new Intent(AddFood.this, Pantry.class));
-    }
+    //}
 
 //        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);

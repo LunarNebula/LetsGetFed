@@ -204,8 +204,13 @@ public class Food
     public void setLocation(int location) {
         this.location = location;
     }
+
     @Override
     public String toString()  {
         return getName() + getType() + getCounterMaxExp() + getFreezerMaxExp() + getFridgeMaxExp();
+    }
+
+    public String toString2() {
+        return getName() + getPurchaseDate().toString() + Integer.toString(getLocation());
     }
 }
