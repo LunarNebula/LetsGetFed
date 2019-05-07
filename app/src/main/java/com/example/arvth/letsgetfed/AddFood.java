@@ -175,6 +175,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
+        aController.onPause();
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 }

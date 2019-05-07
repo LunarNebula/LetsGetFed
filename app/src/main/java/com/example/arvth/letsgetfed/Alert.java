@@ -12,6 +12,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Alert extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +30,39 @@ public class Alert extends AppCompatActivity {
             View tableView = layout.getChildAt(i);
             if(tableView instanceof TableRow) ((TableRow) tableView).removeAllViews();
         }
-        for(int s = 0; s < Pantry.shelves.size(); s++) {
-            for(int p = 0; p < Pantry.shelves.get(s).getPopulation(); p++) {
-                if(Pantry.shelves.get(s).getFood(p).isExpiring()) {
-                    layout.addView(getAlertTitle(s, p));
-                    layout.addView(getAlertTime(s, p));
-                }
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<Food> userFood = aController.getUserFoodList();
+        ArrayList<Food> firebaseFood = aController.getFirebaseFoodList();
+        for(int i = 0; i < userFood.size(); i++) {
+            int getLocation = firebaseFood.indexOf(userFood.get(i));
+            long timeBuffer = -1;
+            switch(userFood.get(i).getLocation()) {
+                case 0:
+                    timeBuffer = firebaseFood.get(getLocation).getCounterMinExp();
+                    break;
+                case 1:
+                    timeBuffer = firebaseFood.get(getLocation).getFridgeMinExp();
+                    break;
+                case 2:
+                    timeBuffer = firebaseFood.get(getLocation).getFreezerMinExp();
+            }
+            long spd = 86400000;
+            Date date = new Date(firebaseFood.get(getLocation).getPurchaseDate().getTime()
+                    + spd * timeBuffer - ALERT_TIME_BUFFER);
+            if(date.before(new Date())) {
+                layout.addView(getAlertTitle(userFood.get(i)));
             }
         }
         //notification();
     }
-    public TableRow getAlertTitle(int shelfID, int foodID) {
+    public TableRow getAlertTitle(Food food) {
         TableRow row = new TableRow(this);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
                 TableRow.LayoutParams.WRAP_CONTENT);
         params.setMargins(0, 10, 0, 0);
         row.setLayoutParams(params);
         TextView title = new TextView(this);
-        title.setText(Pantry.shelves.get(shelfID).getFood(foodID).getName());
+        title.setText(food.getName());
         row.addView(title);
         return row;
     }

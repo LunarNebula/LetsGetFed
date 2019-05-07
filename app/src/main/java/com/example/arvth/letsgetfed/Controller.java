@@ -115,7 +115,7 @@ public class Controller extends Application {
 
     }
 
-    public void onStop() {
+    public void onPause() {
 
         Log.d(TAG, "Here!");
         //Use Ms. Taricco's code on how to write to the local device
