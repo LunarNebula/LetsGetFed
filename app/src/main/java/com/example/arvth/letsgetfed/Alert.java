@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -34,7 +35,10 @@ public class Alert extends AppCompatActivity {
         ArrayList<Food> userFood = aController.getUserFoodList();
         ArrayList<Food> firebaseFood = aController.getFirebaseFoodList();
         for(int i = 0; i < userFood.size(); i++) {
-            int getLocation = firebaseFood.indexOf(userFood.get(i));
+            int getLocation = 0;
+            while(! firebaseFood.get(getLocation).getName().equals(userFood.get(i).getName())) {
+                getLocation++;
+            };
             long timeBuffer = -1;
             switch(userFood.get(i).getLocation()) {
                 case 0:
@@ -46,11 +50,12 @@ public class Alert extends AppCompatActivity {
                 case 2:
                     timeBuffer = firebaseFood.get(getLocation).getFreezerMinExp();
             }
-            long spd = 86400000;
-            Date date = new Date(firebaseFood.get(getLocation).getPurchaseDate().getTime()
-                    + spd * timeBuffer - ALERT_TIME_BUFFER);
-            if(date.before(new Date())) {
+            long mspd = 86400000;
+            Date date = new Date(userFood.get(i).getPurchaseDate().getTime()
+                    + mspd * (timeBuffer - ALERT_TIME_BUFFER));
+            if(date.after(new Date())) {
                 layout.addView(getAlertTitle(userFood.get(i)));
+                Log.d("nugget", "we have an alert");
             }
         }
         //notification();
