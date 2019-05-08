@@ -101,6 +101,8 @@ fruit juice
 soft drink
 sports drink
     </string>
+    <string name="delete_food">Delete Food</string>
+    <string name="edit_food">Edit Food</string>
 
     <!--<string-array name="foodsList">-->
         <!--<item>Rice Pilaf</item>-->

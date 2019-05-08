@@ -20,22 +20,22 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        alertsRadio = findViewById(R.id.alert_radiogroup);
+       // alertsRadio = findViewById(R.id.alert_radiogroup);
         Button apply = findViewById(R.id.set_button);
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                setSettings(view);
             }
         });
 
     }
 
-    public void checkButton(View view)
-    {
-        alertRadioID = alertsRadio.getCheckedRadioButtonId();
-        alertsRadioButton = findViewById(alertRadioID);
-    }
+//    public void checkButton(View view)
+//    {
+//        alertRadioID = alertsRadio.getCheckedRadioButtonId();
+//        alertsRadioButton = findViewById(alertRadioID);
+//    }
 
     public void setSettings(View view)
     {

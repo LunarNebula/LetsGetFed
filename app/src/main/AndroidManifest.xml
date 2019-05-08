@@ -22,16 +22,16 @@
         <!--</activity>-->
 
         <activity android:name=".AddFood">
+        </activity>
+
+
+        <activity android:name=".OpeningScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".OpeningScreen">
-        </activity>
-
         <activity android:name=".AddShelf">
         </activity>
 
@@ -42,8 +42,17 @@
         </activity>
 
         <activity android:name=".Counter">
-
         </activity>
+
+        <activity android:name=".Fridge">
+        </activity>
+
+        <activity android:name=".Freezer">
+        </activity>
+
+        <activity android:name=".Edit">
+        </activity>
+
 
     </application>
 

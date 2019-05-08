@@ -6,16 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/addFood"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="addFood"
-        android:text="@string/add_food"
-        app:layout_constraintBottom_toTopOf="@+id/guide_counter_top"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.constraint.Guideline
         android:id="@+id/guide_counter_top"
         android:layout_width="wrap_content"
@@ -27,13 +17,51 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/counter_recyclerview"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/addFood"
+        app:layout_constraintTop_toBottomOf="@+id/guide_counter_top"
+        tools:layout_editor_absoluteX="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/editFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toEditC"
+        android:text="@string/edit_food"
         app:layout_constraintBottom_toTopOf="@+id/guide_counter_bottom"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guide_counter_top" />
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter_recyclerview"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/addFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addCounterFood"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_counter_bottom"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter_recyclerview" />
+
+    <Button
+        android:id="@+id/deleteFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_counter_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/counter_recyclerview"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="149dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_counter_bottom"

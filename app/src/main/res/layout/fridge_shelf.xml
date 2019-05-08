@@ -6,16 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/addFood"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="addFood"
-        android:text="@string/add_food"
-        app:layout_constraintBottom_toTopOf="@+id/guide_fridge_top"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.constraint.Guideline
         android:id="@+id/guide_fridge_top"
         android:layout_width="wrap_content"
@@ -30,9 +20,46 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/addFood2"
+        app:layout_constraintTop_toBottomOf="@+id/guide_fridge_top"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <Button
+        android:id="@+id/editFood2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toEditFd"
+        android:text="@string/edit_food"
         app:layout_constraintBottom_toTopOf="@+id/guide_fridge_bottom"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guide_fridge_top" />
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fridge_recyclerview"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/addFood2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addFridgeFood"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_fridge_bottom"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fridge_recyclerview" />
+
+    <Button
+        android:id="@+id/deleteFood2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_food"
+        app:layout_constraintBottom_toTopOf="@+id/guide_fridge_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/fridge_recyclerview"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="149dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_fridge_bottom"
