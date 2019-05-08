@@ -42,6 +42,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 
         Intent intent = getIntent();
         int shelfID = intent.getIntExtra("id", -1);
+        Log.d(TAG, Integer.toString(shelfID));
 
         final Controller aController = (Controller) getApplicationContext();
         for(int i = 0; i < aController.getFirebaseFoodList().size(); i++) {
@@ -177,7 +178,12 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
-        aController.onStop(); //changed this to onStop from the pulled code
+
+        for(int j = 0; j < aController.getUserFoodList().size(); j++) {
+            Log.d(TAG, aController.getUserFoodList().get(j).toString2());
+        }
+
+        //aController.onStop(); //changed this to onStop from the pulled code
         //onStop will get working tomorrow in class
         //onStop methods just have to be added to the bottom of every class
         startActivity(new Intent(AddFood.this, Pantry.class));

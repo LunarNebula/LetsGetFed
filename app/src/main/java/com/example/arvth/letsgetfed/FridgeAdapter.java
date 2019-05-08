@@ -16,8 +16,7 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     // Data
     private static final String TAG = "FridgeAdapter";
 
-    Controller controller2 = new Controller();
-    private ArrayList<Food> foodNames = controller2.getUserFoodList();
+    private ArrayList<Food> foodNames;
     private Context recycleShelfContext;
 
     // Constructors

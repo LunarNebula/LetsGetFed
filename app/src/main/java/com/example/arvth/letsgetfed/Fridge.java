@@ -27,8 +27,10 @@ public class Fridge extends AppCompatActivity {
 
     public void RecyclerViewShelf() {
         RecyclerView recyclerView2 = findViewById(R.id.fridge_recyclerview);
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<Food> shelfFood = aController.getShelfPopulation(1);
         FridgeAdapter adapter2 = new FridgeAdapter(
-                Pantry.shelves.get(shelfID).getFoodPopulation(), this);
+                shelfFood, this);
         recyclerView2.setAdapter(adapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
     }

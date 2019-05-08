@@ -67,16 +67,6 @@ public class Controller extends Application {
         });
 
         //Add the .txt parser in here to populate the UserFoodList later
-        Date date1 = new Date(2019, 2, 3);
-        Food temp1 = new Food("banana", date1, 0);
-        Food temp2 = new Food("apple", date1, 1);
-        Food temp3 = new Food("grape", date1, 2);
-        userFoodList.add(temp1);
-        userFoodList.add(temp2);
-        userFoodList.add(temp3);
-
-//        Log.d(TAG, "Right After Population");
-//        printList(userFoodList);
 
         onStop();
 

@@ -15,7 +15,11 @@
         </activity>
 
         <activity android:name=".Pantry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--<activity android:name=".Shelf">-->
@@ -24,14 +28,9 @@
         <activity android:name=".AddFood">
         </activity>
 
-
         <activity android:name=".OpeningScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity android:name=".AddShelf">
         </activity>
 
@@ -41,18 +40,11 @@
         <activity android:name=".Alert">
         </activity>
 
-        <activity android:name=".Counter">
-        </activity>
+        <activity android:name=".Counter"></activity>
 
-        <activity android:name=".Fridge">
-        </activity>
+        <activity android:name=".Fridge"></activity>
 
-        <activity android:name=".Freezer">
-        </activity>
-
-        <activity android:name=".Edit">
-        </activity>
-
+        <activity android:name=".Freezer"></activity>
 
     </application>
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -26,8 +27,9 @@ public class Freezer extends AppCompatActivity {
 
     public void RecyclerViewShelf() {
         RecyclerView recyclerView3 = findViewById(R.id.freezer_recyclerview);
-        FreezerAdapter adapter3 = new FreezerAdapter(
-                Pantry.shelves.get(shelfID).getFoodPopulation(), this);
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<Food> shelfFood = aController.getShelfPopulation(2);
+        FreezerAdapter adapter3 = new FreezerAdapter(shelfFood, this);
         recyclerView3.setAdapter(adapter3);
         recyclerView3.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -41,7 +41,7 @@ public class Alert extends AppCompatActivity {
         boolean notify = true;
         for(int i = 0; i < userFood.size(); i++) {
             int getLocation = 0;
-            while(! firebaseFood.get(getLocation).getName().equals(userFood.get(i).getName())) {
+            while(!(firebaseFood.get(getLocation).getName().equals(userFood.get(i).getName()))) {
                 getLocation++;
             };
             Date date = new Date(userFood.get(i).getPurchased().getTime() + (firebaseFood.get(getLocation).minExpirationTime() - ALERT_TIME_BUFFER) * MSPD);

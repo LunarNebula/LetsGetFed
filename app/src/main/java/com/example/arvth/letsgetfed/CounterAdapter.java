@@ -17,21 +17,23 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     // Data
     private static final String TAG = "CounterAdapter";
 
-    Controller controller1 = new Controller();
-    private ArrayList<Food> foodNames = controller1.getUserFoodList();
+    private ArrayList<Food> foodNames;
     private Context recycleShelfContext;
 
     // Constructors
     public CounterAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
+        Log.d(TAG, "In the constructor");
         recycleShelfContext = mRecycleShelfContext;
         foodNames = mFoodNames;
-//        for (int j = 0; j < foodNames.size(); j++) {
+        for (int j = 0; j < foodNames.size(); j++) {
 //            if (foodNames.get(j).getLocation() != 0) {
-//                foodNames.remove(j);
-//                j--;
+////                foodNames.remove(j);
+////                j--;
 //            }
-//        }
+        }
+
+        Log.d(TAG, Integer.toString(foodNames.size()));
     }
 
     @NonNull

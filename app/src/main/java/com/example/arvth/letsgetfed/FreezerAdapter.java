@@ -16,8 +16,7 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     // Data
     private static final String TAG = "FreezerAdapter";
 
-    Controller controller3 = new Controller();
-    private ArrayList<Food> foodNames = controller3.getUserFoodList();
+    private ArrayList<Food> foodNames;
     private Context recycleShelfContext;
 
     // Constructors

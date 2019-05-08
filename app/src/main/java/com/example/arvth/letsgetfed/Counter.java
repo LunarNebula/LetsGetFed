@@ -24,13 +24,14 @@ public class Counter extends AppCompatActivity {
         shelfID = 0;
         //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
         //itemName = (TextView) findViewById(R.id.foodText);
+
         RecyclerViewShelf();
 
 //        Preferences.storeValues(this);
 //        Preferences.pullDirectory(this);
     }
 
-    public void RecyclerViewShelf() {
+    private void RecyclerViewShelf() {
         RecyclerView recyclerView1 = findViewById(R.id.counter_recyclerview);
         final Controller aController = (Controller) getApplicationContext();
         ArrayList<Food> shelfFood = aController.getShelfPopulation(0);
