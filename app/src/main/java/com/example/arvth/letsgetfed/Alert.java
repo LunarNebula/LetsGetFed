@@ -1,9 +1,12 @@
 package com.example.arvth.letsgetfed;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +20,14 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Alert extends AppCompatActivity {
+    private final long MSPD = 86400000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
         loadAlerts();
     }
-    public static int ALERT_TIME_BUFFER = 5;
+    public static int ALERT_TIME_BUFFER = 3;
     public void loadAlerts() {
         TableLayout layout = findViewById(R.id.alert_list);
         int count = layout.getChildCount();
@@ -34,31 +38,24 @@ public class Alert extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         ArrayList<Food> userFood = aController.getUserFoodList();
         ArrayList<Food> firebaseFood = aController.getFirebaseFoodList();
+        boolean notify = true;
         for(int i = 0; i < userFood.size(); i++) {
             int getLocation = 0;
             while(! firebaseFood.get(getLocation).getName().equals(userFood.get(i).getName())) {
                 getLocation++;
             };
-            long timeBuffer = -1;
-            switch(userFood.get(i).getLocation()) {
-                case 0:
-                    timeBuffer = firebaseFood.get(getLocation).getCounterMinExp();
-                    break;
-                case 1:
-                    timeBuffer = firebaseFood.get(getLocation).getFridgeMinExp();
-                    break;
-                case 2:
-                    timeBuffer = firebaseFood.get(getLocation).getFreezerMinExp();
-            }
-            long mspd = 86400000;
-            Date date = new Date(userFood.get(i).getPurchaseDate().getTime()
-                    + mspd * (timeBuffer - ALERT_TIME_BUFFER));
-            if(date.after(new Date())) {
+            Date date = new Date(userFood.get(i).getPurchased().getTime() + (firebaseFood.get(getLocation).minExpirationTime() - ALERT_TIME_BUFFER) * MSPD);
+            Date current = new Date();
+            current.setYear(current.getYear() + 1900);
+            Log.d("bought", userFood.get(i).getPurchased().toString());
+            Log.d("expirationWarning", date.toString());
+            if(current.after(date)) {
                 layout.addView(getAlertTitle(userFood.get(i)));
-                Log.d("nugget", "we have an alert");
+                layout.addView(getAlertTime(userFood.get(i)));
+                if(notify) notification();
+                notify = false;
             }
         }
-        //notification();
     }
     public TableRow getAlertTitle(Food food) {
         TableRow row = new TableRow(this);
@@ -71,27 +68,33 @@ public class Alert extends AppCompatActivity {
         row.addView(title);
         return row;
     }
-    public TableRow getAlertTime(int shelfID, int foodID) {
+    public TableRow getAlertTime(Food food) {
         TableRow row = new TableRow(this);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
                 TableRow.LayoutParams.WRAP_CONTENT);
         params.setMargins(0, 0, 0, 10);
         row.setLayoutParams(params);
         TextView title = new TextView(this);
-        title.setText(Pantry.shelves.get(shelfID).getFood(foodID).minExpirationTime() + " days left!");
+        Date date = food.getPurchased();
+        date.setYear(date.getYear() - 1900);
+        food.setPurchased(date);
+        title.setText(((food.getPurchased().getTime() + food.minExpirationTime() * MSPD - (new Date()).getTime()) / MSPD) + "");
         row.addView(title);
         return row;
     }
     public void notification() {
-        Intent intent = new Intent();
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
         NotificationCompat.Builder build = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.alert_icon)
                 .setContentTitle("One or more food items is expiring soon!")
                 .setContentText("")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        Intent intent = new Intent(this, Pantry.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        build.setContentIntent(pIntent);
+
         NotificationManager notificationManager =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, build.build());
     }
 

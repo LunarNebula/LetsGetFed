@@ -22,6 +22,7 @@ public class Food
     private int maxExpDate;
     private int location;
 
+    private long MSPD = 86400000;
     // Constructor
 
     /**
@@ -182,22 +183,22 @@ public class Food
     public long minExpirationTime() {
         switch(location) {
             case 0:
-                return purchased.getTime() + counterMinExp - (new Date()).getTime();
+                return counterMinExp;
             case 1:
-                return purchased.getTime() + fridgeMinExp - (new Date()).getTime();
+                return fridgeMinExp;
             case 2:
-                return purchased.getTime() + freezerMinExp - (new Date()).getTime();
+                return freezerMinExp;
         }
         return 0;
     }
     public long maxExpirationTime() {
         switch(location) {
             case 0:
-                return purchased.getTime() + counterMaxExp - (new Date()).getTime();
+                return counterMaxExp;
             case 1:
-                return purchased.getTime() + fridgeMaxExp - (new Date()).getTime();
+                return fridgeMaxExp;
             case 2:
-                return purchased.getTime() + freezerMaxExp - (new Date()).getTime();
+                return freezerMaxExp;
         }
         return 0;
     }

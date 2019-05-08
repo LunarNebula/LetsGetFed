@@ -168,11 +168,11 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Spinner spinner = findViewById(R.id.food_dropdown_spinner);
         String type = spinner.getSelectedItem().toString();
         Spinner yearSpinner = findViewById(R.id.date_year_spinner);
-        int year = Integer.valueOf(yearSpinner.getSelectedItem().toString()) - 1900;
+        int year = Integer.valueOf(yearSpinner.getSelectedItem().toString());
         Spinner monthSpinner = findViewById(R.id.date_month_spinner);
-        int month = monthSpinner.getSelectedItemPosition() + 1;
+        int month = monthSpinner.getSelectedItemPosition();
         Spinner daySpinner = findViewById(R.id.date_day_spinner);
-        int day = daySpinner.getSelectedItemPosition() + 1;
+        int day = daySpinner.getSelectedItemPosition();
         Date purchaseDate = new Date(year, month, day);
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();

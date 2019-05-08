@@ -36,6 +36,9 @@ public class Counter extends AppCompatActivity {
         ArrayList<Food> shelfFood = aController.getShelfPopulation(0);
         CounterAdapter adapter1 = new CounterAdapter(shelfFood, this);
         Log.d("length_", shelfFood.size() + " is leng");
+        for(int i = 0; i < shelfFood.size(); i++) {
+            Log.d("food_", shelfFood.get(i).getName());
+        }
         recyclerView1.setAdapter(adapter1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }
