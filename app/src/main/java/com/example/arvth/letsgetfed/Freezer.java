@@ -38,16 +38,6 @@ public class Freezer extends AppCompatActivity {
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
 
-    public void addfood(View view) {
-        Intent intent = new Intent(Freezer.this, AddFood.class);
-        intent.putExtra("id", shelfID + "");
-        startActivity(intent);
-    }
-
-    public void addFreezerFood(View view){
-
-    }
-
     public void toPantryClickFr(View view){
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
@@ -64,7 +54,7 @@ public class Freezer extends AppCompatActivity {
         startActivity(new Intent(Freezer.this, Edit.class));
     }
 
-    public void addFood(View view) {
+    public void toAddFoodFr(View view) {
         Intent intent = new Intent(Freezer.this, AddFood.class);
         intent.putExtra("id", 2);
         startActivity(intent);

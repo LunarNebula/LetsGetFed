@@ -43,7 +43,7 @@
         android:id="@+id/addFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="addCounterFood"
+        android:onClick="toAddFoodC"
         android:text="@string/add_food"
         app:layout_constraintBottom_toTopOf="@+id/guide_counter_bottom"
         app:layout_constraintHorizontal_bias="0.199"

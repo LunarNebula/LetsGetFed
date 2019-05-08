@@ -44,10 +44,6 @@ public class Counter extends AppCompatActivity {
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void addCounterFood(View view){
-
-    }
-
     public void toPantryClickC(View view){
         startActivity(new Intent(Counter.this, Pantry.class));
     }
@@ -64,7 +60,7 @@ public class Counter extends AppCompatActivity {
         startActivity(new Intent(Counter.this, Edit.class));
     }
 
-    public void addFood(View view) {
+    public void toAddFoodC(View view) {
         Intent intent = new Intent(Counter.this, AddFood.class);
         intent.putExtra("id", 0);
         startActivity(intent);
