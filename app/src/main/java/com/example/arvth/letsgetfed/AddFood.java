@@ -39,7 +39,9 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 
         Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
         ArrayList<String> foodArray = new ArrayList<>();
-        shelfID = 0;
+
+        Intent intent = getIntent();
+        int shelfID = intent.getIntExtra("id", -1);
 
         final Controller aController = (Controller) getApplicationContext();
         for(int i = 0; i < aController.getFirebaseFoodList().size(); i++) {
@@ -175,7 +177,32 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
-        aController.onPause();
+        aController.onStop(); //changed this to onStop from the pulled code
+        //onStop will get working tomorrow in class
+        //onStop methods just have to be added to the bottom of every class
         startActivity(new Intent(AddFood.this, Pantry.class));
+
+
     }
+//    public void addFoodToDatabase(View view) {
+//        Spinner spinner = findViewById(R.id.food_dropdown_spinner);
+//        String type = "";
+//        try{
+//            type = spinner.getSelectedItem().toString();
+//        } catch(Exception e) {
+//            type = "ligma";
+//        }
+//        spinner = findViewById(R.id.date_year_spinner);
+//        int year = Integer.valueOf(spinner.getSelectedItem().toString()) - 1900;
+//        spinner = findViewById(R.id.date_month_spinner);
+//        int month = Integer.valueOf(spinner.getSelectedItem().toString());
+//        spinner = findViewById(R.id.date_day_spinner);
+//        int day = Integer.valueOf(spinner.getSelectedItem().toString());
+//        Date purchaseDate = new Date(year, month, day);
+//        final Controller aController = (Controller) getApplicationContext();
+//        aController.addToUserList(new Food(type, purchaseDate, shelfID));
+//        startActivity(new Intent(AddFood.this, Pantry.class));
+//    }
+
+
 }

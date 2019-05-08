@@ -2,10 +2,12 @@ package com.example.arvth.letsgetfed;
 
 import android.app.Application;
 import android.content.res.Resources;
+import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -76,7 +78,7 @@ public class Controller extends Application {
 //        Log.d(TAG, "Right After Population");
 //        printList(userFoodList);
 
-        // onStop();
+        onStop();
 
         FileInputStream inputStream = null;
         String input = "";
@@ -115,7 +117,8 @@ public class Controller extends Application {
 
     }
 
-    public void onPause() {
+    protected void onStop () {
+        //super.onStop();
 
         Log.d(TAG, "Here!");
         //Use Ms. Taricco's code on how to write to the local device
