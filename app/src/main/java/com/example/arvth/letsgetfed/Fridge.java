@@ -41,12 +41,8 @@ public class Fridge extends AppCompatActivity {
 
     public void toAddFoodFd(View view) {
         Intent intent = new Intent(Fridge.this, AddFood.class);
-        intent.putExtra("id", shelfID + "");
+        intent.putExtra("id", 1);
         startActivity(intent);
-    }
-
-    public void addFridgeFood(View view){
-
     }
 
     public void toPantryClickFd(View view){

@@ -11,9 +11,9 @@ import android.widget.RadioGroup;
 
 public class Settings extends AppCompatActivity {
 
-    RadioGroup alertsRadio;
-    RadioButton alertsRadioButton;
-    int alertRadioID;
+//    RadioGroup alertsRadio;
+//    RadioButton alertsRadioButton;
+//    int alertRadioID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,9 @@ public class Settings extends AppCompatActivity {
 
     public void setSettings(View view)
     {
-
+        Alert.ALERT_TIME_BUFFER = Integer.valueOf(findViewById(R.id.days_in_advance_fill).toString());
+        Preferences.storeValues(this);
+        Preferences.pullDirectory(this);
     }
 
     public void toPantryClickS(View view){
