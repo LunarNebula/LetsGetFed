@@ -68,7 +68,7 @@ public class Controller extends Application {
 
         //Add the .txt parser in here to populate the UserFoodList later
 
-        onStop();
+        //onStop();
 
         FileInputStream inputStream = null;
         String input = "";

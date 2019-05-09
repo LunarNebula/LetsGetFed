@@ -21,8 +21,8 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toTopOf="@+id/addFood"
-        app:layout_constraintTop_toBottomOf="@+id/guide_counter_top"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide_counter_top">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -41,7 +41,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         ArrayList<String> foodArray = new ArrayList<>();
 
         Intent intent = getIntent();
-        int shelfID = intent.getIntExtra("id", -1);
+        shelfID = intent.getIntExtra("id", -1);
         Log.d(TAG, Integer.toString(shelfID));
 
         final Controller aController = (Controller) getApplicationContext();

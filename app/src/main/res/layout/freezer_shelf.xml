@@ -13,14 +13,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="100dp" />
 
-    // thanks to CodingWithMitch for the RecyclerView tutorial on YouTube
+    <!--// thanks to CodingWithMitch for the RecyclerView tutorial on YouTube-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/freezer_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/addFood3"
+        app:layout_constraintBottom_toTopOf="@+id/addFood"
         app:layout_constraintTop_toBottomOf="@+id/guide_freezer_top"
         tools:layout_editor_absoluteX="10dp" />
 
@@ -41,7 +41,7 @@
         android:id="@+id/addFood3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="addFreezerFood"
+        android:onClick="toAddFoodFz"
         android:text="@string/add_food"
         app:layout_constraintBottom_toTopOf="@+id/guide_freezer_bottom"
         app:layout_constraintHorizontal_bias="0.199"

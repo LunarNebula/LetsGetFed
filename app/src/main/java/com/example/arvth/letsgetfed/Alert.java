@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +39,8 @@ public class Alert extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         ArrayList<Food> userFood = aController.getUserFoodList();
         ArrayList<Food> firebaseFood = aController.getFirebaseFoodList();
+        Toast.makeText(this, userFood.size() + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, firebaseFood.size() + " nugget", Toast.LENGTH_SHORT).show();
         boolean notify = true;
         for(int i = 0; i < userFood.size(); i++) {
             int getLocation = 0;

@@ -46,6 +46,10 @@
 
         <activity android:name=".Freezer"></activity>
 
+        <activity android:name=".Settings"></activity>
+
+        <activity android:name=".Edit"></activity>
+
     </application>
 
 </manifest>
