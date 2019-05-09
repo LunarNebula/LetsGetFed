@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme"
         android:name=".Controller">
 
-        <activity android:name=".FoodManager">
-        </activity>
+        <activity android:name=".FoodManager"></activity>
 
         <activity android:name=".Pantry">
             <intent-filter>
@@ -25,20 +24,15 @@
         <!--<activity android:name=".Shelf">-->
         <!--</activity>-->
 
-        <activity android:name=".AddFood">
-        </activity>
+        <activity android:name=".AddFood"></activity>
 
-        <activity android:name=".OpeningScreen">
-        </activity>
+        <activity android:name=".OpeningScreen"></activity>
 
-        <activity android:name=".AddShelf">
-        </activity>
+        <activity android:name=".AddShelf"></activity>
 
-        <activity android:name=".ShelfManager">
-        </activity>
+        <activity android:name=".ShelfManager"></activity>
 
-        <activity android:name=".Alert">
-        </activity>
+        <activity android:name=".Alert"></activity>
 
         <activity android:name=".Counter"></activity>
 
