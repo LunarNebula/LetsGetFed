@@ -68,8 +68,8 @@ public class AddShelf extends AppCompatActivity {
         Shelf addThisShelf = new Shelf (shelfName, shelfNumForObject);
 
         Pantry.shelves.add(addThisShelf);
-
-        Preferences.storeValues(this);
+        Controller aController = (Controller) getApplicationContext();
+        Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }

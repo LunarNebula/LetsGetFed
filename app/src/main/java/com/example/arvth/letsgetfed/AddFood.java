@@ -178,7 +178,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
-
+        Preferences.storeValues(this, Preferences.getPreferencesFood());
         for(int j = 0; j < aController.getUserFoodList().size(); j++) {
             Log.d(TAG, aController.getUserFoodList().get(j).toString2());
         }

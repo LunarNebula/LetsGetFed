@@ -20,7 +20,7 @@ public class Fridge extends AppCompatActivity {
         shelfID = 1;
         RecyclerViewShelf();
         //load(shelfID);
-        Preferences.storeValues(this);
+        Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
 
     }

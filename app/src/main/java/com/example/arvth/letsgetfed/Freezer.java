@@ -21,7 +21,7 @@ public class Freezer extends AppCompatActivity {
         shelfID = 2;
         RecyclerViewShelf();
         //load(shelfID);
-        Preferences.storeValues(this);
+        Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
     }
 
