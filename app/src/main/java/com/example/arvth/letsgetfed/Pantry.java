@@ -42,6 +42,11 @@ public class Pantry extends AppCompatActivity {
             shelves.add(new Shelf("fridge", 1));
             shelves.add(new Shelf("freezer", 2));
         }
+        Preferences.pullDirectory(this);
+        if(Preferences.getPreferencesFood().size() > 0) {
+            Preferences.storeValues(this, Preferences.getPreferencesFood());
+        }
+        final Controller aController = (Controller) getApplicationContext();
         // Write a message to the database
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
         //DatabaseReference myRef = database.getReference("message");

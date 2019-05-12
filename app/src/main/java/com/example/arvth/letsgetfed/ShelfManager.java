@@ -20,7 +20,7 @@ public class ShelfManager extends AppCompatActivity {
         shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
         RecyclerViewShelf();
         //load(shelfID);
-        Preferences.storeValues(this);
+        Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
     }
 

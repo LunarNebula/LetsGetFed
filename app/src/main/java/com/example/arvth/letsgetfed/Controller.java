@@ -68,7 +68,7 @@ public class Controller extends Application {
 
         //Add the .txt parser in here to populate the UserFoodList later
 
-        //onStop();
+
 
         FileInputStream inputStream = null;
         String input = "";
@@ -82,7 +82,6 @@ public class Controller extends Application {
             while ((line = bufferedReader.readLine()) != null){
                 String[] fields = line.split(",");
 
-//                userFoodList.add(new Food(fields[0], parseDate.(fields[1]), Integer.parseInt(fields[2])));
                 userFoodList.add(new Food(fields[0],
                         parseDate(fields[1]),
                         Integer.parseInt(fields[2])));
@@ -104,7 +103,9 @@ public class Controller extends Application {
         }
 
         printList(userFoodList);
+        onStop();
 
+        if(userFoodList.size() < Preferences.getPreferencesFood().size()) userFoodList = Preferences.getPreferencesFood();
     }
 
     public void onStop () {
@@ -154,11 +155,12 @@ public class Controller extends Application {
     }
 
     public ArrayList<Food> getUserFoodList() {
-        return userFoodList;
+        return userFoodList.size() >= Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
     }
 
     public void addToUserList(Food food){
         userFoodList.add(food);
+        Preferences.addPreferencesFood(food);
     }
 
     public void deleteFromUserList (Food food) {
@@ -212,18 +214,20 @@ public class Controller extends Application {
 
     public ArrayList<Food> getShelfPopulation(int shelfID) {
         ArrayList<Food> out = new ArrayList<>();
-        for(int i = 0; i < userFoodList.size(); i++) {
-            if(userFoodList.get(i).getLocation() == shelfID) {
-                out.add(userFoodList.get(i));
+        ArrayList<Food> use = userFoodList.size() > Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
+        for(int i = 0; i < use.size(); i++) {
+            if(use.get(i).getLocation() == shelfID) {
+                out.add(use.get(i));
             }
         }
         return out;
     }
     public ArrayList<String> getShelfFoodNames(int shelfID) {
         ArrayList<String> out = new ArrayList<>();
-        for(int i = 0; i < userFoodList.size(); i++) {
-            if(userFoodList.get(i).getLocation() == shelfID) {
-                out.add(userFoodList.get(i).getName());
+        ArrayList<Food> use = userFoodList.size() > Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
+        for(int i = 0; i < use.size(); i++) {
+            if(use.get(i).getLocation() == shelfID) {
+                out.add(use.get(i).getName());
             }
         }
         return out;
