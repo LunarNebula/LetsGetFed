@@ -1,7 +1,9 @@
 package com.example.arvth.letsgetfed;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,8 +51,15 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
 
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on " + foodNames.get(i));
+                Log.d(TAG, "onClick: clicked on " + foodNames.get(i).toString2());
                 Toast.makeText(recycleShelfContext, foodNames.get(i).getName(), Toast.LENGTH_SHORT).show();
+
+                //Local Broadcast to Delete Foods
+                String clickedFoodName = foodNames.get(i).getName();
+                Intent intent = new Intent("From FreezerAdapter");
+                intent.putExtra("food name", clickedFoodName);
+                intent.putExtra("position in shelf", i);
+                LocalBroadcastManager.getInstance(recycleShelfContext).sendBroadcast(intent);
             }
         });
     }

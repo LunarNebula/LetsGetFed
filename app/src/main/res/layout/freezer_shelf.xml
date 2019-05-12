@@ -53,6 +53,7 @@
         android:id="@+id/deleteFood3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="deleteFr"
         android:text="@string/delete_food"
         app:layout_constraintBottom_toTopOf="@+id/guide_freezer_bottom"
         app:layout_constraintTop_toBottomOf="@+id/freezer_recyclerview"

@@ -107,7 +107,7 @@ public class Controller extends Application {
 
     }
 
-    protected void onStop () {
+    public void onStop () {
         //super.onStop();
 
         Log.d(TAG, "Here!");

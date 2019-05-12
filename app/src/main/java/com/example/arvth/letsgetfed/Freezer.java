@@ -1,7 +1,11 @@
 package com.example.arvth.letsgetfed;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +16,7 @@ import java.util.ArrayList;
 
 public class Freezer extends AppCompatActivity {
     int shelfID;
+    private String TAG = "Freezer Class";
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
     @Override
@@ -23,7 +28,18 @@ public class Freezer extends AppCompatActivity {
         //load(shelfID);
         Preferences.storeValues(this);
         Preferences.pullDirectory(this);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter("From FreezerAdapter"));
     }
+
+    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String clickedFoodName = intent.getStringExtra("food name");
+            int positionInShelf = intent.getIntExtra("position in shelf", -1);
+            Log.d(TAG, clickedFoodName + ", " + Integer.toString(positionInShelf));
+        }
+    };
 
     public void RecyclerViewShelf() {
         RecyclerView recyclerView3 = findViewById(R.id.freezer_recyclerview);
@@ -65,5 +81,12 @@ public class Freezer extends AppCompatActivity {
         Intent intent = new Intent(Freezer.this, AddFood.class);
         intent.putExtra("id", 2);
         startActivity(intent);
+    }
+
+    public void deleteFr (View view) {
+//        final Controller aController = (Controller) getApplicationContext();
+//        ArrayList<Food> shelfFood = aController.getShelfPopulation(2);
+//        FreezerAdapter adapter3 = new FreezerAdapter(shelfFood, this);
+//        Log.d(TAG, adapter3.getClickedFood().getName());
     }
 }

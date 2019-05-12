@@ -141,4 +141,12 @@ public class Pantry extends AppCompatActivity {
 //        startActivity(intent);
 //    }
 
+    @Override
+    public void onStop() {
+        final Controller aController = (Controller) getApplicationContext();
+        aController.onStop();
+        super.onStop();
+
+    }
+
 }
