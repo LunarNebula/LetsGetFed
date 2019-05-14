@@ -15,12 +15,19 @@ import android.widget.Toast;
 
 import static com.example.arvth.letsgetfed.Pantry.shelves;
 
+/**
+ * This class models the behavior of a shelf being added to a pantry.
+ */
 public class AddShelf extends AppCompatActivity {
 
     RadioGroup shelfRadio;
     RadioButton radioButton;
     int radioID;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +52,20 @@ public class AddShelf extends AppCompatActivity {
         //addShelfToList();
     }
 
+    /**
+     * This method allows a user to check a radio button and sets a variable to the ID of the button.
+     * @param view the button that is being clicked or selected
+     */
     public void checkButton(View view)
     {
         radioID = shelfRadio.getCheckedRadioButtonId();
         radioButton = findViewById(radioID);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void addShelfToList(View view) {
         String shelfName = ((EditText) findViewById(R.id.enter_shelf_name)).getText().toString();
 
@@ -74,19 +89,35 @@ public class AddShelf extends AppCompatActivity {
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "AddShelf" screen/class.
+     * @param view the button being clicked
+     */
     public void pantry(View view) {
 
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "AddShelf" screen/class
+     * @param view the button being clicked
+     */
     public void toPantryClickAS(View view){
         startActivity(new Intent(AddShelf.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "AddShelf" screen/class
+     * @param view the button being clicked
+     */
     public void toAlertsClickAS(View view){
         startActivity(new Intent(AddShelf.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "AddShelf" screen/class
+     * @param view the button being clicked
+     */
     public void toSettingsClickAS(View view){
         startActivity(new Intent(AddShelf.this, Settings.class));
     }

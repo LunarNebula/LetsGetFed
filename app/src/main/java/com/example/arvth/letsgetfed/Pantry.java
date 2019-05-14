@@ -21,6 +21,9 @@ import java.util.ArrayList;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.ValueEventListener;
 
+/**
+ * This class models the behavior of a pantry (collection of shelves).
+ */
 public class Pantry extends AppCompatActivity {
     private static final String TAG = "Pantry";
 
@@ -28,6 +31,10 @@ public class Pantry extends AppCompatActivity {
     public static ArrayList<Shelf> shelves = new ArrayList<>();
     public static ArrayList<Food> expiring = new ArrayList<>();
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +104,12 @@ public class Pantry extends AppCompatActivity {
 //            shelf_list.addView(shelf_row);
 //        }
 //    }
+
+    /**
+     *
+     * @param ID
+     * @return
+     */
     public Button getButton(int ID) {
         Button button = new Button(this);
         TableRow.LayoutParams parameters = new TableRow.LayoutParams(
@@ -114,31 +127,64 @@ public class Pantry extends AppCompatActivity {
         });
         return button;
     }
+
+    /**
+     * This method allows a user to delete a selected shelf in the Pantry
+     * @param ID the ID of the shelf that is to be deleted
+     */
     public static void deleteShelf(int ID) {
         Pantry.shelves.remove(ID);
     }
+
+    /**
+     * This method allows a user to delete all shelves in the Pantry
+     */
     public static void deleteAllShelves() {
         Pantry.shelves = new ArrayList<>();
     }
 
+    /**
+     * This method returns the user to the "Counter" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
+     */
     public void toCounterClick(View view){
         startActivity(new Intent(Pantry.this, Counter.class));
     }
 
+    /**
+     * This method returns the user to the "Fridge" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
+     */
     public void toFridgeClick(View view){
         startActivity(new Intent(Pantry.this, Fridge.class));
     }
 
+    /**
+     *
+     * @param view
+     */
     public void toFreezerClick(View view){startActivity(new Intent(Pantry.this, Freezer.class));}
 
+    /**
+     *
+     * @param view
+     */
     public void toPantryClick(View view){
         startActivity(new Intent(Pantry.this, Pantry.class));
     }
 
+    /**
+     *
+     * @param view
+     */
     public void toAlertsClick(View view){
         startActivity(new Intent(Pantry.this, Alert.class));
     }
 
+    /**
+     *
+     * @param view
+     */
     public void toSettingsClick(View view){startActivity(new Intent(Pantry.this, Settings.class));}
 //    public void addfood(View view) {
 //        Intent intent = new Intent(Pantry.this, AddFood.class);
@@ -146,6 +192,9 @@ public class Pantry extends AppCompatActivity {
 //        startActivity(intent);
 //    }
 
+    /**
+     *
+     */
     @Override
     public void onStop() {
         final Controller aController = (Controller) getApplicationContext();

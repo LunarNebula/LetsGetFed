@@ -20,15 +20,28 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * This class models the behavior of an alert being sent out to a user.
+ */
 public class Alert extends AppCompatActivity {
     private final long MSPD = 86400000;
+
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
         loadAlerts();
     }
+
     public static int ALERT_TIME_BUFFER = 3;
+
+    /**
+     * This method populates the TableLayout with alerts.
+     */
     public void loadAlerts() {
         TableLayout layout = findViewById(R.id.alert_list);
         int count = layout.getChildCount();
@@ -60,6 +73,12 @@ public class Alert extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * This method returns a TableRow with a TextView with a given food name.
+     * @param food the given Food item from which the food name is extracted
+     * @return the TableRow with a Textview with a given food name
+     */
     public TableRow getAlertTitle(Food food) {
         TableRow row = new TableRow(this);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
@@ -71,6 +90,12 @@ public class Alert extends AppCompatActivity {
         row.addView(title);
         return row;
     }
+
+    /**
+     * This method returns a TableRow with a TextView with the amount of time it takes for a given food item to expire
+     * @param food the given Food item from which the date purchased and the minimum expiration date is extracted
+     * @return the amount of time remaining until the given food expires
+     */
     public TableRow getAlertTime(Food food) {
         TableRow row = new TableRow(this);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
@@ -85,6 +110,10 @@ public class Alert extends AppCompatActivity {
         row.addView(title);
         return row;
     }
+
+    /**
+     * This method writes and notification about a food item or food items that will be expiring soon
+     */
     public void notification() {
 
         NotificationCompat.Builder build = new NotificationCompat.Builder(this)
@@ -101,14 +130,26 @@ public class Alert extends AppCompatActivity {
         notificationManager.notify(0, build.build());
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "Alert" screen/class
+     * @param view the button that is being clicked
+     */
     public void toPantryClickA(View view){
         startActivity(new Intent(Alert.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "Alert" screen/class
+     * @param view the button that is being clicked
+     */
     public void toAlertsClickA(View view){
         startActivity(new Intent(Alert.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "Alert" screen/class
+     * @param view the button that is being clicked
+     */
     public void toSettingsClickA(View view){
         startActivity(new Intent(Alert.this, Settings.class));
     }

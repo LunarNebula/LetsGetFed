@@ -5,8 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+/**
+ * This class models the behavior of an opening screen.
+ */
 public class OpeningScreen extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +22,9 @@ public class OpeningScreen extends AppCompatActivity {
         initiate(); //set text for timing and info
     }
 
+    /**
+     *
+     */
     public void initiate() {
         startActivity(new Intent(OpeningScreen.this, Pantry.class));
     }

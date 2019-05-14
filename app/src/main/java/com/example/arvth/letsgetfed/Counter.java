@@ -12,11 +12,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * This class models the behavior of a counter (type of shelf).
+ */
 public class Counter extends AppCompatActivity {
     int shelfID = 0;
     public static ArrayList<String> listOfFoods = new ArrayList<>();
     //private TextView itemName;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +38,9 @@ public class Counter extends AppCompatActivity {
 //        Preferences.pullDirectory(this);
     }
 
+    /**
+     *
+     */
     private void RecyclerViewShelf() {
         RecyclerView recyclerView1 = findViewById(R.id.counter_recyclerview);
         final Controller aController = (Controller) getApplicationContext();
@@ -44,22 +54,50 @@ public class Counter extends AppCompatActivity {
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "Counter" screen/class
+     * @param view the button being clicked
+     */
     public void toPantryClickC(View view){
         startActivity(new Intent(Counter.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "Counter" screen/class
+     * @param view the button being clicked
+     */
     public void toAlertsClickC(View view){
         startActivity(new Intent(Counter.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "Counter" screen/class
+     * @param view the button being clicked
+     */
     public void toSettingsClickC(View view){
         startActivity(new Intent(Counter.this, Settings.class));
     }
 
+    /**
+     *
+     * @param view the button being clicked
+     */
+    public void deleteC(View view){
+
+    }
+
+    /**
+     *
+     * @param view the button being clicked
+     */
     public void toEditC (View view){
         startActivity(new Intent(Counter.this, Edit.class));
     }
 
+    /**
+     * This method returns the user to the "AddFood" screen/class from the "Counter" screen/class
+     * @param view the button being clicked
+     */
     public void toAddFoodC(View view) {
         Intent intent = new Intent(Counter.this, AddFood.class);
         intent.putExtra("id", 0);

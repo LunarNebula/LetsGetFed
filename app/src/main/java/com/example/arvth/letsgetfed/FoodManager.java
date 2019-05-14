@@ -19,7 +19,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *
+ */
 public class FoodManager extends AppCompatActivity {
+
+    /**
+     *
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
@@ -30,7 +38,11 @@ public class FoodManager extends AppCompatActivity {
         ArrayList<Food> foodDatabaseList = new ArrayList<Food>();
 
         //METHODS
-        private void readFoodData() {
+
+    /**
+     *
+     */
+    private void readFoodData() {
             InputStream is = getResources().openRawResource(R.raw.food_database);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -59,7 +71,11 @@ public class FoodManager extends AppCompatActivity {
             }
         }
 
-        public Food getFood() {
+    /**
+     *
+     * @return
+     */
+    public Food getFood() {
             return getFood();
         }
 
@@ -81,10 +97,20 @@ public class FoodManager extends AppCompatActivity {
 //        public void onCancelled(DatabaseError databaseError) {}
 //    };
 //foodRef.addListenerForSingleValueEvent(eventListener);
+
+    /**
+     *
+     * @param view
+     */
     public void pantry(View view) {
         startActivity(new Intent(FoodManager.this, Pantry.class));
     }
 
+    /**
+     *
+     * @param length
+     * @return
+     */
     public static ArrayList<Food> getAlertList(int length) {
         return null;//fix later
     }

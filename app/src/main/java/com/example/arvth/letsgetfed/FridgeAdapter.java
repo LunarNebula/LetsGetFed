@@ -20,6 +20,12 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     private Context recycleShelfContext;
 
     // Constructors
+
+    /**
+     * Constructs an object of the FridgeAdapter class with a given ArrayList of foods and a given context
+     * @param mFoodNames the given ArrayList of foods (Food objects)
+     * @param mRecycleShelfContext the given context
+     */
     public FridgeAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
         recycleShelfContext = mRecycleShelfContext;
@@ -32,6 +38,12 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         }
     }
 
+    /**
+     *
+     * @param parent
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -40,6 +52,11 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         return viewHolder;
     }
 
+    /**
+     *
+     * @param viewHolder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called.");
@@ -47,6 +64,10 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         viewHolder.foodName.setText(foodNames.get(i).getName());
         viewHolder.mainConstraintLayout2.setOnClickListener(new View.OnClickListener(){
 
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on " + foodNames.get(i));
@@ -55,16 +76,27 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         });
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getItemCount() {
         return foodNames.size();
     }
 
+    /**
+     *
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView foodName;
         ConstraintLayout mainConstraintLayout2;
 
+        /**
+         *
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

@@ -14,11 +14,18 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+/**
+ * This class models the behavior of a freezer (type of shelf).
+ */
 public class Freezer extends AppCompatActivity {
     int shelfID;
     private String TAG = "Freezer Class";
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,9 @@ public class Freezer extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter("From FreezerAdapter"));
     }
 
+    /**
+     *
+     */
     public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -41,6 +51,9 @@ public class Freezer extends AppCompatActivity {
         }
     };
 
+    /**
+     *
+     */
     public void RecyclerViewShelf() {
         RecyclerView recyclerView3 = findViewById(R.id.freezer_recyclerview);
         final Controller aController = (Controller) getApplicationContext();
@@ -50,39 +63,61 @@ public class Freezer extends AppCompatActivity {
         recyclerView3.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void pantry(View view) {
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
 
-    public void toAddFoodFz(View view) {
-        Intent intent = new Intent(Freezer.this, AddFood.class);
-        intent.putExtra("id", shelfID + "");
-        startActivity(intent);
-    }
-
-
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void toPantryClickFr(View view){
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void toAlertsClickFr(View view){
         startActivity(new Intent(Freezer.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void toSettingsClickFr(View view) {
         startActivity(new Intent(Freezer.this, Settings.class));
     }
 
+
+    /**
+     * This method returns the user to the "Edit" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void toEditFr (View view){
         startActivity(new Intent(Freezer.this, Edit.class));
     }
 
+    /**
+     * This method returns the user to the "AddFood" screen/class from the "Freezer" screen/class
+     * @param view the button being clicked
+     */
     public void toAddFoodFr(View view) {
         Intent intent = new Intent(Freezer.this, AddFood.class);
         intent.putExtra("id", 2);
         startActivity(intent);
     }
 
+    /**
+     *
+     * @param view the button being clicked
+     */
     public void deleteFr (View view) {
 //        final Controller aController = (Controller) getApplicationContext();
 //        ArrayList<Food> shelfFood = aController.getShelfPopulation(2);

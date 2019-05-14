@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHolder>{
     // Data
     private static final String TAG = "FreezerAdapter";
@@ -22,6 +25,12 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     private Context recycleShelfContext;
 
     // Constructors
+
+    /**
+     * Constructs an object of the FreezerAdapter class with a given ArrayList of foods and a given context
+     * @param mFoodNames the given ArrayList of foods (Food object)
+     * @param mRecycleShelfContext the given context
+     */
     public FreezerAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
         recycleShelfContext = mRecycleShelfContext;
@@ -34,6 +43,12 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
         }
     }
 
+    /**
+     *
+     * @param parent
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -42,6 +57,11 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
         return viewHolder;
     }
 
+    /**
+     *
+     * @param viewHolder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called.");
@@ -49,6 +69,10 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
         viewHolder.foodName.setText(foodNames.get(i).getName());
         viewHolder.mainConstraintLayout2.setOnClickListener(new View.OnClickListener(){
 
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on " + foodNames.get(i).toString2());
@@ -64,16 +88,27 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
         });
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getItemCount() {
         return foodNames.size();
     }
 
+    /**
+     *
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView foodName;
         ConstraintLayout mainConstraintLayout2;
 
+        /**
+         *
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

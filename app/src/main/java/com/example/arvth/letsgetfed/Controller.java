@@ -30,12 +30,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public class Controller extends Application {
 
     private String TAG = "Controller Class";
     private ArrayList<Food> firebaseFoodList  = new ArrayList<>();
     private ArrayList<Food> userFoodList = new ArrayList<>();
 
+    /**
+     *
+     */
     public void onCreate() {
         super.onCreate();
 
@@ -45,6 +51,11 @@ public class Controller extends Application {
         Log.d(TAG, "After");
         // Read from the database
         ref.addValueEventListener(new ValueEventListener() {
+
+            /**
+             *
+             * @param dataSnapshot
+             */
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -59,6 +70,10 @@ public class Controller extends Application {
                 Log.d(TAG, "Count = " + (dataSnapshot.getChildrenCount()));
             }
 
+            /**
+             *
+             * @param error
+             */
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -67,8 +82,6 @@ public class Controller extends Application {
         });
 
         //Add the .txt parser in here to populate the UserFoodList later
-
-
 
         FileInputStream inputStream = null;
         String input = "";
@@ -108,6 +121,9 @@ public class Controller extends Application {
         if(userFoodList.size() < Preferences.getPreferencesFood().size()) userFoodList = Preferences.getPreferencesFood();
     }
 
+    /**
+     *
+     */
     public void onStop () {
         //super.onStop();
 
@@ -144,25 +160,45 @@ public class Controller extends Application {
 
     }
 
+    /**
+     *
+     * @param arr
+     */
     private void printList (ArrayList<Food> arr) {
         for (int i = 0; i < arr.size(); i++) {
             Log.d(TAG, "userList PRINTLIST: " + arr.get(i).toString2());
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Food> getFirebaseFoodList() {
         return firebaseFoodList;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Food> getUserFoodList() {
         return userFoodList.size() >= Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
     }
 
+    /**
+     *
+     * @param food
+     */
     public void addToUserList(Food food){
         userFoodList.add(food);
         Preferences.addPreferencesFood(food);
     }
 
+    /**
+     *
+     * @param food
+     */
     public void deleteFromUserList (Food food) {
         userFoodList.remove(food);
     }
@@ -172,6 +208,11 @@ public class Controller extends Application {
 //        FirebaseFoodList.add(food);
 //    }
 
+    /**
+     *
+     * @param date
+     * @return
+     */
     public static String toString(Date date) {
         String yyyy = Integer.toString(date.getYear());
 
@@ -186,6 +227,11 @@ public class Controller extends Application {
         return yyyy + mm + dd;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static Date parseDate(String s) {
         int yyyy = Integer.parseInt(Character.toString(s.charAt(0)).concat(Character.toString(s.charAt(1)))
                 .concat(Character.toString(s.charAt(2))).concat(Character.toString(s.charAt(3))));
@@ -212,6 +258,11 @@ public class Controller extends Application {
         return date;
     }
 
+    /**
+     *
+     * @param shelfID
+     * @return
+     */
     public ArrayList<Food> getShelfPopulation(int shelfID) {
         ArrayList<Food> out = new ArrayList<>();
         ArrayList<Food> use = userFoodList.size() > Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
@@ -222,6 +273,12 @@ public class Controller extends Application {
         }
         return out;
     }
+
+    /**
+     *
+     * @param shelfID
+     * @return
+     */
     public ArrayList<String> getShelfFoodNames(int shelfID) {
         ArrayList<String> out = new ArrayList<>();
         ArrayList<Food> use = userFoodList.size() > Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();

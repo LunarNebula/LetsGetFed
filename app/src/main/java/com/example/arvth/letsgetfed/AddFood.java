@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
+/**
+ * This class models the behavior of a food being added to a shelf.
+ */
 public class AddFood extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     int shelfID;
     RadioGroup foodTypeRadio;
@@ -32,6 +35,10 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     int typeRadioID;
     private String TAG = "AddFood Class";
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //neha's push
@@ -96,15 +103,14 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        spinner.setAdapter(adapter);
     }
 
+    /**
+     * This method allows a user to check a radio button and sets a variable to the ID of the button.
+     * @param view the button that is being clicked or selected
+     */
     public void checkButton(View view)
     {
         typeRadioID = foodTypeRadio.getCheckedRadioButtonId();
         typeRadioButton = findViewById(typeRadioID);
-    }
-
-    public void selectFood()
-    {
-
     }
 
     //public void addFoodToDatabase(View view) {
@@ -135,36 +141,66 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
 //        foodDropdown.setAdapter(adapter2);
 //        foodDropdown.setOnItemSelectedListener(this);
 
-
-
-
+    /**
+     *
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //        String text = parent.getItemAtPosition(position).toString();
 //        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
     }
+
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "AddFood" screen/class.
+     * @param view the button that is being clicked
+     */
     public void pantry(View view) {
         Intent intent = new Intent(AddFood.this, Pantry.class);
         intent.putExtra("id", shelfID);
         startActivity(intent);
     }
 
+    /**
+     *
+     * @param parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "AddFood" screen/class
+     * @param view the button that is being clicked
+     */
     public void toPantryClickAF(View view){
         startActivity(new Intent(AddFood.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "AddFood" screen/class
+     * @param view the button that is being clicked
+     */
     public void toAlertsClickAF(View view){
         startActivity(new Intent(AddFood.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "AddFood" screen/class
+     * @param view the button that is being clicked
+     */
     public void toSettingsClickAF(View view){
         startActivity(new Intent(AddFood.this, Settings.class));
     }
+
+    /**
+     *
+     * @param view
+     */
     public void addFoodToDatabase(View view) {
         Spinner spinner = findViewById(R.id.food_dropdown_spinner);
         String type = spinner.getSelectedItem().toString();
