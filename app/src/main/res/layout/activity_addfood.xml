@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
+        app:layout_constraintGuide_begin="50dp" />
 
     <ScrollView
         android:id="@+id/add_food_scrollview"
@@ -40,15 +41,20 @@
 
             <TextView
                 android:id="@+id/addFoodTextView"
+                style="@style/TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Food:" />
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/add_food_caps" />
 
             <TextView
                 android:id="@+id/select_food_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/select_food" />
+                android:paddingLeft="10dp"
+                android:text="@string/select_food"
+                style="@style/StandardText" />
 
             <Spinner
                 android:id="@+id/food_dropdown_spinner"
@@ -128,7 +134,9 @@
                 android:id="@+id/date_purchase_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/date_purchased" />
+                android:paddingLeft="10dp"
+                android:text="@string/date_purchased"
+                style="@style/StandardText" />
 
             <!--<EditText-->
                 <!--android:id="@+id/date_purchase_fill"-->
@@ -257,8 +265,10 @@
                 android:id="@+id/add_food_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                style="@style/StandardButton"
                 android:onClick="addFoodToDatabase"
-                android:text="@string/add_food" />
+                android:text="@string/add_food_caps" />
 
         </LinearLayout>
     </ScrollView>

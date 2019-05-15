@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -22,6 +23,14 @@
             <!--android:layout_weight="1"-->
             <!--android:onClick="addfood"-->
             <!--android:text="@string/add_food" />-->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/add_food_caps"
+            app:srcCompat="@drawable/apps_logo" />
     </LinearLayout>
 
     <android.support.constraint.Guideline
@@ -29,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
+        app:layout_constraintGuide_begin="170dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_pantry_toplist"
@@ -74,28 +83,35 @@
                 android:id="@+id/ShelfTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shelves:" />
+                style="@style/TitleText"
+                android:text="SHELVES" />
 
             <Button
                 android:id="@+id/toCounterClick"
+                style="@style/StandardButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:onClick="toCounterClick"
-                android:text="Counter" />
+                android:text="COUNTER" />
 
             <Button
                 android:id="@+id/toFridgeClick"
+                style="@style/StandardButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:onClick="toFridgeClick"
-                android:text="Fridge" />
+                android:text="FRIDGE" />
 
             <Button
                 android:id="@+id/toFreezerClick"
+                style="@style/StandardButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:onClick="toFreezerClick"
-                android:text="Freezer" />
+                android:text="FREEZER" />
         </TableLayout>
     </ScrollView>
 

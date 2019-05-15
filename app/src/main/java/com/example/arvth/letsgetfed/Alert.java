@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -52,8 +53,8 @@ public class Alert extends AppCompatActivity {
         final Controller aController = (Controller) getApplicationContext();
         ArrayList<Food> userFood = aController.getUserFoodList();
         ArrayList<Food> firebaseFood = aController.getFirebaseFoodList();
-        Toast.makeText(this, userFood.size() + "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, firebaseFood.size() + " nugget", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, userFood.size() + "", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, firebaseFood.size() + " nugget", Toast.LENGTH_SHORT).show();
         boolean notify = true;
         for(int i = 0; i < userFood.size(); i++) {
             int getLocation = 0;
@@ -67,7 +68,7 @@ public class Alert extends AppCompatActivity {
             Log.d("expirationWarning", date.toString());
             if(current.after(date)) {
                 layout.addView(getAlertTitle(userFood.get(i)));
-                layout.addView(getAlertTime(userFood.get(i)));
+                //layout.addView(getAlertTime(userFood.get(i)));
                 if(notify) notification();
                 notify = false;
             }
@@ -83,7 +84,7 @@ public class Alert extends AppCompatActivity {
         TableRow row = new TableRow(this);
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
                 TableRow.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0, 10, 0, 0);
+        params.setMargins(15, 10, 15, 0);
         row.setLayoutParams(params);
         TextView title = new TextView(this);
         title.setText(food.getName());
