@@ -89,8 +89,8 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     }
 
     /**
-     *
-     * @return
+     * This method returns the number of items in the ArrayList/shelf
+     * @return the number of items in the ArrayList/shelf
      */
     @Override
     public int getItemCount() {

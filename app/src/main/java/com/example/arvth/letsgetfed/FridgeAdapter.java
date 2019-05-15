@@ -77,8 +77,8 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     }
 
     /**
-     *
-     * @return
+     * This method returns the number of items in the ArrayList/shelf
+     * @return the number of items in the ArrayList/shelf
      */
     @Override
     public int getItemCount() {

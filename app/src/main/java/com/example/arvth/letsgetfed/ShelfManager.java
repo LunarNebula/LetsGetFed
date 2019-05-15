@@ -9,10 +9,17 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class ShelfManager extends AppCompatActivity {
     int shelfID;
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +31,9 @@ public class ShelfManager extends AppCompatActivity {
         Preferences.pullDirectory(this);
     }
 
+    /**
+     *
+     */
     public void RecyclerViewShelf() {
         RecyclerView recyclerView2 = findViewById(R.id.shelf_recyclerView);
         RecyclerShelfAdapter adapter2 = new RecyclerShelfAdapter(
@@ -32,10 +42,18 @@ public class ShelfManager extends AppCompatActivity {
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "ShelfManager" screen/class.
+     * @param view the button being clicked
+     */
     public void pantry(View view) {
         startActivity(new Intent(ShelfManager.this, Pantry.class));
     }
 
+    /**
+     *
+     * @param ID
+     */
     public void load(int ID) {
 //        TableLayout layout = findViewById(R.id.food_list);
 //        int count = layout.getChildCount();
@@ -61,24 +79,37 @@ public class ShelfManager extends AppCompatActivity {
 //        return view;
 //    }
 
+    /**
+     * This method returns the user to the "AddFood" screen/class from the "ShelfManager" screen/class.
+     * @param view the button being clicked
+     */
     public void addfood(View view) {
         Intent intent = new Intent(ShelfManager.this, AddFood.class);
         //intent.putExtra("id", shelfID + "");
         startActivity(intent);
     }
 
+    /**
+     * This method returns the user to the "Pantry" screen/class from the "ShelfManager" screen/class.
+     * @param view the button being clicked
+     */
     public void toPantryClickSM(View view){
         startActivity(new Intent(ShelfManager.this, Pantry.class));
     }
 
+    /**
+     * This method returns the user to the "Alert" screen/class from the "ShelfManager" screen/class.
+     * @param view the button being clicked
+     */
     public void toAlertsClickSM(View view){
         startActivity(new Intent(ShelfManager.this, Alert.class));
     }
 
+    /**
+     * This method returns the user to the "Settings" screen/class from the "ShelfManager" screen/class.
+     * @param view the button being clicked
+     */
     public void toSettingsClickSM(View view){
         startActivity(new Intent(ShelfManager.this, Settings.class));
     }
-
-    //store methods below
-
 }

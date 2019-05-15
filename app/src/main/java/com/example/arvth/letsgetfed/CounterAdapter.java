@@ -83,8 +83,8 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     }
 
     /**
-     *
-     * @return
+     * This method returns the number of items in the ArrayList/shelf
+     * @return the number of items in the ArrayList/shelf
      */
     @Override
     public int getItemCount() {

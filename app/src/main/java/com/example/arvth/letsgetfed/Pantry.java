@@ -160,30 +160,30 @@ public class Pantry extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param view
+     * This method returns the user to the "Freezer" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
      */
     public void toFreezerClick(View view){startActivity(new Intent(Pantry.this, Freezer.class));}
 
     /**
-     *
-     * @param view
+     * This method returns the user to the "Pantry" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
      */
     public void toPantryClick(View view){
         startActivity(new Intent(Pantry.this, Pantry.class));
     }
 
     /**
-     *
-     * @param view
+     * This method returns the user to the "Alert" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
      */
     public void toAlertsClick(View view){
         startActivity(new Intent(Pantry.this, Alert.class));
     }
 
     /**
-     *
-     * @param view
+     * This method returns the user to the "Settings" screen/class from the "Pantry" screen/class
+     * @param view the button being clicked
      */
     public void toSettingsClick(View view){startActivity(new Intent(Pantry.this, Settings.class));}
 //    public void addfood(View view) {

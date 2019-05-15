@@ -7,14 +7,33 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public class Preferences {
     private static ArrayList<Food> allFood = new ArrayList<>();
+
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Food> getPreferencesFood() {
         return allFood;
     }
+
+    /**
+     *
+     * @param food
+     */
     public static void addPreferencesFood(Food food) {
         allFood.add(food);
     }
+
+    /**
+     *
+     * @param context
+     * @param allFood
+     */
     public static void storeValues(Context context, ArrayList<Food> allFood) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -28,7 +47,12 @@ public class Preferences {
         }
         editor.apply();
     }
+
     //get methods below
+    /**
+     *
+     * @param context
+     */
     public static void pullDirectory(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
         Alert.ALERT_TIME_BUFFER = preferences.getInt("ALERT_TIME_BUFFER", 3);

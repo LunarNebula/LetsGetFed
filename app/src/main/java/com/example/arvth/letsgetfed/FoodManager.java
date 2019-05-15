@@ -99,8 +99,8 @@ public class FoodManager extends AppCompatActivity {
 //foodRef.addListenerForSingleValueEvent(eventListener);
 
     /**
-     *
-     * @param view
+     * This method returns the user to the "Pantry" screen/class from the "FoodManager" screen/class.
+     * @param view the button being clicked
      */
     public void pantry(View view) {
         startActivity(new Intent(FoodManager.this, Pantry.class));
