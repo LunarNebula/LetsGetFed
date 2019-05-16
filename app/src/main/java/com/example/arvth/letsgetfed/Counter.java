@@ -7,8 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,24 +16,17 @@ import java.util.ArrayList;
 public class Counter extends AppCompatActivity {
     int shelfID = 0;
     public static ArrayList<String> listOfFoods = new ArrayList<>();
-    //private TextView itemName;
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds counter_shelf with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.counter_shelf);
         shelfID = 0;
-        //shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
-        //itemName = (TextView) findViewById(R.id.foodText);
-
         RecyclerViewShelf();
-
-//        Preferences.storeValues(this);
-//        Preferences.pullDirectory(this);
     }
 
     /**
@@ -95,6 +86,4 @@ public class Counter extends AppCompatActivity {
         intent.putExtra("id", 0);
         startActivity(intent);
     }
-
-
 }

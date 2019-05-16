@@ -36,12 +36,12 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     private String TAG = "AddFood Class";
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds activity_addfood with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); //neha's push
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfood);
 
         Spinner foodDropDown = findViewById(R.id.food_dropdown_spinner);
@@ -89,18 +89,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         yearDropDown.setAdapter(yearAdapter);
         yearDropDown.setOnItemSelectedListener(this);
-
-
-//        shelfID = Integer.valueOf(getIntent().getStringExtra("id"));
-
-//        Spinner spinner = (Spinner) findViewById(R.id.food_type_dropdown);
-//// Create an ArrayAdapter using the string array and a default spinner layout
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.foodtypes, android.R.layout.simple_spinner_item);
-//// Specify the layout to use when the list of choices appears
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//// Apply the adapter to the spinner
-//        spinner.setAdapter(adapter);
     }
 
     /**
@@ -113,34 +101,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         typeRadioButton = findViewById(typeRadioID);
     }
 
-    //public void addFoodToDatabase(View view) {
-        //String text = ((Spinner)view).getItemAtPosition().toString();
-//        try {
-//            Pantry.shelves.get(shelfID).addFood(getNewFood());
-//        } catch(Exception e) {
-//            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
-//        } catch(Error e) {
-//            Pantry.shelves.get(shelfID).addFood(new Food("", "fridge", 0,0,0,0,0,0));
-//        }
-//
-//        startActivity(new Intent(AddFood.this, Pantry.class));
-    //}
-
-//        Spinner foodTypeDropdown = findViewById(R.id.food_type_dropdown);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.foodtypes, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        foodTypeDropdown.setAdapter(adapter);
-//        foodTypeDropdown.setOnItemSelectedListener(this);
-//        Preferences.storeValues(this);
-//        Preferences.pullDirectory(this);
-//        return addThisFood;
-
-//        Spinner foodDropdown = findViewById(R.id. //blank );
-//        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.foodsList, android.R.layout.simple_spinner_item);
-//        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        foodDropdown.setAdapter(adapter2);
-//        foodDropdown.setOnItemSelectedListener(this);
-
     /**
      *
      * @param parent
@@ -150,8 +110,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
      */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        String text = parent.getItemAtPosition(position).toString();
-//        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT);
     }
 
     /**
@@ -219,32 +177,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
             Log.d(TAG, aController.getUserFoodList().get(j).toString2());
         }
 
-        //aController.onStop(); //changed this to onStop from the pulled code
-        //onStop will get working tomorrow in class
-        //onStop methods just have to be added to the bottom of every class
         startActivity(new Intent(AddFood.this, Pantry.class));
-
-
     }
-//    public void addFoodToDatabase(View view) {
-//        Spinner spinner = findViewById(R.id.food_dropdown_spinner);
-//        String type = "";
-//        try{
-//            type = spinner.getSelectedItem().toString();
-//        } catch(Exception e) {
-//            type = "ligma";
-//        }
-//        spinner = findViewById(R.id.date_year_spinner);
-//        int year = Integer.valueOf(spinner.getSelectedItem().toString()) - 1900;
-//        spinner = findViewById(R.id.date_month_spinner);
-//        int month = Integer.valueOf(spinner.getSelectedItem().toString());
-//        spinner = findViewById(R.id.date_day_spinner);
-//        int day = Integer.valueOf(spinner.getSelectedItem().toString());
-//        Date purchaseDate = new Date(year, month, day);
-//        final Controller aController = (Controller) getApplicationContext();
-//        aController.addToUserList(new Food(type, purchaseDate, shelfID));
-//        startActivity(new Intent(AddFood.this, Pantry.class));
-//    }
-
-
 }

@@ -32,7 +32,6 @@ public class Freezer extends AppCompatActivity {
         setContentView(R.layout.freezer_shelf);
         shelfID = 2;
         RecyclerViewShelf();
-        //load(shelfID);
         Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
 
@@ -110,9 +109,5 @@ public class Freezer extends AppCompatActivity {
      * @param view the button being clicked
      */
     public void deleteFr (View view) {
-//        final Controller aController = (Controller) getApplicationContext();
-//        ArrayList<Food> shelfFood = aController.getShelfPopulation(2);
-//        FreezerAdapter adapter3 = new FreezerAdapter(shelfFood, this);
-//        Log.d(TAG, adapter3.getClickedFood().getName());
     }
 }

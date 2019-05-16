@@ -35,10 +35,6 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
         recycleShelfContext = mRecycleShelfContext;
         foodNames = mFoodNames;
         for (int j = 0; j < foodNames.size(); j++) {
-//            if (foodNames.get(j).getLocation() != 0) {
-////                foodNames.remove(j);
-////                j--;
-//            }
         }
 
         Log.d(TAG, Integer.toString(foodNames.size()));

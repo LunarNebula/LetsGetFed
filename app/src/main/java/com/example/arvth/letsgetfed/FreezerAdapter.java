@@ -25,7 +25,6 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     private Context recycleShelfContext;
 
     // Constructors
-
     /**
      * Constructs an object of the FreezerAdapter class with a given ArrayList of foods and a given context
      * @param mFoodNames the given ArrayList of foods (Food object)

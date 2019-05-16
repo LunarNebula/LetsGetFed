@@ -81,23 +81,6 @@ public class FoodManager extends AppCompatActivity {
 
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
-//    DatabaseReference foodRef = rootRef.child("foodDatabaseList");
-//    ValueEventListener eventListener = new ValueEventListener() {
-////        @Override
-////        public void onDataChange(DataSnapshot dataSnapshot) {
-////            ArrayList<Food> foodDatabaseReturn = new ArrayList<>();
-////            for(DataSnapshot ds : dataSnapshot.getChildren()) {
-////                Food oneFood = new Food (ds.getKey());
-////                foodDatabaseReturn.add(oneFood);
-////            }
-////            Log.d("TAG", foodDatabaseReturn);
-////        }
-//
-//        @Override
-//        public void onCancelled(DatabaseError databaseError) {}
-//    };
-//foodRef.addListenerForSingleValueEvent(eventListener);
-
     /**
      * This method returns the user to the "Pantry" screen/class from the "FoodManager" screen/class.
      * @param view the button being clicked

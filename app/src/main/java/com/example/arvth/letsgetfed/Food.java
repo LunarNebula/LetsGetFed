@@ -24,10 +24,9 @@ public class Food
     private int minExpDate;
     private int maxExpDate;
     private int location;
-
     private long MSPD = 86400000;
-    // Constructor
 
+    // Constructor
     /**
      * Constructs a Food object with a given name, type, and min and max expiration times for each temperature-based storage option.
      */
@@ -54,7 +53,6 @@ public class Food
         name = foodName;
         purchased = datePurchased;
         location = shelfID;
-
     }
 
     /**
@@ -160,9 +158,6 @@ public class Food
     }
 
     // Methods
-    // parse text to find food (match the name)
-    // we will do this after we decide what's going on with the database of foods
-
     /**
      * This method returns the name of the Food object
      * @return the name of the Food object
@@ -266,24 +261,6 @@ public class Food
     public int getLocation() {
         return this.location;
     }
-
-    // The following code needs to be fixed based on user input. Essentially, we want to get the information
-    // about where they store the information, then get the specific expiration # and add that to the current
-    // date.
-
-//    public Date getMinExpirationDate() {
-//        Date date = this.purchaseDate;
-//        date.setDate(date.getDate() + this.minExpirationTime);
-//        return date;
-//    }
-//    public Date getMaxExpirationDate() {
-//        Date date = this.purchaseDate;
-//        date.setDate(date.getDate() + this.maxExpirationTime);
-//        return date;
-//    }
-//    public static void readFood() {
-//        //
-//    }
 
     /**
      * This method allows a user to set the date that the Food object was purchased
