@@ -95,15 +95,6 @@ public class Freezer extends AppCompatActivity {
         startActivity(new Intent(Freezer.this, Settings.class));
     }
 
-
-    /**
-     * This method returns the user to the "Edit" screen/class from the "Freezer" screen/class
-     * @param view the button being clicked
-     */
-    public void toEditFr (View view){
-        startActivity(new Intent(Freezer.this, Edit.class));
-    }
-
     /**
      * This method returns the user to the "AddFood" screen/class from the "Freezer" screen/class
      * @param view the button being clicked

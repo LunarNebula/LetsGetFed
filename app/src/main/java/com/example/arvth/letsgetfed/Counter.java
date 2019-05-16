@@ -87,14 +87,6 @@ public class Counter extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param view the button being clicked
-     */
-    public void toEditC (View view){
-        startActivity(new Intent(Counter.this, Edit.class));
-    }
-
-    /**
      * This method returns the user to the "AddFood" screen/class from the "Counter" screen/class
      * @param view the button being clicked
      */

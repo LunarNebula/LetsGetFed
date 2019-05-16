@@ -94,12 +94,4 @@ public class Fridge extends AppCompatActivity {
     public void deleteFd(View view){
 
     }
-
-    /**
-     * This method returns the user to the "Edit" screen/class from the "Fridge" screen/class
-     * @param view the button being clicked
-     */
-    public void toEditFd (View view){
-        startActivity(new Intent(Fridge.this, Edit.class));
-    }
 }
