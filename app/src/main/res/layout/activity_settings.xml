@@ -70,7 +70,8 @@
                 android:layout_marginRight="15dp"
                 android:ems="10"
                 android:hint="__ days"
-                android:inputType="number" />
+                android:inputType="number"
+                android:onClick="days_in_advance_fill" />
 
             <!--<TextView-->
                 <!--android:id="@+id/alert_settings"-->

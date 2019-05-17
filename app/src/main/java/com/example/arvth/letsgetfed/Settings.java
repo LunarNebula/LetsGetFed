@@ -1,13 +1,16 @@
 package com.example.arvth.letsgetfed;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * This class models the behavior of a setting being changed.
@@ -43,7 +46,9 @@ public class Settings extends AppCompatActivity {
      */
     public void setSettings(View view)
     {
-        Alert.ALERT_TIME_BUFFER = Integer.valueOf(findViewById(R.id.days_in_advance_fill).toString());
+        EditText text = findViewById(R.id.days_in_advance_fill);
+        String buffer = text.getText().toString();
+        Alert.ALERT_TIME_BUFFER = Integer.valueOf(buffer);
         Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
     }
