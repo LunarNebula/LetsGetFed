@@ -19,8 +19,8 @@ public class Shelf {
     }
 
     /**
-     *
-     * @param string
+     * Constructs a Shelf object with a given name
+     * @param string the given name of the shelf
      */
     public Shelf(String string) {
         this.food = new Food[0];
@@ -63,9 +63,6 @@ public class Shelf {
             case FREEZER:
                 break;
         }
-        /*
-        * Pull data from the chosen file
-        * */
     }
 
     /**
@@ -98,8 +95,8 @@ public class Shelf {
     }
 
     /**
-     *
-     * @return
+     * This method returns the total number of Food objects/items in the ArrayList
+     * @return the total number of Food objects/items in the ArrayList
      */
     public ArrayList<Food> getFoodPopulation() {
         return new ArrayList(Arrays.asList(this.food));

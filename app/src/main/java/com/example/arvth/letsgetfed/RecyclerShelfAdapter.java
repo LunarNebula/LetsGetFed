@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- *
+ * This class changes the traits of a group of objects to put into a RecyclerView (for a shelf)
  */
 public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdapter.ViewHolder>{
     // Data
@@ -22,7 +22,6 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
     private Context recycleShelfContext;
 
     // Constructors
-
     /**
      * Constructs an object of the RecyclerShelfAdapter class with a given ArrayList of foods and a given context
      * @param mFoodNames the given ArrayList of foods (Food objects)
@@ -35,10 +34,10 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
     }
 
     /**
-     *
-     * @param parent
-     * @param i
-     * @return
+     * This method builds a ViewHolder that holds recycle_shelf with a given ViewGroup and integer position
+     * @param parent the given ViewGroup
+     * @param i the given integer position
+     * @return the ViewHolder
      */
     @NonNull
     @Override
@@ -49,9 +48,9 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
     }
 
     /**
-     *
-     * @param viewHolder
-     * @param i
+     * This method sets the content of a given ViewHolder with a given integer position
+     * @param viewHolder the given ViewHolder
+     * @param i the given integer position
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
@@ -82,7 +81,7 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
     }
 
     /**
-     *
+     * This class models the behavior of a ViewHolder
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -90,8 +89,8 @@ public class RecyclerShelfAdapter extends RecyclerView.Adapter<RecyclerShelfAdap
         ConstraintLayout mainConstraintLayout2;
 
         /**
-         *
-         * @param itemView
+         * Constructs and object of the ViewHolder class with a given View
+         * @param itemView the given View
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

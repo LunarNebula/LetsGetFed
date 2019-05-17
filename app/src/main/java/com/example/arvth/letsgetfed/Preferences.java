@@ -8,31 +8,31 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
- *
+ * This class fuctions as a backup data system for the controller
  */
 public class Preferences {
     private static ArrayList<Food> allFood = new ArrayList<>();
 
     /**
-     *
-     * @return
+     * This method returns an ArrayList of Food objects (with the same foods as the UserFoodList in the controller)
+     * @return an ArrayList of Food objects (with the same foods as the UserFoodList in the controller)
      */
     public static ArrayList<Food> getPreferencesFood() {
         return allFood;
     }
 
     /**
-     *
-     * @param food
+     * This method adds a given food to an ArrayList of foods
+     * @param food the given food being added to an ArrayList of foods
      */
     public static void addPreferencesFood(Food food) {
         allFood.add(food);
     }
 
     /**
-     *
-     * @param context
-     * @param allFood
+     * This method stores the information from Settings and a given ArrayList of Food objects with a given context
+     * @param context the given context
+     * @param allFood the given ArrayList of Food objects being stored
      */
     public static void storeValues(Context context, ArrayList<Food> allFood) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);
@@ -48,10 +48,9 @@ public class Preferences {
         editor.apply();
     }
 
-    //get methods below
     /**
-     *
-     * @param context
+     * This method creates Food objects using data pulled from a SharedPreferences file and populates an ArrayList of Food objects
+     * @param context the given context
      */
     public static void pullDirectory(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("shelves", Context.MODE_PRIVATE);

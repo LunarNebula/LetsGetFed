@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
+/**
+ * This class changes the traits of a group of objects to put into a RecyclerView (for the fridge)
+ */
 public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder>{
     // Data
     private static final String TAG = "FridgeAdapter";
@@ -20,7 +22,6 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     private Context recycleShelfContext;
 
     // Constructors
-
     /**
      * Constructs an object of the FridgeAdapter class with a given ArrayList of foods and a given context
      * @param mFoodNames the given ArrayList of foods (Food objects)
@@ -39,10 +40,10 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     }
 
     /**
-     *
-     * @param parent
-     * @param i
-     * @return
+     * This method builds a ViewHolder that holds recycle_shelf with a given ViewGroup and integer position
+     * @param parent the given ViewGroup
+     * @param i the given integer position
+     * @return the ViewHolder
      */
     @NonNull
     @Override
@@ -53,9 +54,9 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     }
 
     /**
-     *
-     * @param viewHolder
-     * @param i
+     * This method sets the content of the given ViewHolder with a given integer position
+     * @param viewHolder the ViewHolder
+     * @param i the given integer position
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
@@ -65,8 +66,8 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         viewHolder.mainConstraintLayout2.setOnClickListener(new View.OnClickListener(){
 
             /**
-             *
-             * @param v
+             * This method creates a Toast when an item is clicked
+             * @param v the item being clicked
              */
             @Override
             public void onClick(View v) {
@@ -86,7 +87,7 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
     }
 
     /**
-     *
+     * This class models the behavior of a ViewHolder
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -94,8 +95,8 @@ public class FridgeAdapter extends RecyclerView.Adapter<FridgeAdapter.ViewHolder
         ConstraintLayout mainConstraintLayout2;
 
         /**
-         *
-         * @param itemView
+         * Constructs an object of the ViewHolder class with a given View
+         * @param itemView the given View
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

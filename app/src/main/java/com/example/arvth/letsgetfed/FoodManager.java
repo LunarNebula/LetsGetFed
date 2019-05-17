@@ -25,8 +25,8 @@ import java.util.Date;
 public class FoodManager extends AppCompatActivity {
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds activity_temp with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +95,6 @@ public class FoodManager extends AppCompatActivity {
      * @return
      */
     public static ArrayList<Food> getAlertList(int length) {
-        return null;//fix later
+        return null;
     }
 }

@@ -10,15 +10,15 @@ import android.view.View;
 import java.util.ArrayList;
 
 /**
- *
+ * This class models the behavior of a shelf (storage location)
  */
 public class ShelfManager extends AppCompatActivity {
     int shelfID;
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds activity_shelf with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class ShelfManager extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method implements a RecyclerView
      */
     public void RecyclerViewShelf() {
         RecyclerView recyclerView2 = findViewById(R.id.shelf_recyclerView);
@@ -49,35 +49,6 @@ public class ShelfManager extends AppCompatActivity {
     public void pantry(View view) {
         startActivity(new Intent(ShelfManager.this, Pantry.class));
     }
-
-    /**
-     *
-     * @param ID
-     */
-    public void load(int ID) {
-//        TableLayout layout = findViewById(R.id.food_list);
-//        int count = layout.getChildCount();
-//        for(int i = 0; i < count; i++) {
-//            if(layout.getChildAt(i) instanceof TableRow) {
-//                ((ViewGroup) layout.getChildAt(i)).removeAllViews();
-//            }
-//        }
-//        Shelf shelf = Pantry.shelves.get(ID);
-//        for(int i = 0; i < shelf.getPopulation(); i++) {
-//            TableRow row = new TableRow(this);
-//            row.addView(getView(shelf, i));
-//            layout.addView(row);
-//        }
-    }
-//    public TextView getView(Shelf shelf, int ID) {
-//        TextView view = new TextView(this);
-//        TableRow.LayoutParams params = new TableRow.LayoutParams(
-//                TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT);
-//        view.setLayoutParams(params);
-//        view.setText(shelf.getFood(ID).getName());
-//        view.setId(ID);
-//        return view;
-//    }
 
     /**
      * This method returns the user to the "AddFood" screen/class from the "ShelfManager" screen/class.

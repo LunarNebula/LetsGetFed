@@ -30,7 +30,7 @@ public class Counter extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method implements a RecyclerView in the counter_shelf activity
      */
     private void RecyclerViewShelf() {
         RecyclerView recyclerView1 = findViewById(R.id.counter_recyclerview);
@@ -70,7 +70,7 @@ public class Counter extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method allows a user to delete a food item
      * @param view the button being clicked
      */
     public void deleteC(View view){

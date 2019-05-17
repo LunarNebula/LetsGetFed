@@ -144,7 +144,7 @@ public class Food
     }
 
     /**
-     *
+     * Constructs a Food object with no parameters
      */
     public Food() {
         name = "";
@@ -279,8 +279,8 @@ public class Food
     }
 
     /**
-     *
-     * @return
+     * This method returns the minimum time it takes for a Food object to expire based on its storage location
+     * @return the minimum time it takes for a Food object to expire
      */
     public long minExpirationTime() {
         switch(location) {
@@ -295,8 +295,8 @@ public class Food
     }
 
     /**
-     *
-     * @return
+     * This method returns the maximum time it takes for a Food object to expire based on its storage location
+     * @return the maximum time it takes for a Food object to expire
      */
     public long maxExpirationTime() {
         switch(location) {
@@ -319,8 +319,8 @@ public class Food
     }
 
     /**
-     *
-     * @return
+     * This method returns the name, type, and maximum expiration dates for each storage location
+     * @return the name, type, and maximum expiration dates for each storage location
      */
     @Override
     public String toString()  {
@@ -328,8 +328,8 @@ public class Food
     }
 
     /**
-     *
-     * @return
+     * This method returns the name, purchase date, and location of the Food object
+     * @return the name, purchase date, and location of the Food object
      */
     public String toString2() {
         return getName() + getPurchaseDate().toString() + Integer.toString(getLocation());

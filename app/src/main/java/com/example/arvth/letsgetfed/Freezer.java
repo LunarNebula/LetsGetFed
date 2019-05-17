@@ -23,8 +23,8 @@ public class Freezer extends AppCompatActivity {
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds freezer_shelf with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class Freezer extends AppCompatActivity {
     };
 
     /**
-     *
+     * This method implements a RecyclerView in the freezer_shelf activity
      */
     public void RecyclerViewShelf() {
         RecyclerView recyclerView3 = findViewById(R.id.freezer_recyclerview);
@@ -105,7 +105,7 @@ public class Freezer extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method allows a user to delete a food item
      * @param view the button being clicked
      */
     public void deleteFr (View view) {

@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- *
+ * This class changes the traits of a group of objects to put into a RecyclerView (for the counter)
  */
 public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHolder>{
     // Data
@@ -23,7 +23,6 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     private Context recycleShelfContext;
 
     // Constructors
-
     /**
      * Constructs an object of the CounterAdapter class with a given ArrayList of foods and a given Context
      * @param mFoodNames the given Arraylist of foods (Food objects)
@@ -41,10 +40,10 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     }
 
     /**
-     *
-     * @param parent
-     * @param i
-     * @return
+     * This method builds a ViewHolder that holds recycle_shelf with a given ViewGroup and integer position
+     * @param parent the given ViewGroup
+     * @param i the given integer position
+     * @return the ViewHolder
      */
     @NonNull
     @Override
@@ -55,9 +54,9 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     }
 
     /**
-     *
-     * @param viewHolder
-     * @param i
+     * This method sets the content of the given ViewHolder with a given integer position
+     * @param viewHolder the given ViewHolder
+     * @param i the given integer position
      */
     @Override
     public void onBindViewHolder(@NonNull CounterAdapter.ViewHolder viewHolder, final int i) {
@@ -88,7 +87,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
     }
 
     /**
-     *
+     * This class models the behavior of a ViewHolder
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -96,8 +95,8 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
         ConstraintLayout mainConstraintLayout2;
 
         /**
-         *
-         * @param itemView
+         * Constructs a ViewHolder with a given View
+         * @param itemView the given View
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

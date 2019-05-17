@@ -14,20 +14,14 @@ import android.widget.RadioGroup;
  */
 public class Settings extends AppCompatActivity {
 
-//    RadioGroup alertsRadio;
-//    RadioButton alertsRadioButton;
-//    int alertRadioID;
-
     /**
-     *
-     * @param savedInstanceState
+     * This method builds activity_settings with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-       // alertsRadio = findViewById(R.id.alert_radiogroup);
         Button apply = findViewById(R.id.set_button);
         apply.setOnClickListener(new View.OnClickListener() {
 
@@ -42,12 +36,6 @@ public class Settings extends AppCompatActivity {
         });
 
     }
-
-//    public void checkButton(View view)
-//    {
-//        alertRadioID = alertsRadio.getCheckedRadioButtonId();
-//        alertsRadioButton = findViewById(alertRadioID);
-//    }
 
     /**
      * This method allows a user to set how many days in advance they would like to be notified about food expiring.

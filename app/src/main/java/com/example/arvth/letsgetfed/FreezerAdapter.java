@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- *
+ * This class changes the traits of a group of objects to put into a RecyclerView (for the freezer)
  */
 public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHolder>{
     // Data
@@ -43,10 +43,10 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     }
 
     /**
-     *
-     * @param parent
-     * @param i
-     * @return
+     * This method builds a ViewHolder that holds recycle_shelf with a given ViewGroup and integer position
+     * @param parent the given ViewGroup
+     * @param i the given integer position
+     * @return the ViewHolder
      */
     @NonNull
     @Override
@@ -57,9 +57,9 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     }
 
     /**
-     *
-     * @param viewHolder
-     * @param i
+     * This method sets the content of the given ViewHolder with a given integer position
+     * @param viewHolder the given ViewHolder
+     * @param i the given integer position
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
@@ -97,7 +97,7 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     }
 
     /**
-     *
+     * This class models the behavior of a ViewHolder
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -105,8 +105,8 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
         ConstraintLayout mainConstraintLayout2;
 
         /**
-         *
-         * @param itemView
+         * Constructs an object of the ViewHolder class with a given View
+         * @param itemView the given View
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

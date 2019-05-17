@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TableRow;
-
 import java.util.ArrayList;
 
 /**
@@ -22,15 +19,14 @@ public class Pantry extends AppCompatActivity {
     public static ArrayList<Food> expiring = new ArrayList<>();
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds activity_pantry with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantry);
         Log.d(TAG, "onCreate: started");
-        //RecyclerViewPantry();
         expiring = new ArrayList<>();
         Drawable[] expirationList = new Drawable[3];
 
@@ -44,29 +40,6 @@ public class Pantry extends AppCompatActivity {
             Preferences.storeValues(this, Preferences.getPreferencesFood());
         }
         final Controller aController = (Controller) getApplicationContext();
-    }
-
-    /**
-     *
-     * @param ID
-     * @return
-     */
-    public Button getButton(int ID) {
-        Button button = new Button(this);
-        TableRow.LayoutParams parameters = new TableRow.LayoutParams(
-                TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT);
-        button.setLayoutParams(parameters);
-        button.setId(ID);
-        button.setText(shelves.get(ID).getLabel());
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View button) {
-                Intent intent = new Intent(Pantry.this, ShelfManager.class);
-                intent.putExtra("id", button.getId() + "");
-                startActivity(intent);
-            }
-        });
-        return button;
     }
 
     /**

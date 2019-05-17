@@ -101,13 +101,6 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         typeRadioButton = findViewById(typeRadioID);
     }
 
-    /**
-     *
-     * @param parent
-     * @param view
-     * @param position
-     * @param id
-     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
@@ -122,13 +115,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         startActivity(intent);
     }
 
-    /**
-     *
-     * @param parent
-     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     /**
@@ -156,8 +144,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     /**
-     *
-     * @param view
+     * This method adds a Food object to the database
+     * @param view the button being clicked
      */
     public void addFoodToDatabase(View view) {
         Spinner spinner = findViewById(R.id.food_dropdown_spinner);

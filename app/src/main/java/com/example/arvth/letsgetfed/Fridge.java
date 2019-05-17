@@ -17,8 +17,8 @@ public class Fridge extends AppCompatActivity {
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
 
     /**
-     *
-     * @param savedInstanceState
+     * This method builds fridge_shelf with a given Bundle
+     * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +26,12 @@ public class Fridge extends AppCompatActivity {
         setContentView(R.layout.fridge_shelf);
         shelfID = 1;
         RecyclerViewShelf();
-        //load(shelfID);
         Preferences.storeValues(this, Preferences.getPreferencesFood());
         Preferences.pullDirectory(this);
     }
 
     /**
-     *
+     * This method implements a RecyclerView in the fridge_shelf activity
      */
     public void RecyclerViewShelf() {
         RecyclerView recyclerView2 = findViewById(R.id.fridge_recyclerview);
@@ -87,7 +86,7 @@ public class Fridge extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method allows a user to delete a food item
      * @param view the button being clicked
      */
     public void deleteFd(View view){
