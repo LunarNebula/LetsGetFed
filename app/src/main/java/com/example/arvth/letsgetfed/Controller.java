@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
+ * The Controller class handles two ArrayLists of data, the firebase food list as well as the user food list.
+ * It stores and retrieves this data when the app is opened and closed, and makes this data available to
+ * other classes in this app.
  */
 public class Controller extends Application {
 
@@ -27,7 +29,9 @@ public class Controller extends Application {
     private ArrayList<Food> userFoodList = new ArrayList<>();
 
     /**
-     *
+     * This method opens the app and then reads from firebase to create a list of firebase foods that the
+     * user can choose from to add to their pantry. The method also parses through a text file that is
+     * written on the local device to populate an array list of user foods.
      */
     public void onCreate() {
         super.onCreate();
@@ -40,8 +44,8 @@ public class Controller extends Application {
         ref.addValueEventListener(new ValueEventListener() {
 
             /**
-             *
-             * @param dataSnapshot
+             * This method gets a data snapshot of the firebase database everytime the app is opened
+             * @param dataSnapshot firebase data
              */
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -50,7 +54,7 @@ public class Controller extends Application {
                 Log.d(TAG, "Before Loop");
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Food food = ds.getValue(Food.class);
-                    Log.d(TAG, "Value is: " + food);
+                   // Log.d(TAG, "Value is: " + food);
                     firebaseFoodList.add(food);
                 }
 
@@ -58,8 +62,8 @@ public class Controller extends Application {
             }
 
             /**
-             *
-             * @param error
+             * This method catches the previous method in case there is a firebase error
+             * @param error error with the data snapshot
              */
             @Override
             public void onCancelled(DatabaseError error) {
@@ -68,8 +72,7 @@ public class Controller extends Application {
             }
         });
 
-        //Add the .txt parser in here to populate the UserFoodList later
-
+        // .txt parser to populate the UserFoodList later
         FileInputStream inputStream = null;
         String input = "";
         try {
@@ -104,12 +107,11 @@ public class Controller extends Application {
 
         printList(userFoodList);
         onStop();
-
-        if(userFoodList.size() < Preferences.getPreferencesFood().size()) userFoodList = Preferences.getPreferencesFood();
     }
 
     /**
-     *
+     * This method writes back to the .txt file when the app closes to store the user's food list
+     * on the local device
      */
     public void onStop () {
         //super.onStop();
@@ -129,7 +131,7 @@ public class Controller extends Application {
             fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
             for (Food eachFood : userFoodList) {
                 fileOutput.write((eachFood.getName() + "," +
-                       toString(eachFood.getPurchaseDate()) + "," +
+                        toString(eachFood.getPurchaseDate()) + "," +
                         Integer.toString(eachFood.getLocation()) + "\n").getBytes());
             }
         }
@@ -148,34 +150,36 @@ public class Controller extends Application {
     }
 
     /**
-     *
-     * @param arr
+     * This method helps to print out array lists to the Logcat for debugging purposes
+     * @param arr array list of food
      */
-    private void printList (ArrayList<Food> arr) {
+    public void printList (ArrayList<Food> arr) {
         for (int i = 0; i < arr.size(); i++) {
             Log.d(TAG, "userList PRINTLIST: " + arr.get(i).toString2());
         }
     }
 
     /**
-     *
-     * @return
+     * This method allows other classes to access the firebase food list (to populate spinners)
+     * @return firebase food list
      */
     public ArrayList<Food> getFirebaseFoodList() {
         return firebaseFoodList;
     }
 
     /**
-     *
-     * @return
+     * This method allows other classes to access the user food list
+     * @return user food list
      */
     public ArrayList<Food> getUserFoodList() {
         return userFoodList.size() >= Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
     }
 
     /**
+     * This method allows things to be added from other classes into the user food list (so that the user can
+     * manage their data through the UI)
      *
-     * @param food
+     * @param food food object
      */
     public void addToUserList(Food food){
         userFoodList.add(food);
@@ -183,22 +187,21 @@ public class Controller extends Application {
     }
 
     /**
-     *
-     * @param food
+     * This method allows other classes to delete from the user food list (so that the user can
+     * manage their data through the UI)
+     * @param i index of food object in the array list
      */
-    public void deleteFromUserList (Food food) {
-        userFoodList.remove(food);
+    public void deleteFromUserList (int i) {
+        printList(userFoodList);
+        Log.d(TAG, "Position of Removal: " + i);
+        userFoodList.remove(i);
+        printList(userFoodList);
     }
 
-    //We won't implement this in the MVP
-//    public void addToFirebaseList(Food food) {
-//        FirebaseFoodList.add(food);
-//    }
-
     /**
-     *
-     * @param date
-     * @return
+     * This method writes a data object as a string
+     * @param date date object
+     * @return string of date
      */
     public static String toString(Date date) {
         String yyyy = Integer.toString(date.getYear());
@@ -215,9 +218,9 @@ public class Controller extends Application {
     }
 
     /**
-     *
-     * @param s
-     * @return
+     * This method parses the a string to return a date object
+     * @param s string of a date
+     * @return date object
      */
     public static Date parseDate(String s) {
         int yyyy = Integer.parseInt(Character.toString(s.charAt(0)).concat(Character.toString(s.charAt(1)))
@@ -246,25 +249,26 @@ public class Controller extends Application {
     }
 
     /**
-     *
-     * @param shelfID
-     * @return
+     * This method returns all of the foods in a certain shelf
+     * @param shelfID the ID of the shelf (0 = counter, 1 = fridge, 2 = freezer)
+     * @return array list of all the foods in that shelf
      */
     public ArrayList<Food> getShelfPopulation(int shelfID) {
-        ArrayList<Food> out = new ArrayList<>();
-        ArrayList<Food> use = userFoodList.size() > Preferences.getPreferencesFood().size() ? userFoodList : Preferences.getPreferencesFood();
-        for(int i = 0; i < use.size(); i++) {
-            if(use.get(i).getLocation() == shelfID) {
-                out.add(use.get(i));
+        ArrayList<Food> shelfPopulation = new ArrayList<>();
+
+        for (int i = 0; i < userFoodList.size(); i++) {
+            if (userFoodList.get(i).getLocation() == shelfID) {
+                shelfPopulation.add(userFoodList.get(i));
             }
         }
-        return out;
+
+        return shelfPopulation;
     }
 
     /**
-     *
-     * @param shelfID
-     * @return
+     * This method returns only the names of all the food objects in a certain shelf
+     * @param shelfID the ID of the shelf (0 = counter, 1 = fridge, 2 = freezer)
+     * @return array list of strings of names of food objects
      */
     public ArrayList<String> getShelfFoodNames(int shelfID) {
         ArrayList<String> out = new ArrayList<>();

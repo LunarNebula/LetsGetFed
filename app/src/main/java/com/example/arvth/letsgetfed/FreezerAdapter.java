@@ -33,13 +33,16 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
     public FreezerAdapter (ArrayList<Food> mFoodNames, Context mRecycleShelfContext)
     {
         recycleShelfContext = mRecycleShelfContext;
+        final Controller aController = (Controller) recycleShelfContext.getApplicationContext();
+
+
         foodNames = mFoodNames;
-        for (int j = 0; j < foodNames.size(); j++) {
-            if (foodNames.get(j).getLocation() != 2) {
-                foodNames.remove(j);
-                j--;
-            }
-        }
+//        for (int j = 0; j < foodNames.size(); j++) {
+//            if (foodNames.get(j).getLocation() != 2) {
+//                foodNames.remove(j);
+//                j--;
+//            }
+//        }
     }
 
     /**
@@ -63,9 +66,11 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+        final Controller aController = (Controller) recycleShelfContext.getApplicationContext();
+
         Log.d(TAG, "onBindViewHolder: called.");
 
-        viewHolder.foodName.setText(foodNames.get(i).getName());
+        viewHolder.foodName.setText(aController.getShelfPopulation(2).get(i).getName());
         viewHolder.mainConstraintLayout2.setOnClickListener(new View.OnClickListener(){
 
             /**
@@ -74,11 +79,11 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
              */
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on " + foodNames.get(i).toString2());
-                Toast.makeText(recycleShelfContext, foodNames.get(i).getName(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: clicked on " + aController.getShelfPopulation(2).get(i).toString2());
+                Toast.makeText(recycleShelfContext, aController.getShelfPopulation(2).get(i).getName(), Toast.LENGTH_SHORT).show();
 
                 //Local Broadcast to Delete Foods
-                String clickedFoodName = foodNames.get(i).getName();
+                String clickedFoodName = aController.getShelfPopulation(2).get(i).getName();
                 Intent intent = new Intent("From FreezerAdapter");
                 intent.putExtra("food name", clickedFoodName);
                 intent.putExtra("position in shelf", i);
@@ -93,7 +98,8 @@ public class FreezerAdapter extends RecyclerView.Adapter<FreezerAdapter.ViewHold
      */
     @Override
     public int getItemCount() {
-        return foodNames.size();
+        final Controller aController = (Controller) recycleShelfContext.getApplicationContext();
+        return aController.getShelfPopulation(2).size();
     }
 
     /**

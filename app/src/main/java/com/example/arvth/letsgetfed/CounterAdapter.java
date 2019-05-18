@@ -1,8 +1,10 @@
 package com.example.arvth.letsgetfed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,6 +62,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
      */
     @Override
     public void onBindViewHolder(@NonNull CounterAdapter.ViewHolder viewHolder, final int i) {
+        final Controller aController = (Controller) recycleShelfContext.getApplicationContext();
         Log.d(TAG, "onBindViewHolder: called.");
 
         viewHolder.foodName.setText(foodNames.get(i).getName());
@@ -73,6 +76,13 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.ViewHold
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on " + foodNames.get(i));
                 Toast.makeText(recycleShelfContext, foodNames.get(i).getName(), Toast.LENGTH_SHORT).show();
+
+                //Local Broadcast to Delete Foods
+                String clickedFoodName = aController.getShelfPopulation(0).get(i).getName();
+                Intent intent = new Intent("From FreezerAdapter");
+                intent.putExtra("food name", clickedFoodName);
+                intent.putExtra("position in shelf", i);
+                LocalBroadcastManager.getInstance(recycleShelfContext).sendBroadcast(intent);
             }
         });
     }

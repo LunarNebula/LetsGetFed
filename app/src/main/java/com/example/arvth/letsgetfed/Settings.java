@@ -49,8 +49,7 @@ public class Settings extends AppCompatActivity {
         EditText text = findViewById(R.id.days_in_advance_fill);
         String buffer = text.getText().toString();
         Alert.ALERT_TIME_BUFFER = Integer.valueOf(buffer);
-        Preferences.storeValues(this, Preferences.getPreferencesFood());
-        Preferences.pullDirectory(this);
+        startActivity(new Intent(Settings.this, Pantry.class));
     }
 
     /**

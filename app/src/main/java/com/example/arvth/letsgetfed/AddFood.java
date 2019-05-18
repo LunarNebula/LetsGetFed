@@ -36,7 +36,8 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
     private String TAG = "AddFood Class";
 
     /**
-     * This method builds activity_addfood with a given Bundle
+     * This method builds activity_addfood with a given Bundle. It initializes the food and date spinners,
+     * as well as gets an intent from the previous class to know what shelf the food should be added to.
      * @param savedInstanceState the Bundle of information being taken from the previous activity
      */
     @Override
@@ -101,6 +102,13 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         typeRadioButton = findViewById(typeRadioID);
     }
 
+    /**
+     * Override of the onItemSelected method (no function, needed to keep remove error from class)
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
@@ -115,6 +123,10 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         startActivity(intent);
     }
 
+    /**
+     * Override of the onNothingSelected method (no function, needed to keep remove error from class)
+     * @param parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
@@ -160,7 +172,7 @@ public class AddFood extends AppCompatActivity implements AdapterView.OnItemSele
         Log.d("add_food_results", type + " " + purchaseDate.toString());
         final Controller aController = (Controller) getApplicationContext();
         aController.addToUserList(new Food(type, purchaseDate, shelfID));
-        Preferences.storeValues(this, Preferences.getPreferencesFood());
+        // Preferences.storeValues(this, Preferences.getPreferencesFood());
         for(int j = 0; j < aController.getUserFoodList().size(); j++) {
             Log.d(TAG, aController.getUserFoodList().get(j).toString2());
         }

@@ -50,6 +50,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/delete_food"
+        android:onClick="deleteC"
         app:layout_constraintBottom_toTopOf="@+id/guide_counter_bottom"
         app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintLeft_toRightOf="parent"

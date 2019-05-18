@@ -21,6 +21,9 @@ public class Freezer extends AppCompatActivity {
     int shelfID;
     private String TAG = "Freezer Class";
     public static ArrayList<Food> listOfFoods = new ArrayList<>();
+    private String clickedFoodName;
+    private int clickedPositionInShelf;
+
 
     /**
      * This method builds freezer_shelf with a given Bundle
@@ -32,21 +35,21 @@ public class Freezer extends AppCompatActivity {
         setContentView(R.layout.freezer_shelf);
         shelfID = 2;
         RecyclerViewShelf();
-        Preferences.storeValues(this, Preferences.getPreferencesFood());
-        Preferences.pullDirectory(this);
 
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter("From FreezerAdapter"));
+
+        final Controller aController = (Controller) getApplicationContext();
     }
 
     /**
-     *
+     * This method gets local broadcasts from the freezer adapter
      */
     public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String clickedFoodName = intent.getStringExtra("food name");
-            int positionInShelf = intent.getIntExtra("position in shelf", -1);
-            Log.d(TAG, clickedFoodName + ", " + Integer.toString(positionInShelf));
+            clickedFoodName = intent.getStringExtra("food name");
+            clickedPositionInShelf = intent.getIntExtra("position in shelf", -1);
+            Log.d(TAG, clickedFoodName + ", " + Integer.toString(clickedPositionInShelf));
         }
     };
 
@@ -70,11 +73,18 @@ public class Freezer extends AppCompatActivity {
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
 
+
+    public void toAddFoodFz(View view) {
+        Intent intent = new Intent(Freezer.this, AddFood.class);
+        intent.putExtra("id", shelfID + "");
+        startActivity(intent);
+    }
+
     /**
      * This method returns the user to the "Pantry" screen/class from the "Freezer" screen/class
      * @param view the button being clicked
      */
-    public void toPantryClickFr(View view){
+    public void toPantryClickFr(View view) {
         startActivity(new Intent(Freezer.this, Pantry.class));
     }
 
@@ -82,7 +92,7 @@ public class Freezer extends AppCompatActivity {
      * This method returns the user to the "Alert" screen/class from the "Freezer" screen/class
      * @param view the button being clicked
      */
-    public void toAlertsClickFr(View view){
+    public void toAlertsClickFr(View view) {
         startActivity(new Intent(Freezer.this, Alert.class));
     }
 
@@ -104,10 +114,22 @@ public class Freezer extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * This method allows a user to delete a food item
-     * @param view the button being clicked
-     */
-    public void deleteFr (View view) {
+    public void deleteFr(View view) {
+        Log.d(TAG, "Clicked!");
+        final Controller aController = (Controller) getApplicationContext();
+        aController.printList(aController.getUserFoodList());
+
+        for (int i = aController.getUserFoodList().size() - 1; i >= 0; i--) {
+            if (aController.getUserFoodList().get(i).getName().equals(clickedFoodName) &&
+                    aController.getUserFoodList().get(i).getLocation() == shelfID) {
+                Log.d(TAG, "Passed IF");
+                aController.deleteFromUserList(i);
+
+                aController.printList(aController.getUserFoodList());
+                break;
+            }
+        }
+
+        startActivity(new Intent(Freezer.this, Freezer.class));
     }
 }

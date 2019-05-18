@@ -48,6 +48,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/delete_food"
+        android:onClick="deleteFd"
         app:layout_constraintBottom_toTopOf="@+id/guide_fridge_bottom"
         app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintLeft_toRightOf="parent"

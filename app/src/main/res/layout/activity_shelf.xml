@@ -6,102 +6,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<Button-->
-        <!--android:id="@+id/pantry"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:onClick="pantry"-->
-        <!--android:text="@string/pantry"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
+  <!--<Button-->
+  <!--android:id="@+id/pantry"-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="0dp"-->
+  <!--android:onClick="pantry"-->
+  <!--android:text="@string/pantry"-->
+  <!--app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"-->
+  <!--app:layout_constraintLeft_toLeftOf="parent"-->
+  <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-    <!--<Button-->
-        <!--android:id="@+id/add_food"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:onClick="addfood"-->
-        <!--android:text="@string/add_food"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"-->
-        <!--app:layout_constraintLeft_toRightOf="@+id/pantry"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
+  <!--<Button-->
+  <!--android:id="@+id/add_food"-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="0dp"-->
+  <!--android:onClick="addfood"-->
+  <!--android:text="@string/add_food"-->
+  <!--app:layout_constraintBottom_toTopOf="@+id/guide_shelf_top"-->
+  <!--app:layout_constraintLeft_toRightOf="@+id/pantry"-->
+  <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guide_shelf_top"
+  <android.support.constraint.Guideline
+      android:id="@+id/guide_shelf_top"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_begin="100dp" />
+
+  // thanks to CodingWithMitch for the RecyclerView tutorial on YouTube
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/shelf_recyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_margin="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/guide_shelf_bottom"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/guide_shelf_top">
+
+    <!--<TableLayout-->
+    <!--android:id="@+id/food_list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--</TableLayout>-->
+  </android.support.v7.widget.RecyclerView>
+
+  <android.support.constraint.Guideline
+      android:id="@+id/guide_shelf_bottom"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_end="100dp" />
+
+  <LinearLayout
+      android:id="@+id/bottom_listview"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/guide_shelf_bottom">
+
+    <ImageButton
+        android:id="@+id/toPantry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
+        android:layout_margin="5dp"
+        android:background="#FFFFFF"
+        android:contentDescription="TODO"
+        android:onClick="toPantryClickSM"
+        android:src="@drawable/pantry_icon" />
+    <!--app:srcCompat="@drawable/pantry_icon" />-->
 
-    // thanks to CodingWithMitch for the RecyclerView tutorial on YouTube
+    <!--app:srcCompat="@drawable/alert_icon" />-->
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/shelf_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guide_shelf_bottom"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guide_shelf_top">
-
-        <!--<TableLayout-->
-        <!--android:id="@+id/food_list"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--</TableLayout>-->
-    </android.support.v7.widget.RecyclerView>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guide_shelf_bottom"
+    <ImageButton
+        android:id="@+id/toAlerts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="100dp" />
+        android:layout_margin="5dp"
+        android:background="#FFFFFF"
+        android:onClick="toAlertsClickSM"
+        android:src="@drawable/alert_icon" />
 
-    <LinearLayout
-        android:id="@+id/bottom_listview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guide_shelf_bottom">
-
-        <ImageButton
-            android:id="@+id/toPantry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            android:contentDescription="TODO"
-            android:onClick="toPantryClickSM"
-            android:src="@drawable/pantry_icon" />
-        <!--app:srcCompat="@drawable/pantry_icon" />-->
-
-        <!--app:srcCompat="@drawable/alert_icon" />-->
-
-        <ImageButton
-            android:id="@+id/toAlerts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            android:onClick="toAlertsClickSM"
-            android:src="@drawable/alert_icon" />
-
-        <ImageButton
-            android:id="@+id/toSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="#FFFFFF"
-            android:onClick="toSettingsClickSM"
-            android:src="@drawable/settings_gear" />
-        <!--app:srcCompat="@drawable/settings_gear" />-->
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/toSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#FFFFFF"
+        android:onClick="toSettingsClickSM"
+        android:src="@drawable/settings_gear" />
+    <!--app:srcCompat="@drawable/settings_gear" />-->
+  </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

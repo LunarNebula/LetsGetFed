@@ -40,7 +40,7 @@ public class FoodManager extends AppCompatActivity {
         //METHODS
 
     /**
-     *
+     * This method parses through a text file and writes an Array List of foods
      */
     private void readFoodData() {
             InputStream is = getResources().openRawResource(R.raw.food_database);
@@ -72,29 +72,10 @@ public class FoodManager extends AppCompatActivity {
         }
 
     /**
-     *
-     * @return
-     */
-    public Food getFood() {
-            return getFood();
-        }
-
-    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-
-    /**
      * This method returns the user to the "Pantry" screen/class from the "FoodManager" screen/class.
      * @param view the button being clicked
      */
     public void pantry(View view) {
         startActivity(new Intent(FoodManager.this, Pantry.class));
-    }
-
-    /**
-     *
-     * @param length
-     * @return
-     */
-    public static ArrayList<Food> getAlertList(int length) {
-        return null;
     }
 }
